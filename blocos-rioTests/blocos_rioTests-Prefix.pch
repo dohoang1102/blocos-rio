@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'blocos-rioTests' target in the 'blocos-rioTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

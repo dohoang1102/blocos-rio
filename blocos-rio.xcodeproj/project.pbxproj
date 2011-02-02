@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71012F9BDFE0096C860 /* UIKit.framework */; };
+		D426A71312F9BDFE0096C860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71212F9BDFE0096C860 /* Foundation.framework */; };
+		D426A71512F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
+		D426A71B12F9BDFE0096C860 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D426A71912F9BDFE0096C860 /* InfoPlist.strings */; };
+		D426A71E12F9BDFE0096C860 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A71D12F9BDFE0096C860 /* main.m */; };
+		D426A72112F9BDFE0096C860 /* blocos_rioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A72012F9BDFE0096C860 /* blocos_rioAppDelegate.m */; };
+		D426A72412F9BDFE0096C860 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D426A72212F9BDFE0096C860 /* MainWindow.xib */; };
+		D426A72712F9BDFE0096C860 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A72612F9BDFE0096C860 /* RootViewController.m */; };
+		D426A72A12F9BDFE0096C860 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D426A72812F9BDFE0096C860 /* RootViewController.xib */; };
+		D426A73112F9BDFE0096C860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71012F9BDFE0096C860 /* UIKit.framework */; };
+		D426A73212F9BDFE0096C860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71212F9BDFE0096C860 /* Foundation.framework */; };
+		D426A73312F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
+		D426A73912F9BDFE0096C860 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D426A73712F9BDFE0096C860 /* InfoPlist.strings */; };
+		D426A73C12F9BDFE0096C860 /* blocos_rioTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */; };
+		D426A73E12F9BDFE0096C860 /* blocos_rioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D426A70C12F9BDFE0096C860 /* blocos-rio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "blocos-rio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D426A71012F9BDFE0096C860 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D426A71212F9BDFE0096C860 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D426A71412F9BDFE0096C860 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D426A71812F9BDFE0096C860 /* blocos_rio-Info.plist */ = {isa = PBXFileReference; path = "blocos_rio-Info.plist"; sourceTree = "<group>"; };
+		D426A71A12F9BDFE0096C860 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D426A71C12F9BDFE0096C860 /* blocos_rio-Prefix.pch */ = {isa = PBXFileReference; path = "blocos_rio-Prefix.pch"; sourceTree = "<group>"; };
+		D426A71D12F9BDFE0096C860 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D426A71F12F9BDFE0096C860 /* blocos_rioAppDelegate.h */ = {isa = PBXFileReference; path = blocos_rioAppDelegate.h; sourceTree = "<group>"; };
+		D426A72012F9BDFE0096C860 /* blocos_rioAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blocos_rioAppDelegate.m; sourceTree = "<group>"; };
+		D426A72312F9BDFE0096C860 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D426A72512F9BDFE0096C860 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		D426A72612F9BDFE0096C860 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		D426A72912F9BDFE0096C860 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D426A73012F9BDFE0096C860 /* blocos-rioTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "blocos-rioTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D426A73612F9BDFE0096C860 /* blocos_rioTests-Info.plist */ = {isa = PBXFileReference; path = "blocos_rioTests-Info.plist"; sourceTree = "<group>"; };
+		D426A73812F9BDFE0096C860 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D426A73A12F9BDFE0096C860 /* blocos_rioTests-Prefix.pch */ = {isa = PBXFileReference; path = "blocos_rioTests-Prefix.pch"; sourceTree = "<group>"; };
+		D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blocos_rioTests.h; sourceTree = "<group>"; };
+		D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blocos_rioTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D426A70912F9BDFE0096C860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */,
+				D426A71312F9BDFE0096C860 /* Foundation.framework in Frameworks */,
+				D426A71512F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426A72C12F9BDFE0096C860 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426A73112F9BDFE0096C860 /* UIKit.framework in Frameworks */,
+				D426A73212F9BDFE0096C860 /* Foundation.framework in Frameworks */,
+				D426A73312F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D426A70112F9BDFE0096C860 = {
+			isa = PBXGroup;
+			children = (
+				D426A71612F9BDFE0096C860 /* blocos-rio */,
+				D426A73412F9BDFE0096C860 /* blocos-rioTests */,
+				D426A70F12F9BDFE0096C860 /* Frameworks */,
+				D426A70D12F9BDFE0096C860 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D426A70D12F9BDFE0096C860 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D426A70C12F9BDFE0096C860 /* blocos-rio.app */,
+				D426A73012F9BDFE0096C860 /* blocos-rioTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D426A70F12F9BDFE0096C860 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D426A71012F9BDFE0096C860 /* UIKit.framework */,
+				D426A71212F9BDFE0096C860 /* Foundation.framework */,
+				D426A71412F9BDFE0096C860 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D426A71612F9BDFE0096C860 /* blocos-rio */ = {
+			isa = PBXGroup;
+			children = (
+				D426A71F12F9BDFE0096C860 /* blocos_rioAppDelegate.h */,
+				D426A72012F9BDFE0096C860 /* blocos_rioAppDelegate.m */,
+				D426A72212F9BDFE0096C860 /* MainWindow.xib */,
+				D426A72512F9BDFE0096C860 /* RootViewController.h */,
+				D426A72612F9BDFE0096C860 /* RootViewController.m */,
+				D426A72812F9BDFE0096C860 /* RootViewController.xib */,
+				D426A71712F9BDFE0096C860 /* Supporting Files */,
+			);
+			path = "blocos-rio";
+			sourceTree = "<group>";
+		};
+		D426A71712F9BDFE0096C860 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D426A71812F9BDFE0096C860 /* blocos_rio-Info.plist */,
+				D426A71912F9BDFE0096C860 /* InfoPlist.strings */,
+				D426A71C12F9BDFE0096C860 /* blocos_rio-Prefix.pch */,
+				D426A71D12F9BDFE0096C860 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D426A73412F9BDFE0096C860 /* blocos-rioTests */ = {
+			isa = PBXGroup;
+			children = (
+				D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */,
+				D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */,
+				D426A73512F9BDFE0096C860 /* Supporting Files */,
+			);
+			path = "blocos-rioTests";
+			sourceTree = "<group>";
+		};
+		D426A73512F9BDFE0096C860 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D426A73612F9BDFE0096C860 /* blocos_rioTests-Info.plist */,
+				D426A73712F9BDFE0096C860 /* InfoPlist.strings */,
+				D426A73A12F9BDFE0096C860 /* blocos_rioTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D426A70B12F9BDFE0096C860 /* blocos-rio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D426A74112F9BDFE0096C860 /* Build configuration list for PBXNativeTarget "blocos-rio" */;
+			buildPhases = (
+				D426A70812F9BDFE0096C860 /* Sources */,
+				D426A70912F9BDFE0096C860 /* Frameworks */,
+				D426A70A12F9BDFE0096C860 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "blocos-rio";
+			productName = "blocos-rio";
+			productReference = D426A70C12F9BDFE0096C860 /* blocos-rio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D426A72F12F9BDFE0096C860 /* blocos-rioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D426A74412F9BDFE0096C860 /* Build configuration list for PBXNativeTarget "blocos-rioTests" */;
+			buildPhases = (
+				D426A72B12F9BDFE0096C860 /* Sources */,
+				D426A72C12F9BDFE0096C860 /* Frameworks */,
+				D426A72D12F9BDFE0096C860 /* Resources */,
+				D426A72E12F9BDFE0096C860 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "blocos-rioTests";
+			productName = "blocos-rioTests";
+			productReference = D426A73012F9BDFE0096C860 /* blocos-rioTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D426A70312F9BDFE0096C860 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = D426A70612F9BDFE0096C860 /* Build configuration list for PBXProject "blocos-rio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D426A70112F9BDFE0096C860;
+			productRefGroup = D426A70D12F9BDFE0096C860 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D426A70B12F9BDFE0096C860 /* blocos-rio */,
+				D426A72F12F9BDFE0096C860 /* blocos-rioTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D426A70A12F9BDFE0096C860 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426A71B12F9BDFE0096C860 /* InfoPlist.strings in Resources */,
+				D426A72412F9BDFE0096C860 /* MainWindow.xib in Resources */,
+				D426A72A12F9BDFE0096C860 /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426A72D12F9BDFE0096C860 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426A73912F9BDFE0096C860 /* InfoPlist.strings in Resources */,
+				D426A73C12F9BDFE0096C860 /* blocos_rioTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D426A72E12F9BDFE0096C860 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D426A70812F9BDFE0096C860 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426A71E12F9BDFE0096C860 /* main.m in Sources */,
+				D426A72112F9BDFE0096C860 /* blocos_rioAppDelegate.m in Sources */,
+				D426A72712F9BDFE0096C860 /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D426A72B12F9BDFE0096C860 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D426A73E12F9BDFE0096C860 /* blocos_rioTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D426A71912F9BDFE0096C860 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D426A71A12F9BDFE0096C860 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D426A72212F9BDFE0096C860 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D426A72312F9BDFE0096C860 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D426A72812F9BDFE0096C860 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D426A72912F9BDFE0096C860 /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		D426A73712F9BDFE0096C860 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D426A73812F9BDFE0096C860 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D426A73F12F9BDFE0096C860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D426A74012F9BDFE0096C860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D426A74212F9BDFE0096C860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "blocos-rio/blocos_rio-Prefix.pch";
+				INFOPLIST_FILE = "blocos-rio/blocos_rio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D426A74312F9BDFE0096C860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "blocos-rio/blocos_rio-Prefix.pch";
+				INFOPLIST_FILE = "blocos-rio/blocos_rio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D426A74512F9BDFE0096C860 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/blocos-rio.app/blocos-rio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "blocos-rioTests/blocos_rioTests-Prefix.pch";
+				INFOPLIST_FILE = "blocos-rioTests/blocos_rioTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D426A74612F9BDFE0096C860 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/blocos-rio.app/blocos-rio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "blocos-rioTests/blocos_rioTests-Prefix.pch";
+				INFOPLIST_FILE = "blocos-rioTests/blocos_rioTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D426A70612F9BDFE0096C860 /* Build configuration list for PBXProject "blocos-rio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426A73F12F9BDFE0096C860 /* Debug */,
+				D426A74012F9BDFE0096C860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D426A74112F9BDFE0096C860 /* Build configuration list for PBXNativeTarget "blocos-rio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426A74212F9BDFE0096C860 /* Debug */,
+				D426A74312F9BDFE0096C860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D426A74412F9BDFE0096C860 /* Build configuration list for PBXNativeTarget "blocos-rioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D426A74512F9BDFE0096C860 /* Debug */,
+				D426A74612F9BDFE0096C860 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D426A70312F9BDFE0096C860 /* Project object */;
+}
