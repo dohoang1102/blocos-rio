@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  RootController.h
 //  blocos-rio
 //
 //  Created by Felipe Cypriano on 02/02/11.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITableViewController {
+
+@interface RootController : UIViewController {
 @private
-
+    
 }
-
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface blocos_rioAppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
 @private
 
     UINavigationController *navigationController;

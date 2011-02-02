@@ -1,0 +1,21 @@
+# Mac OS X Finder 
+.DS_Store
+
+# XCode (and ancestors) per-user config (very noisy, and not relevant)
+*.xcodeproj/*.mode*
+*.xcodeproj/*.perspective*
+*.xcodeproj/*.pbxuser
+*.xcodeproj/*.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# Generated files
+VersionX-revision.h
+
+# build products
+build/
+
+# automatic backup files
+*~.nib
+*.swp
+*~
+*(Autosaved).rtfd/

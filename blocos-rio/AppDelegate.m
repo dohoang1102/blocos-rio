@@ -6,9 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "blocos_rioAppDelegate.h"
+#import "AppDelegate.h"
+#import "RootController.h"
 
-@implementation blocos_rioAppDelegate
+@implementation AppDelegate
 
 
 @synthesize window;
@@ -17,8 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    // Add the navigation controller's view to the window and display.
+	RootController *rootView = [[RootController alloc] initWithNibName:@"RootView" bundle:nil];
+	navigationController = [[UINavigationController alloc] initWithRootViewController:rootView];
+	
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
