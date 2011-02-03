@@ -11,10 +11,12 @@
 
 @implementation AppDelegate
 
-
 @synthesize window;
-
 @synthesize navigationController;
+
++ (AppDelegate *)sharedDelegate {
+    return [UIApplication sharedApplication].delegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -22,6 +24,7 @@
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootView];
 	
     self.window.rootViewController = self.navigationController;
+    [rootView release];
     [self.window makeKeyAndVisible];
     return YES;
 }

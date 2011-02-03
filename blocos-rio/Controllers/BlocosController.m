@@ -1,16 +1,22 @@
 //
-//  RootController.m
+//  BlocosController.m
 //  blocos-rio
 //
 //  Created by Felipe Cypriano on 02/02/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "RootController.h"
 #import "BlocosController.h"
 
 
-@implementation RootController
+@implementation BlocosController
+
+@synthesize tableView;
+
+- (id)init {
+    self = [self initWithNibName:@"Blocos" bundle:nil];
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -21,6 +27,7 @@
 }
 
 - (void)dealloc {
+    [tableView release];
     [super dealloc];
 }
 
@@ -40,42 +47,44 @@
 }
 */
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.title = @"Início";
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-}
-
-- (void) viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidUnload
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+}
+*/
+
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark -
-#pragma mark View events
-- (IBAction)btnBlocosTouched {
-    BlocosController *blocos = [[BlocosController alloc] init];
-    [[AppDelegate sharedDelegate].navigationController pushViewController:blocos animated:YES];
-    [blocos release];
+#pragma mark UITableViewDelegate methods
+
+#pragma mark UITableViewDataSource methods
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellId = @"CellId";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
+    }
+    
+    cell.textLabel.text = @"Bloco";
+
+    return cell;
 }
 
 @end
