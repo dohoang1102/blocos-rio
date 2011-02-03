@@ -7,8 +7,13 @@
 //
 
 #import "BlocosService.h"
+#import "ZipArchive.h"
 
 #define kUrlToUpdate @"http://dl.dropbox.com/u/8159675/blocodroid/blocos.zip"
+
+@interface BlocosService (Private)
+- (void)unzipAndUpdate:(NSString *)zipFile;
+@end
 
 @implementation BlocosService
 
@@ -59,14 +64,11 @@
     if (errorOnHTTPRequest == nil) {
         NSString *filePath = [NSTemporaryDirectory() stringByAppendingString:@"blocos.zip"];
         if ([zipData writeToFile:filePath atomically:YES]) {
-            
+            [self unzipAndUpdate:filePath];
         } else {
             // TODO tratar erro ao salvar o zip
         }
 
-        // pegar o xml
-        // fazer o parse do xml
-        // atualizar o banco
     } else {
         [self connection:conn didFailWithError:errorOnHTTPRequest];
         [errorOnHTTPRequest release];
@@ -76,6 +78,20 @@
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error {
     
+}
+
+#pragma mark Private methods
+
+- (void)unzipAndUpdate:(NSString *)zipFile {
+    ZipArchive *zip = [[ZipArchive alloc] init];
+    zip.delegate = self;
+    
+    NSString *unzipPath = [NSTemporaryDirectory() stringByAppendingString:@"/blocos"];
+    [zip UnzipFileTo:unzipPath overWrite:YES];
+    
+    // pegar o xml
+    // fazer o parse do xml
+    // atualizar o banco    
 }
 
 @end
