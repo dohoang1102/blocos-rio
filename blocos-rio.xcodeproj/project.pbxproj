@@ -29,6 +29,12 @@
 		D46657BB12F9CA350041AF53 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46657B812F9CA350041AF53 /* RootView.xib */; };
 		D48768ED12FA2B5600420CE6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48768EC12FA2B5600420CE6 /* CoreData.framework */; };
 		D48768F012FA2F1800420CE6 /* Blocos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D48768EE12FA2F1800420CE6 /* Blocos.xcdatamodeld */; };
+		D4FE813012FA3CC400C2D0A4 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812612FA3CC400C2D0A4 /* ioapi.c */; };
+		D4FE813112FA3CC400C2D0A4 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812812FA3CC400C2D0A4 /* mztools.c */; };
+		D4FE813212FA3CC400C2D0A4 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812A12FA3CC400C2D0A4 /* unzip.c */; };
+		D4FE813312FA3CC400C2D0A4 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812C12FA3CC400C2D0A4 /* zip.c */; };
+		D4FE813412FA3CC400C2D0A4 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812F12FA3CC400C2D0A4 /* ZipArchive.mm */; };
+		D4FE813712FA3D5800C2D0A4 /* BlocosService.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813612FA3D5800C2D0A4 /* BlocosService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +70,19 @@
 		D46657B912F9CA350041AF53 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/RootView.xib"; sourceTree = "<group>"; };
 		D48768EC12FA2B5600420CE6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D48768EF12FA2F1800420CE6 /* Blocos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Blocos.xcdatamodel; sourceTree = "<group>"; };
+		D4FE812512FA3CC400C2D0A4 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		D4FE812612FA3CC400C2D0A4 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		D4FE812712FA3CC400C2D0A4 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		D4FE812812FA3CC400C2D0A4 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		D4FE812912FA3CC400C2D0A4 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		D4FE812A12FA3CC400C2D0A4 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		D4FE812B12FA3CC400C2D0A4 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		D4FE812C12FA3CC400C2D0A4 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		D4FE812D12FA3CC400C2D0A4 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		D4FE812E12FA3CC400C2D0A4 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		D4FE812F12FA3CC400C2D0A4 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		D4FE813512FA3D5800C2D0A4 /* BlocosService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlocosService.h; path = Services/BlocosService.h; sourceTree = "<group>"; };
+		D4FE813612FA3D5800C2D0A4 /* BlocosService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlocosService.m; path = Services/BlocosService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +143,14 @@
 		D426A71612F9BDFE0096C860 /* blocos-rio */ = {
 			isa = PBXGroup;
 			children = (
-				D48768F112FA31DB00420CE6 /* Models */,
 				D426A75312F9C17E0096C860 /* Controllers */,
+				D46657B512F9CA220041AF53 /* Views */,
+				D4FE813812FA3D5E00C2D0A4 /* Services */,
+				D48768F112FA31DB00420CE6 /* Models */,
+				D46657AD12F9CA0D0041AF53 /* Resources */,
 				D426A71F12F9BDFE0096C860 /* AppDelegate.h */,
 				D426A72012F9BDFE0096C860 /* AppDelegate.m */,
-				D46657B512F9CA220041AF53 /* Views */,
-				D46657AD12F9CA0D0041AF53 /* Resources */,
+				D4FE812212FA3CC400C2D0A4 /* Lib */,
 				D426A71712F9BDFE0096C860 /* Supporting Files */,
 			);
 			path = "blocos-rio";
@@ -215,6 +236,49 @@
 				D48768EE12FA2F1800420CE6 /* Blocos.xcdatamodeld */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D4FE812212FA3CC400C2D0A4 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				D4FE812312FA3CC400C2D0A4 /* ZipArchive */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		D4FE812312FA3CC400C2D0A4 /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				D4FE812412FA3CC400C2D0A4 /* minizip */,
+				D4FE812E12FA3CC400C2D0A4 /* ZipArchive.h */,
+				D4FE812F12FA3CC400C2D0A4 /* ZipArchive.mm */,
+			);
+			path = ZipArchive;
+			sourceTree = "<group>";
+		};
+		D4FE812412FA3CC400C2D0A4 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				D4FE812512FA3CC400C2D0A4 /* crypt.h */,
+				D4FE812612FA3CC400C2D0A4 /* ioapi.c */,
+				D4FE812712FA3CC400C2D0A4 /* ioapi.h */,
+				D4FE812812FA3CC400C2D0A4 /* mztools.c */,
+				D4FE812912FA3CC400C2D0A4 /* mztools.h */,
+				D4FE812A12FA3CC400C2D0A4 /* unzip.c */,
+				D4FE812B12FA3CC400C2D0A4 /* unzip.h */,
+				D4FE812C12FA3CC400C2D0A4 /* zip.c */,
+				D4FE812D12FA3CC400C2D0A4 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
+		D4FE813812FA3D5E00C2D0A4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D4FE813512FA3D5800C2D0A4 /* BlocosService.h */,
+				D4FE813612FA3D5800C2D0A4 /* BlocosService.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +395,12 @@
 				D42556B712FA34CD00F8EAAA /* Bloco.m in Sources */,
 				D42556B812FA34CD00F8EAAA /* Desfile.m in Sources */,
 				D42556B912FA34CD00F8EAAA /* Bairro.m in Sources */,
+				D4FE813012FA3CC400C2D0A4 /* ioapi.c in Sources */,
+				D4FE813112FA3CC400C2D0A4 /* mztools.c in Sources */,
+				D4FE813212FA3CC400C2D0A4 /* unzip.c in Sources */,
+				D4FE813312FA3CC400C2D0A4 /* zip.c in Sources */,
+				D4FE813412FA3CC400C2D0A4 /* ZipArchive.mm in Sources */,
+				D4FE813712FA3D5800C2D0A4 /* BlocosService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
