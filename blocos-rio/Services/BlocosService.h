@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "BlocosXMLParserDelegate.h"
 
 @interface BlocosService : NSObject {
 @private
     NSMutableData *zipData;
     NSError *errorOnHTTPRequest;
+    
+    BlocosXMLParserDelegate *blocosXMLDelegate;
 }
 
 - (void)updateBlocosData;

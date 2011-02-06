@@ -20,6 +20,7 @@
 - (void)dealloc {
     [zipData release];
     [errorOnHTTPRequest release];
+    [blocosXMLDelegate release];
     [super dealloc];
 }
 
@@ -32,6 +33,7 @@
     }
 }
 
+#pragma mark -
 #pragma mark NSURLConnectionDelegate methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response { 
@@ -80,18 +82,40 @@
     
 }
 
+
+#pragma mark -
 #pragma mark Private methods
 
 - (void)unzipAndUpdate:(NSString *)zipFile {
     ZipArchive *zip = [[ZipArchive alloc] init];
     zip.delegate = self;
     
-    NSString *unzipPath = [NSTemporaryDirectory() stringByAppendingString:@"/blocos"];
-    [zip UnzipFileTo:unzipPath overWrite:YES];
+    [zip UnzipOpenFile:zipFile];
     
-    // pegar o xml
-    // fazer o parse do xml
-    // atualizar o banco    
+    NSString *unzipPath = [NSTemporaryDirectory() stringByAppendingString:@"blocos"];
+    if ([zip UnzipFileTo:unzipPath overWrite:YES]) {
+        
+        if (blocosXMLDelegate == nil) {
+            blocosXMLDelegate = [[BlocosXMLParserDelegate alloc] init];
+        }
+        
+        NSURL *xml = [NSURL fileURLWithPath:[unzipPath stringByAppendingString:@"/blocos-2011.xml"]];
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:xml];
+        parser.delegate = blocosXMLDelegate;
+        parser.shouldResolveExternalEntities = NO;
+        [parser parse];
+        [parser release];
+        
+        // pegar os dados do blocosXMLDelegate e atualizar o banco
+    } else {
+        // TODO informar do erro ao descompactar
+    }
+    
+    [zip UnzipCloseFile];
+}
+
+-(void) ErrorMessage:(NSString*) msg {
+    NSLog(@"ZipArchive error message %@", msg);
 }
 
 @end
