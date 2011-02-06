@@ -11,6 +11,10 @@
 
 @implementation BlocosXMLParserDelegate
 
+- (NSArray *)blocosRawArray {
+    return [[blocosRawData copy] autorelease];
+}
+
 - (void)dealloc {
     [dataAtual release];
     [bairroAtual release];
@@ -18,6 +22,7 @@
     [enderecoAtual release];
     [horaAtual release];
     [currentStringValue release];
+    [blocosRawData release];
     [super dealloc];
 }
 
@@ -26,7 +31,7 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if ([elementName isEqualToString:@"root"]) {
         versao = [(NSString *) [attributeDict objectForKey:@"versao"] integerValue];
-        // TODO inicar o array com todos os dados
+        blocosRawData = [[NSMutableArray alloc] init];
     } else {
         currentStringValue = [[NSMutableString alloc] init];
     }
@@ -48,7 +53,8 @@
     } else if ([elementName isEqualToString:@"h"]) {
         horaAtual = [currentStringValue copy];
         
-        // sempre o último, monta o objeto aqui
+        NSDictionary *dadosBloco = [NSDictionary dictionaryWithObjectsAndKeys:dataAtual, @"data", bairroAtual, @"bairro", nomeAtual, @"nome", enderecoAtual, @"endereco", horaAtual, @"hora", nil];
+        [blocosRawData addObject:dadosBloco];
     }
     
     [currentStringValue release];

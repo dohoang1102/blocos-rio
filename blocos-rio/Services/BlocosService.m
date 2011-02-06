@@ -63,6 +63,8 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)conn { 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
     if (errorOnHTTPRequest == nil) {
         NSString *filePath = [NSTemporaryDirectory() stringByAppendingString:@"blocos.zip"];
         if ([zipData writeToFile:filePath atomically:YES]) {
@@ -106,12 +108,14 @@
         [parser parse];
         [parser release];
         
+        NSLog(@"%d blocos carregados", blocosXMLDelegate.blocosRawArray.count);
         // pegar os dados do blocosXMLDelegate e atualizar o banco
     } else {
         // TODO informar do erro ao descompactar
     }
     
     [zip UnzipCloseFile];
+    [zip release];
 }
 
 -(void) ErrorMessage:(NSString*) msg {

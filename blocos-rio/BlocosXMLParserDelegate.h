@@ -20,6 +20,10 @@
     NSString *horaAtual;
     
     NSMutableString *currentStringValue;
+    NSMutableArray *blocosRawData;
 }
+
+- (NSArray *)blocosRawArray;
+
 
 @end

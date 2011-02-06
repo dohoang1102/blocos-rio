@@ -7,7 +7,7 @@
 //
 
 #import "BlocosController.h"
-
+#import "BlocosService.h"
 
 @implementation BlocosController
 
@@ -21,7 +21,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"Blocos";
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Blocos" image:nil tag:10] autorelease];
     }
     return self;
 }
@@ -47,13 +48,11 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    [[[[BlocosService alloc] init] autorelease] updateBlocosData];
 }
-*/
 
 - (void)viewDidUnload {
     [super viewDidUnload];

@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "RootController.h"
+#import "BlocosController.h"
+#import "BlocosPorDataController.h"
+#import "FavoritosController.h"
+#import "BlocosPorBairroController.h"
 
 @implementation AppDelegate
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize tabBarController;
 
 @synthesize managedObjectContext=managedObjectContext_, managedObjectModel=managedObjectModel_, persistentStoreCoordinator=persistentStoreCoordinator_;
 
@@ -22,11 +26,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	RootController *rootView = [[RootController alloc] initWithNibName:@"RootView" bundle:nil];
-	navigationController = [[UINavigationController alloc] initWithRootViewController:rootView];
+    BlocosController *blocos = [[[BlocosController alloc] init] autorelease];
+    BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] init] autorelease];
+    BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] init] autorelease];
+    FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
+    tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, bairro, favoritos, nil];
+    tabBarController.selectedViewController = blocosPorData;
+    
 	
-    self.window.rootViewController = self.navigationController;
-    [rootView release];
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -47,6 +56,7 @@
 - (void)dealloc {
     [window release];
     [navigationController release];
+    [tabBarController release];
     [managedObjectContext_ release];
     [managedObjectModel_ release];
     [persistentStoreCoordinator_ release];

@@ -1,30 +1,32 @@
 //
-//  RootController.m
+//  BlocosPorDataController.m
 //  blocos-rio
 //
-//  Created by Felipe Cypriano on 02/02/11.
+//  Created by Felipe Cypriano on 06/02/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "RootController.h"
-#import "BlocosController.h"
+#import "BlocosPorDataController.h"
 
 
-@implementation RootController
+@implementation BlocosPorDataController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"Blocos Por Dia";
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Dia" image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
     }
     return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
@@ -40,21 +42,9 @@
 }
 */
 
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Início";
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-}
-
-- (void) viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidUnload
@@ -68,14 +58,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark -
-#pragma mark View events
-- (IBAction)btnBlocosTouched {
-    BlocosController *blocos = [[BlocosController alloc] init];
-    [[AppDelegate sharedDelegate].navigationController pushViewController:blocos animated:YES];
-    [blocos release];
 }
 
 @end
