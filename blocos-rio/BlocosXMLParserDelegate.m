@@ -17,6 +17,8 @@
 
 @implementation BlocosXMLParserDelegate
 
+@synthesize parseError;
+
 - (NSArray *)blocosRawArray {
     return [[blocosRawData copy] autorelease];
 }
@@ -29,11 +31,19 @@
     [horaAtual release];
     [currentStringValue release];
     [blocosRawData release];
+    [parseError release];
     [super dealloc];
 }
 
 #pragma mark -
 #pragma mark NSXMLParserDelegate methods
+- (void)parserDidStartDocument:(NSXMLParser *)parser {
+    if (!parseError) {
+        [parseError release];
+        parseError = nil;
+    }
+}
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if ([elementName isEqualToString:@"root"]) {
         versao = [(NSString *) [attributeDict objectForKey:@"versao"] integerValue];
@@ -59,12 +69,25 @@
     } else if ([elementName isEqualToString:@"h"]) {
         horaAtual = [currentStringValue copy];
         
-        NSDictionary *dadosBloco = [NSDictionary dictionaryWithObjectsAndKeys:dataAtual, @"data", bairroAtual, @"bairro", nomeAtual, @"nome", enderecoAtual, @"endereco", horaAtual, @"hora", nil];
+        NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@", horaAtual, nil];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"dd/MM/yyyy HH";
+        NSDate *dataHoraConvertida = [dateFormatter dateFromString:dataHora];
+        [dateFormatter release];        
+        
+        NSDictionary *dadosBloco = [NSDictionary dictionaryWithObjectsAndKeys:dataHoraConvertida, @"data", 
+                                    bairroAtual, @"bairro", nomeAtual, @"nome", 
+                                    enderecoAtual, @"endereco", nil];
         [blocosRawData addObject:dadosBloco];
     }
     
     [currentStringValue release];
     currentStringValue = nil;
+}
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)theParseError {
+    NSLog(@"Blocos XML error. Line %d Column %d -- %@", parser.lineNumber, parser.columnNumber, theParseError);
+    parseError = [theParseError retain];
 }
 
 @end

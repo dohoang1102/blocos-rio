@@ -349,6 +349,9 @@
 /* Begin PBXProject section */
 		D426A70312F9BDFE0096C860 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Felipe Cypriano";
+			};
 			buildConfigurationList = D426A70612F9BDFE0096C860 /* Build configuration list for PBXProject "blocos-rio" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

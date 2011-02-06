@@ -29,6 +29,8 @@
     NSMutableArray *blocosRawData;
 }
 
+@property (nonatomic, readonly) NSError *parseError; 
+
 - (NSArray *)blocosRawArray;
 
 
