@@ -28,7 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Blocos";
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Blocos" image:nil tag:10] autorelease];
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Blocos" image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
     }
     return self;
 }
