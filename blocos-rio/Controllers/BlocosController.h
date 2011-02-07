@@ -17,7 +17,7 @@
 
 @interface BlocosController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
 @private
-    
+    NSArray *blocosArray;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;

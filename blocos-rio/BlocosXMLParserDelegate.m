@@ -67,11 +67,12 @@
     } else if ([elementName isEqualToString:@"e"]) {
         enderecoAtual = [currentStringValue copy];
     } else if ([elementName isEqualToString:@"h"]) {
-        horaAtual = [currentStringValue copy];
+        horaAtual = ![currentStringValue isEqualToString:@""] ? [currentStringValue copy] : @"00";
         
-        NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@", horaAtual, nil];
+        NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@:00", horaAtual, nil];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"dd/MM/yyyy HH";
+        dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
+        dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:-3];
         NSDate *dataHoraConvertida = [dateFormatter dateFromString:dataHora];
         [dateFormatter release];        
         

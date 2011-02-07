@@ -23,6 +23,11 @@
 
 @implementation BlocosService
 
++ (NSURL *)blocosXmlUrl {
+    NSString *documents = [[AppDelegate sharedDelegate] applicationDocumentsDirectoryString];
+    return [NSURL fileURLWithPath:[documents stringByAppendingString:@"/blocos.xml"]];
+}
+
 - (void)dealloc {
     [zipData release];
     [errorOnHTTPRequest release];
@@ -115,6 +120,12 @@
         [parser release];
         
         NSLog(@"%d blocos carregados", blocosXMLDelegate.blocosRawArray.count);
+        if (blocosXMLDelegate.parseError == nil) {
+            [[NSFileManager defaultManager] copyItemAtURL:xml toURL:[BlocosService blocosXmlUrl] error:nil];
+        } else {
+            // TODO informar erro no arquivo xml
+        }
+        
         // pegar os dados do blocosXMLDelegate e atualizar o banco
     } else {
         // TODO informar do erro ao descompactar

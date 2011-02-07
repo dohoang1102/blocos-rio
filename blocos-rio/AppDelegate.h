@@ -33,6 +33,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (NSString *)applicationDocumentsDirectoryString;
 
 
 @end

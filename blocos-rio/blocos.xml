@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root versao="1">
+	<d>14/01/2011</d>
+	<b>Botafogo</b>
+	<n>Perereca Sem Dono</n>
+	<e>Rua Henrique Novaes</e>
+	<h>16</h>
+	<d>15/01/2011</d>
+	<b>Centro</b>
+	<n>Liga de Blocos e Bandas da Zona Portuária</n>
+	<e>Largo da Prainha</e>
+	<h>15</h>
+	<d>19/01/2011</d>
+	<b>São Conrado</b>
+	<n>Acadêmicos da Rocinha</n>
+	<e>Calçadão Prefeito Mendes de Moraes</e>
+	<h>20</h>
+	<d>20/01/2011</d>
+	<b>Copacabana</b>
+	<n>Boca Maldita</n>
+	<e>Praça Demétrio Ribeiro/Barata Ribeiro</e>
+	<h>15</h>
+	<d>30/01/2011</d>
+	<b>Leblon</b>
+	<n>Acadêmicos do Vidigal</n>
+	<e>Av. Delfim Moreira </e>
+	<h>14</h>
+	<d>2/02/2011</d>
+	<b>São Conrado</b>
+	<n>Acadêmicos da Rocinha</n>
+	<e>Calçadão Prefeito Mendes de Moraes</e>
+	<h>20</h>
+	<d>5/02/2011</d>
+	<b>Santa Teresa</b>
+	<n>Maracutaia</n>
+	<e>Praça Odilo Costa Neto</e>
+	<h>17</h>
+	<d>6/02/2011</d>
+	<b>Flamengo</b>
+	<n>Verde Amarelo e DJ Brasil</n>
+	<e>Marina da Glória</e>
+	<h>15</h>
+	<b>São Conrado</b>
+	<n>Ai, Que Cimento</n>
+	<e>Prefeito Mendes de Moraes</e>
+	<h>15</h>
+	<b>Grajaú</b>
+	<n>Vai Tomar no Grajaú</n>
+	<e>Av. Engenheiro Richard</e>
+	<h>14</h>
+	<b>Bangu</b>
+	<n>Fúria de Bangu</n>
+	<e>Rua dos Banguenses</e>
+	<h>18</h>
+	<b>Magalhães Bastos</b>
+	<n>Mocidade Unida de Magalhães Bastos</n>
+	<e>Rua Capitão Teixeira</e>
+	<h>19</h>
+	<d>07/02/2011</d>
+	<b>Magalhães Bastos</b>
+	<n>Mocidade Unida de Magalhães Bastos</n>
+	<e>Rua Capitão Teixeira</e>
+	<h>19</h>
+	<d>08/02/2011</d>
+	<b>Magalhães Bastos</b>
+	<n>Mocidade Unida de Magalhães Bastos</n>
+	<e>Rua Capitão Teixeira</e>
+	<h>19</h>
+	<d>09/02/2011</d>
+	<b>São Conrado</b>
+	<n>Acadêmicos da Rocinha</n>
+	<e>Calçadão Prefeito Mendes de Moraes</e>
+	<h>20</h>
+	<d>12/02/2011</d>
+	<b>Lapa</b>
+	<n>Boa Carioca</n>
+	<e>Rua do Lavradio</e>
+	<h>9</h>
+	<n>Sem Noção</n>
+	<e>Avenida Mem de Sá</e>
+	<h>12</h>
+	<b>Santa Teresa</b>
+	<n>Maracutaia</n>
+	<e>Praça Odylo Costa Neto</e>
+	<h>17</h>
+	<b>Ipanema</b>
+	<n>Ensaio Vem ni mim que sou Facinha</n>
+	<e>calçada do bar Zig Zag</e>
+	<h>17</h>
+	<b>Vila Isabel</b>
+	<n>Vou Treinar e Volto Já</n>
+	<e>Rua Martins Pena</e>
+	<h>15</h>
+	<b>Tijuca</b>
+	<n>Nem Muda Nem Sai de Cima</n>
+	<e>Rua Garibaldi</e>
+	<h>16</h>
+	<b>Vila Isabel</b>
+	<n>Eu Sou Eu, Jacaré É Bicho D'Água</n>
+	<e>Rua Visconde de Abaeté</e>
+	<h>17</h>
+	<d>13/02/2011</d>
+	<b>Leblon</b>
+	<n>Bloco Vira Lata</n>
+	<e>Posto 12</e>
+	<h>11</h>
+	<b>São Conrado</b>
+	<n>Ai, Que Cimento</n>
+	<e>Av. Prefeito Mendes de Moraes</e>
+	<h>17</h>
+	<b>Botafogo</b>
+	<n>Só Caminha</n>
+	<e>Largo dos Leões</e>
+	<h>12</h>
+	<b>Tijuca</b>
+	<n>E.S. Impérios da Tijuca</n>
+	<e>Rua Conde de Bonfim</e>
+	<h>17</h>
+	<b>Bangu</b>
+	<n>Fúria de Bangu</n>
+	<e>Rua dos Banguenses</e>
+	<h>18</h>
+	<d>16/02/2011</d>
+	<b>São Conrado</b>
+	<n>Acadêmicos da Rocinha</n>
+	<e>Calçadão Prefeito Mendes de Moraes</e>
+	<h>20</h>
+	<d>19/02/2011</d>
+	<b>Centro</b>
+	<n>Ergobloco</n>
+	<e>Largo da Prainha</e>
+	<h>14</h>
+	<b>Santa Teresa</b>
+	<n>Maracutaia</n>
+	<e>Praça Odilo Costa Neto</e>
+	<h>17</h>
+	<b>Lagoa</b>
+	<n>Spanta Neném</n>
+	<e>Parque do Cantagalo</e>
+	<h>13</h>
+	<b>Gávea</b>
+	<n>Desliga da Justiça</n>
+	<e>Praça Santos Dumont</e>
+	<h>14</h>
+	<b>Ipanema</b>
+	<n>Banda de Ipanema</n>
+	<e>Praça General Osório</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Imprensa que eu Gamo</n>
+	<e>Rua Gago Coutinho</e>
+	<h>13</h>
+	<b>Laranjeiras</b>
+	<n>Rio Carioca</n>
+	<e>Rua Ipiranga</e>
+	<h>13</h>
+	<b>Laranjeiras</b>
+	<n>Simpatia é Quase Amor</n>
+	<e>Mercadinho São José</e>
+	<h>15</h>
+	<b>Laranjeiras</b>
+	<n>GB</n>
+	<e>Rua General Glicério</e>
+	<h>12</h>
+	<b>Barra da Tijuca</b>
+	<n>Bom Sujeito na Praia</n>
+	<e>Largo da Barrinha</e>
+	<h>14</h>
+	<n>Vem Cá Me Dá</n>
+	<e>Parque das Rosas</e>
+	<h>15</h>
+	<b>Ilha do Governador</b>
+	<n>Block n´Roll</n>
+	<e>Praça Iaiá Garcia</e>
+	<h>13</h>
+	<b>Maracanã</b>
+	<n>Chopp Duplo</n>
+	<e>Rua Vicente Licinio</e>
+	<h>13</h>
+	<n>Vou Treinar e Volto Já</n>
+	<e>Rua Martins Pena</e>
+	<h>14</h>
+	<b>Tijuca</b>
+	<n>Ipê</n>
+	<e>Rua Almirante Cochrane</e>
+	<h>16</h>
+	<n>Nem Muda Nem Sai de Cima</n>
+	<e>Rua Garibaldi</e>
+	<h>17</h>
+	<b>Vila Isabel</b>
+	<n>Tamborim Sensação </n>
+	<e>Rua Justiniano Rocha</e>
+	<h>17</h>
+	<b>Rocha</b>
+	<n>Flack</n>
+	<e>Rua Magalhães Castro</e>
+	<h>15</h>
+	<b>Engenho de Dentro</b>
+	<n>O Negócio Tá Feio e o Teu Nome Tá no Meio</n>
+	<e>Rua Conselheiro Agostinho</e>
+	<h>15</h>
+	<d>20/02/2011</d>
+	<b>Leblon</b>
+	<n>Bloco Me Esquece</n>
+	<e>Praia do Leblon, concentração Praça Atahualpa, Rua Jeronimo	Monteiro.</e>
+	<h>8</h>
+	<b>São Conrado</b>
+	<n>Ai, Que Cimento</n>
+	<e>Prefeito Mendes de Moraes</e>
+	<h>15</h>
+	<b>Gávea</b>
+	<n>Kizomba</n>
+	<e>Praça do Jockey</e>
+	<h>17</h>
+	<b>Copacabana</b>
+	<n>Sangue Bom</n>
+	<e>Posto 6 – Copacabana</e>
+	<h>8</h>
+	<n>Ensaio Geral</n>
+	<e>Posto 6 – Copacabana</e>
+	<h>10</h>
+	<b>Botafogo</b>
+	<n>Calma, Calma sua Piranha</n>
+	<e>Rua Visconde de Caravelas</e>
+	<h>13</h>
+	<b>Flamengo</b>
+	<n>Arrasta</n>
+	<e>Rua Jornalista Orlando Dantas</e>
+	<h>15</h>
+	<b>Flamengo</b>
+	<n>Bagunça Meu Coreto</n>
+	<e>Rua São Salvador</e>
+	<h>17</h>
+	<b>Grajaú</b>
+	<n>Vai Tomar no Grajaú</n>
+	<e>Rua Engenheiro Richard com Mearim</e>
+	<h>14</h>
+	<b>Tijuca</b>
+	<n>E.S. Impérios da Tijuca</n>
+	<e>Rua Conde de Bonfim</e>
+	<h>17</h>
+	<b>Bento Ribeiro</b>
+	<n>Tá na Frente Eu Empurro</n>
+	<e>Rua Liberata Santos</e>
+	<h>12</h>
+	<b>Bangu</b>
+	<n>Fúria de Bangu</n>
+	<e>Rua dos Banguenses</e>
+	<h>18</h>
+	<d>23/02/2011</d>
+	<b>São Conrado</b>
+	<n>Acadêmicos da Rocinha</n>
+	<e>Calçadão Prefeito Mende de Moraes</e>
+	<h>20</h>
+	<d>24/02/2011</d>
+	<b>Ipanema</b>
+	<n>Cariocas do Mundo</n>
+	<e>Calçadão do Arpoador</e>
+	<h>17</h>
+	<d>25/02/2011</d>
+	<b>Centro</b>
+	<n>Cordão do Bola Preta</n>
+	<e>Praça Mauá</e>
+	<h>18</h>
+	<b>Santa Teresa</b>
+	<n>Aconteceu</n>
+	<e>Rua Áurea</e>
+	<h>18</h>
+	<n>Badalo de Santa Teresa</n>
+	<e>Largo das Neves</e>
+	<h>18</h>
+	<b>Centro</b>
+	<n>Rival sem Rival</n>
+	<e>Rua Álvaro Alvim, Cinelândia</e>
+	<h>19</h>
+	<b>Flamengo</b>
+	<n>Inova que eu Gosto</n>
+	<e>Rua Paissandu</e>
+	<h>17</h>
+	<d>26/02/2011</d>
+	<b>Centro</b>
+	<n>Céu na Terra</n>
+	<e>Estação do Bonde na Carioca</e>
+	<h>7</h>
+	<n>Bloco do Saara</n>
+	<e>Largo do Mascate</e>
+	<h>12</h>
+	<b>Lapa</b>
+	<n>Arco-Íris</n>
+	<e>Av. Gomes Freire</e>
+	<h>13</h>
+	<n>Espreme que Sai</n>
+	<e>Rua do Senado</e>
+	<h>15</h>
+	<b>Gamboa</b>
+	<n>OBA Organização Bons Amigos</n>
+	<e>Pedra dos Sal</e>
+	<h>15</h>
+	<b>Santo Cristo</b>
+	<n>Pinto Sarado</n>
+	<e>Travessa Sara</e>
+	<h>15</h>
+	<b>São Cristóvão</b>
+	<n>Perereca Imperial</n>
+	<e>Rua São Cristóvão</e>
+	<h>15</h>
+	<b>Santa Teresa</b>
+	<n>Platypus</n>
+	<e>Largo do Curvelo</e>
+	<h>17</h>
+	<n>Maracutaia</n>
+	<e>Praça Odilo Costa Neto</e>
+	<h>17</h>
+	<b>Lapa</b>
+	<n>Dá Cá Dá Tia</n>
+	<e>Rua do Rezende</e>
+	<h>18</h>
+	<b>Laranjeiras</b>
+	<n>Espumas e Paetês</n>
+	<e>Praça General Glicério</e>
+	<h>11</h>
+	<b>Catete</b>
+	<n>Banda do Catete</n>
+	<e>Rua do Catete</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Ansiedade</n>
+	<e>Mercadinho São José</e>
+	<h>16</h>
+	<n>Rio Pandeiro</n>
+	<e>Praça São Salvador</e>
+	<h>16</h>
+	<b>Botafogo</b>
+	<n>Escola Sá Pereira</n>
+	<e>Rua Capistrano de Abreu</e>
+	<h>9</h>
+	<b>Urca</b>
+	<n>Só o Cume Interessa</n>
+	<e>General Tibúrcio</e>
+	<h>11</h>
+	<b>Copacabana</b>
+	<n>Fogo na Cueca </n>
+	<e>Rua Maestro Francisco Braga</e>
+	<h>12</h>
+	<n>Banda Bandida</n>
+	<e>Rua Carvalho Mendonça</e>
+	<h>16</h>
+	<b>Urca</b>
+	<n>Ih! É Carnaval</n>
+	<e>Avenida Pasteur</e>
+	<h>17</h>
+	<b>Leme</b>
+	<n>Cutucano Atrás</n>
+	<e>em frente ao La Fiorentina</e>
+	<h>17</h>
+	<b>Leblon</b>
+	<n>Imagino! Agora Amassa</n>
+	<e>Rua José Linhares</e>
+	<h>8</h>
+	<b>Jardim Botânico</b>
+	<n>Amigas da Pracinha</n>
+	<e>Praça Pio XI</e>
+	<h>10</h>
+	<b>Leblon</b>
+	<n>Areia</n>
+	<e>Rua Dias Ferreira</e>
+	<h>12</h>
+	<b>Ipanema</b>
+	<n>Mendigos</n>
+	<e>Rua Bulhões de Carvalho</e>
+	<h>12</h>
+	<n>Simpatia é Quase Amor</n>
+	<e>Praça General Osório – Ipanema</e>
+	<h>14</h>
+	<b>Lagoa</b>
+	<n>Baile do Brasil</n>
+	<e>Parque dos Patins</e>
+	<h>16</h>
+	<b>Barra da Tijuca</b>
+	<n>Entorta Mas Não Cai</n>
+	<e>Praia da Barra</e>
+	<h>12</h>
+	<n>Arruaça do Bem</n>
+	<e>Barra Bela</e>
+	<h>12</h>
+	<n>Banda da Barra</n>
+	<e>Av. Sernambetiba</e>
+	<h>12</h>
+	<n>Bom Sujeito na Praia</n>
+	<e>Av. Lucio Costa</e>
+	<h>14</h>
+	<b>Praça Seca</b>
+	<n>Chocolate com Pimenta</n>
+	<e>Rua Gastão Taveira</e>
+	<h>14</h>
+	<n>Lavou Tá Limpo</n>
+	<e>Rua Cândido do Benício</e>
+	<h>15</h>
+	<n>Embalo do Barão</n>
+	<e>Rua Barão</e>
+	<h>15</h>
+	<b>Pechincha</b>
+	<n>Banda do Pechincha de Jacarepaguá</n>
+	<e>Largo do Pechincha</e>
+	<h>16</h>
+	<b>Curicica</b>
+	<n>Parei de Beber, Não de Mentir</n>
+	<e>Praça Bandolim</e>
+	<h>16</h>
+	<b>Taquara</b>
+	<n>Banda Taquara</n>
+	<e>Estrada Meringuava</e>
+	<h>19</h>
+	<b>Ilha do Governador</b>
+	<n>Monarcas da Engenhoca</n>
+	<e>Praia da Engenhoca Ribeira</e>
+	<h>12</h>
+	<n>Ilha Encosta que Ele Cresce</n>
+	<e>Estrada da Bica</e>
+	<h>15</h>
+	<b>Tijuca</b>
+	<n>Deixa a Língua no Varal</n>
+	<e>Rua Barão de Mesquita</e>
+	<h>12</h>
+	<b>Maracanã</b>
+	<n>Butano na Bureta</n>
+	<e>Rua Senador Furtado</e>
+	<h>12</h>
+	<b>Tijuca</b>
+	<n>Banda da Tijuca</n>
+	<e>Tijuca Tênis Clube</e>
+	<h>14</h>
+	<b>Tijuca</b>
+	<n>Já Comi Pior Pagando</n>
+	<e>Rua Leite de Abreu</e>
+	<h>16</h>
+	<n>Banda Haddock</n>
+	<e>Praça Affonso Pena</e>
+	<h>16</h>
+	<b>Engenho Novo</b>
+	<n>Tristeza é Só Alegria</n>
+	<e>Rua Dona Romana</e>
+	<h>9</h>
+	<b>Inhaúma</b>
+	<n>Fuzue</n>
+	<e>Rua Chapadinha</e>
+	<h>13</h>
+	<b>Marechal Hermes</b>
+	<n>Pinto na Perereca</n>
+	<e>Praça Quinze de Novembro</e>
+	<h>14</h>
+	<b>Rocha</b>
+	<n>Flack</n>
+	<e>Rua Magalhães Castro</e>
+	<h>15</h>
+	<b>Engenho de Dentro</b>
+	<n>O Negócio Tá Feio e o Teu Nome Tá no Meio</n>
+	<e>Rua Conselheiro Agostinho</e>
+	<h>15</h>
+	<b>Irajá</b>
+	<n>Encosta Que Ele Cresce</n>
+	<e>Rua Aveiro</e>
+	<h>15</h>
+	<b>Pavuna</b>
+	<n>Raspa</n>
+	<e>Rua Mercúrio</e>
+	<h>16</h>
+	<b>Penha</b>
+	<n>Devassa</n>
+	<e>Rua Patagônia</e>
+	<h>16</h>
+	<b>Engenho de Dentro</b>
+	<n>Amigos da Esquina</n>
+	<e>Rua Pernambuco</e>
+	<h>18</h>
+	<d>27/02/2011</d>
+	<b>Centro</b>
+	<n>Escravos de Mauá</n>
+	<e>Largo de São Francisco da Prainha</e>
+	<h>10</h>
+	<b>Lapa</b>
+	<n>Banda da Amizade</n>
+	<e>Rua Tadeu Kosciusko</e>
+	<h>14</h>
+	<b>Centro</b>
+	<n>Manga Bloco</n>
+	<e>Av. Rio Branco</e>
+	<h>14</h>
+	<b>Jardim Botânico</b>
+	<n>Suvaco de Cristo</n>
+	<e>Bar Joia</e>
+	<h>07</h>
+	<b>Leblon</b>
+	<n>Chora me Liga</n>
+	<e>Av. Delfim Moreira</e>
+	<h>10</h>
+	<b>Ipanema</b>
+	<n>Se Não Quiser Me Dar, Me Empresta</n>
+	<e>Av. Vieira Souto</e>
+	<h>10</h>
+	<b>Leblon</b>
+	<n>Fla Manguaça</n>
+	<e>Av. Delfim Moreira</e>
+	<h>13</h>
+	<b>Ipanema</b>
+	<n>Da Preta</n>
+	<e>Rua Teixeira de Melo</e>
+	<h>14</h>
+	<b>Ipanema</b>
+	<n>Purpurina</n>
+	<e>Rua Jangadeiros</e>
+	<h>15</h>
+	<b>São Conrado</b>
+	<n>Ai, Que Vergonha</n>
+	<e>Calçadão da praia de São Conrado</e>
+	<h>15</h>
+	<b>Ipanema</b>
+	<n>Empoga às 9</n>
+	<e>Posto 9</e>
+	<h>16</h>
+	<b>Lagoa</b>
+	<n>Tambor Carioca</n>
+	<e>Parque dos Patins</e>
+	<h>16</h>
+	<b>Copacabana</b>
+	<n>Alegria Sem Ressaca</n>
+	<e>Av. Atlântica</e>
+	<h>8</h>
+	<n>Blocão</n>
+	<e>Posto 6</e>
+	<h>9</h>
+	<b>Botafogo</b>
+	<n>Carvalho em Pé</n>
+	<e>Rua Visconde de Caravelas</e>
+	<h>10</h>
+	<b>Copacabana</b>
+	<n>Banda do Arroxo</n>
+	<e>Rua Belfort Roxo</e>
+	<h>14</h>
+	<b>Urca</b>
+	<n>Tá Pirando, Pirado, Pirou </n>
+	<e>Rua Lauro Muller</e>
+	<h>14</h>
+	<b>Copacabana</b>
+	<n>GRES Beija Flor de Nilópolis</n>
+	<e>Posto 6</e>
+	<h>15</h>
+	<n>Vila Rica</n>
+	<e>Rua Siqueira Campos</e>
+	<h>15</h>
+	<b>Botafogo</b>
+	<n>Boka de Espuma</n>
+	<e>Rua Marquês de Olinda</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Gigantes da Lira</n>
+	<e>Pracinha da General Glicério</e>
+	<h>7</h>
+	<n>Quem não Guenta Bebe Água</n>
+	<e>Rua Gago Coutinho</e>
+	<h>12</h>
+	<b>Catete</b>
+	<n>Bambas do Catete</n>
+	<e>Rua do Catete</e>
+	<h>14</h>
+	<b>Glória</b>
+	<n>Arteiros da Glória</n>
+	<e>Rua da Glória</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Larga a Onça Alfredo</n>
+	<e>Rua Ipiranga</e>
+	<h>17</h>
+	<b>Rio Comprido</b>
+	<n>Papudinho do Rio Comprido</n>
+	<e>Praça Condessa Paulo de Frontin</e>
+	<h>10</h>
+	<b>Rio Comprido</b>
+	<n>Eu Choro Curto mas Rio Comprido</n>
+	<e>Praça Condessa Paulo de Frontin</e>
+	<h>12</h>
+	<b>Grajaú</b>
+	<n>Vai Tomar no Grajaú</n>
+	<e>Rua Engenheiro Richard com Mearim</e>
+	<h>14</h>
+	<b>Andaraí</b>
+	<n>Amigos do Sabiá</n>
+	<e>Rua Barão de Mesquita</e>
+	<h>15</h>
+	<b>Vila Isabel</b>
+	<n>Pipa da Vila</n>
+	<e>Rua Emília Sampaio</e>
+	<h>15</h>
+	<b>Tijuca</b>
+	<n>Banda da Praça Afonso Pena</n>
+	<e>Praça Afonso Pena</e>
+	<h>16</h>
+	<b>Grajaú</b>
+	<n>Os Foliões do Verdum</n>
+	<e>Largo do Verdum</e>
+	<h>16</h>
+	<b>Tijuca</b>
+	<n>E.S. Impérios da Tijuca</n>
+	<e>Rua Conde de Bonfim</e>
+	<h>17</h>
+	<b>Recreio</b>
+	<n>Princesinha do Recreio</n>
+	<e>Av. Lucio Costa (Posto 10)</e>
+	<h>10</h>
+	<n>Banda do Recreio</n>
+	<e>Av. Lucio Costa (Posto 10)</e>
+	<h>15</h>
+	<n>Oba-Oba do Recreio</n>
+	<e>Av. Lucio Costa (Posto 10)</e>
+	<h>17</h>
+	<b>Vila Valqueire</b>
+	<n>Acorda e Vem Brincar</n>
+	<e>Rua das Dálias</e>
+	<h>9</h>
+	<b>Anil</b>
+	<n>Banda Incha Rola</n>
+	<e>Rua Araticum</e>
+	<h>11</h>
+	<b>Taquara</b>
+	<n>Suvaco do Velho</n>
+	<e>Rua Lucaía</e>
+	<h>13</h>
+	<b>Vila Valqueire</b>
+	<n>Meu Amor Eu Vou Ali</n>
+	<e>Estrada Intendente de Magalhães</e>
+	<h>14</h>
+	<b>Curicica</b>
+	<n>Pra Cá, Samba</n>
+	<e>Rua João Bruno Lobo</e>
+	<h>14</h>
+	<b>Praça Seca</b>
+	<n>Pode Vir Que Tá Legal</n>
+	<e>Pracinha do IPASE</e>
+	<h>14</h>
+	<b>Taquara</b>
+	<n>Deita Mas Não Dorme</n>
+	<e>Largo da Taquara</e>
+	<h>18</h>
+	<b>Ilha do Governador</b>
+	<n>Unidos da Ribeira</n>
+	<e>Praça Iaiá Garcia</e>
+	<h>10</h>
+	<n>Esporte Clube Jardim Guanabara</n>
+	<e>Praça Jerusalém</e>
+	<h>11</h>
+	<n>Quem Vai, Vai. Quem Não Vai Não Cagueta</n>
+	<e>Praia da Engenhoca</e>
+	<h>11</h>
+	<n>Village Ilha do Governador</n>
+	<e>Rua Luis Sá</e>
+	<h>12</h>
+	<b>Riachuelo</b>
+	<n>No Rabo do Pavão</n>
+	<e>Rua Vitor Meireles</e>
+	<h>9</h>
+	<b>Cavalcante</b>
+	<n>Banda de Cavalcante</n>
+	<e>Rua Graça Melo</e>
+	<h>10</h>
+	<b>Bento Ribeiro</b>
+	<n>Tá na Frente Eu Empurro</n>
+	<e>Rua Liberata Santos</e>
+	<h>12</h>
+	<b>Irajá</b>
+	<n>Garganta Seca</n>
+	<e>Rua Manoel de Araújo</e>
+	<h>14</h>
+	<b>Méier</b>
+	<n>Bigode Esticado do Méier</n>
+	<e>Rua Dias da Cruz</e>
+	<h>14</h>
+	<b>Padre Miguel</b>
+	<n>Tamo Junto Fun Folia</n>
+	<e>Rua Figueiredo Camargo</e>
+	<h>14</h>
+	<b>Bangu</b>
+	<n>Fúria de Bangu</n>
+	<e>Rua dos Banguenses</e>
+	<h>18</h>
+	<d>28/02/2011</d>
+	<b>Centro</b>
+	<n>Devotos da Madá</n>
+	<e>Cachaçaria Mangue Seco</e>
+	<h>21</h>
+	<d>03/03/2011</d>
+	<b>Centro</b>
+	<n>Banda da Rua do Mercado</n>
+	<e>Rua do Mercado</e>
+	<h>19</h>
+	<n>Bloco dos Impussivi</n>
+	<e>Rua Professor Lélio Gama</e>
+	<h>17</h>
+	<b>Lagoa</b>
+	<n>Virtual</n>
+	<e>Campo de beisebol do Corte do Cantagalo</e>
+	<h>17</h>
+	<d>04/03/2011</d>
+	<b>Centro</b>
+	<n>Vestiu Uma Camisinha Listrada e Saiu Por Aí</n>
+	<e>Candelária</e>
+	<h>16</h>
+	<n>Embaixadores da Folia</n>
+	<e>Esquina da avenida Rio Branco com a rua São Bento</e>
+	<h>17</h>
+	<b>Santa Teresa</b>
+	<n>Carmelitas</n>
+	<e>Esquina da Ladeira de Santa Teresa com Rua Dias de Barros</e>
+	<h>18</h>
+	<b>Ipanema</b>
+	<n>Vem Ni Mim Que sou Facinha</n>
+	<e>Praça General Osório</e>
+	<h>17</h>
+	<d>05/03/2011</d>
+	<b>Centro</b>
+	<n>Cordão do Bola Preta</n>
+	<e>Cinelândia</e>
+	<h>7</h>
+	<b>Gamboa</b>
+	<n>Cordão da Prata Preta</n>
+	<e>Gamboa</e>
+	<h>16</h>
+	<b>Copacabana</b>
+	<n>Banda Sá Ferreira</n>
+	<e>Rua Sá Ferreira</e>
+	<h>16</h>
+	<b>Botafogo</b>
+	<n>Bloco do Barbas</n>
+	<e>Rua Arnaldo Quintela</e>
+	<h>16</h>
+	<b>Ipanema</b>
+	<n>Banda de Ipanema</n>
+	<e>Praça General Osório</e>
+	<h>15</h>
+	<b>Vila Isabel</b>
+	<n>Eu Sou Eu, Jacaré É Bicho D'Água</n>
+	<e>Ruas Visconde de Abaeté com Rua Torres Homem</e>
+	<h>16</h>
+	<d>06/03/2011</d>
+	<b>Ipanema</b>
+	<n>Que Merda é Essa?</n>
+	<e>Em frente ao Bar Paz e Amor na Rua Garcia D’Ávila, esquina	com Rua Nascimento Silva</e>
+	<h>14</h>
+	<n>Simpatia é Quase Amor</n>
+	<e>Praça General Osório – Ipanema</e>
+	<h>15</h>
+	<b>Horto</b>
+	<n>Bangalafumenga</n>
+	<e>Av. Pacheco Leão – Horto</e>
+	<h/>
+	<b>Botafogo</b>
+	<n>Foliões de Botafogo</n>
+	<e>Praça Mauro Duarte</e>
+	<h>15</h>
+	<b>Copacabana</b>
+	<n>Banda Sá Ferreira</n>
+	<e>Rua Sá Ferreira</e>
+	<h>16</h>
+	<b>Catete</b>
+	<n>A.R.B.C. Império da Folia</n>
+	<e>Rua Bento Lisboa com Tavares Bastos</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Laranjada</n>
+	<e>Praça General Glicério</e>
+	<h>16</h>
+	<d>07/03/2011</d>
+	<b>Botafogo</b>
+	<n>Bloco do Carvalho em Pé</n>
+	<e>Rua Visconde de Caravelas</e>
+	<h>11</h>
+	<b>Humaitá</b>
+	<n>Bloco de Segunda</n>
+	<e>Rua Voluntários da Pátria 446</e>
+	<h>16</h>
+	<b>Copacabana</b>
+	<n>Banda Sá Ferreira</n>
+	<e>Rua Sá Ferreira</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Volta Alice</n>
+	<e>Rua Alice</e>
+	<h>8</h>
+	<d>08/03/2011</d>
+	<b>Santa Teresa</b>
+	<n>Carmelitas</n>
+	<e>Esquina da Ladeira de Santa Teresa com Rua Dias de Barros</e>
+	<h>17</h>
+	<b>Ipanema</b>
+	<n>Banda de Ipanema</n>
+	<e>Praça General Osório</e>
+	<h>15</h>
+	<b>Copacabana</b>
+	<n>Clube do Samba</n>
+	<e>Esquina da Rua Santa Clara com Av. Atlântica</e>
+	<h>14</h>
+	<b>Humaitá</b>
+	<n>Desculpa Pra Beber</n>
+	<e>Cobal do Humaitá</e>
+	<h>15</h>
+	<b>Copacabana</b>
+	<n>Meu Bem, Volto Já</n>
+	<e>Avenida Princesa Isabel</e>
+	<h>16</h>
+	<n>Banda Sá Ferreira</n>
+	<e>Rua Sá Ferreira</e>
+	<h>16</h>
+	<b>Catete</b>
+	<n>A.R.B.C. Império da Folia</n>
+	<e>Rua Bento Lisboa com Tavares Bastos</e>
+	<h>16</h>
+	<b>Laranjeiras</b>
+	<n>Largo do Machado, Mas Não Largo do Copo</n>
+	<e>Largo do Machado</e>
+	<h>17</h>
+	<b>Tijuca</b>
+	<n>Se me Der, Eu Como</n>
+	<e>Rua Doutor Satamini</e>
+	<h>15</h>
+	<d>10/03/2011</d>
+	<b>Centro</b>
+	<n>Volta Pra Quê?</n>
+	<e>Rua Alvaro Alvim</e>
+	<h>18</h>
+	<d>12/03/2011</d>
+	<b>Centro</b>
+	<n>Berço do Samba</n>
+	<e>Largo da Lapa</e>
+	<h>18</h>
+	<b>Ipanema</b>
+	<n>Bafafá</n>
+	<e>Areia do Posto 9. Ipanema</e>
+	<h>17</h>
+</root>

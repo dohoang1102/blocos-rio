@@ -23,6 +23,8 @@
     BlocosXMLParserDelegate *blocosXMLDelegate;
 }
 
++ (NSURL *)blocosXmlUrl;
+
 - (void)updateBlocosData;
 
 @end

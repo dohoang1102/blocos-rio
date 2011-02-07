@@ -35,6 +35,7 @@
 
 - (void)dealloc {
     [tableView release];
+    [blocosArray release];
     [super dealloc];
 }
 
@@ -57,7 +58,26 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[[[BlocosService alloc] init] autorelease] updateBlocosData];
+
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[BlocosService blocosXmlUrl]];
+    BlocosXMLParserDelegate *parserDelegate = [[BlocosXMLParserDelegate alloc] init];
+    parser.delegate = parserDelegate;
+    [parser parse];
+    [parser release];
+    
+    if (parserDelegate.parseError == nil) {
+        NSArray *blocosRawArray = parserDelegate.blocosRawArray;
+        NSMutableSet *blocos = [NSMutableSet set];
+        for (NSDictionary *campos in blocosRawArray) {
+            NSLog(@"campos %@", campos);
+            [blocos addObject:[campos objectForKey:@"nome"]];
+        }
+        NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+        blocosArray = [[blocos sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]] retain];
+    } else {
+        blocosArray = [[NSArray array] retain];
+    }
+    [parserDelegate release];
 }
 
 - (void)viewDidUnload {
@@ -76,18 +96,18 @@
 #pragma mark UITableViewDataSource methods
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [blocosArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellId = @"CellId";
+    NSString *cellId = @"BlocosCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
     }
     
-    cell.textLabel.text = @"Bloco";
+    cell.textLabel.text = [blocosArray objectAtIndex:indexPath.row];
 
     return cell;
 }

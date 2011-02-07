@@ -17,6 +17,12 @@
 #import "BlocosPorDataController.h"
 #import "FavoritosController.h"
 #import "BlocosPorBairroController.h"
+#import "BlocosService.h"
+
+@interface AppDelegate (Private)
+- (void)copyBundledBlocosXmlToDocumentsDir;
+@end
+
 
 @implementation AppDelegate
 
@@ -30,8 +36,9 @@
     return [UIApplication sharedApplication].delegate;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self copyBundledBlocosXmlToDocumentsDir];
+    
     BlocosController *blocos = [[[BlocosController alloc] init] autorelease];
     BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] init] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] init] autorelease];
@@ -39,23 +46,20 @@
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, bairro, favoritos, nil];
     tabBarController.selectedViewController = blocosPorData;
-    
 	
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
+- (void)applicationWillResignActive:(UIApplication *)application {
     /*
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
+- (void)applicationWillTerminate:(UIApplication *)application {
     // Save data if appropriate.
 }
 
@@ -161,13 +165,17 @@
 
 #pragma mark - Application's Documents directory
 
+- (NSString *)applicationDocumentsDirectoryString {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return documentsDirectory;
+}
+
 /**
  Returns the URL to the application's Documents directory.
  */
 - (NSURL *)applicationDocumentsDirectory {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [NSURL URLWithString:documentsDirectory];
+    return [NSURL URLWithString:[self applicationDocumentsDirectoryString]];
 }
 
 - (void)awakeFromNib {
@@ -177,6 +185,21 @@
     if ([rootViewController respondsToSelector:setContext]) {
         [rootViewController performSelector:setContext withObject:self.managedObjectContext];
     }
+}
+
+
+#pragma mark -
+#pragma mark Private methods
+- (void)copyBundledBlocosXmlToDocumentsDir {
+    NSString *xmlBundled = [[NSBundle mainBundle] pathForResource:@"blocos" ofType:@"xml"];
+    NSString *blocosXmlPath = [[BlocosService blocosXmlUrl] path];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:blocosXmlPath]) {
+        NSError *copyError = nil;
+        if (![fileManager copyItemAtPath:xmlBundled toPath:blocosXmlPath error:&copyError]) {
+            NSLog(@"ERRO ao copiar arquivo xml. Causa: %@", copyError);
+        }
+    }    
 }
 
 
