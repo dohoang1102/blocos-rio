@@ -74,7 +74,6 @@
         dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
         dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:-3];
         NSDate *dataHoraConvertida = [dateFormatter dateFromString:dataHora];
-        NSLog(@"dataConvertida %@", dataHoraConvertida);
         [dateFormatter release];        
         
         NSMutableDictionary *dadosBloco = [NSMutableDictionary dictionaryWithObjectsAndKeys: 

@@ -69,7 +69,6 @@
         NSArray *blocosRawArray = parserDelegate.blocosRawArray;
         NSMutableSet *blocos = [NSMutableSet set];
         for (NSDictionary *campos in blocosRawArray) {
-            NSLog(@"campos %@", campos);
             [blocos addObject:[campos objectForKey:@"nome"]];
         }
         NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
