@@ -15,9 +15,6 @@
 		D402D14D12FE5DD000534FBC /* por-bairro.png in Resources */ = {isa = PBXBuildFile; fileRef = D402D14C12FE5DD000534FBC /* por-bairro.png */; };
 		D420FD8A12FA1D4100A822EE /* BlocosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D420FD8912FA1D4100A822EE /* BlocosController.m */; };
 		D420FD8E12FA1DA200A822EE /* Blocos.xib in Resources */ = {isa = PBXBuildFile; fileRef = D420FD8C12FA1DA200A822EE /* Blocos.xib */; };
-		D42556B712FA34CD00F8EAAA /* Bloco.m in Sources */ = {isa = PBXBuildFile; fileRef = D42556B212FA34CD00F8EAAA /* Bloco.m */; };
-		D42556B812FA34CD00F8EAAA /* Desfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D42556B412FA34CD00F8EAAA /* Desfile.m */; };
-		D42556B912FA34CD00F8EAAA /* Bairro.m in Sources */ = {isa = PBXBuildFile; fileRef = D42556B612FA34CD00F8EAAA /* Bairro.m */; };
 		D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71012F9BDFE0096C860 /* UIKit.framework */; };
 		D426A71312F9BDFE0096C860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71212F9BDFE0096C860 /* Foundation.framework */; };
 		D426A71512F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
@@ -28,6 +25,7 @@
 		D426A73312F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
 		D426A73C12F9BDFE0096C860 /* blocos_rioTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */; };
 		D426A73E12F9BDFE0096C860 /* blocos_rioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */; };
+		D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */ = {isa = PBXBuildFile; fileRef = D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */; };
 		D455BEE212FB4926006A757A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D455BEE112FB4926006A757A /* libz.dylib */; };
 		D45F54E21300D97C00B5ACF6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F54E01300D97C00B5ACF6 /* Icon.png */; };
 		D45F54E31300D97C00B5ACF6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F54E11300D97C00B5ACF6 /* Icon@2x.png */; };
@@ -65,12 +63,6 @@
 		D420FD8912FA1D4100A822EE /* BlocosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosController.m; sourceTree = "<group>"; };
 		D420FD8D12FA1DA200A822EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/Blocos.xib"; sourceTree = "<group>"; };
 		D420FD9012FA200100A822EE /* pt-BR */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		D42556B112FA34CD00F8EAAA /* Bloco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bloco.h; path = Models/Bloco.h; sourceTree = "<group>"; };
-		D42556B212FA34CD00F8EAAA /* Bloco.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bloco.m; path = Models/Bloco.m; sourceTree = "<group>"; };
-		D42556B312FA34CD00F8EAAA /* Desfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Desfile.h; path = Models/Desfile.h; sourceTree = "<group>"; };
-		D42556B412FA34CD00F8EAAA /* Desfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Desfile.m; path = Models/Desfile.m; sourceTree = "<group>"; };
-		D42556B512FA34CD00F8EAAA /* Bairro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bairro.h; path = Models/Bairro.h; sourceTree = "<group>"; };
-		D42556B612FA34CD00F8EAAA /* Bairro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bairro.m; path = Models/Bairro.m; sourceTree = "<group>"; };
 		D426A70C12F9BDFE0096C860 /* blocos-rio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "blocos-rio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D426A71012F9BDFE0096C860 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D426A71212F9BDFE0096C860 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +77,8 @@
 		D426A73A12F9BDFE0096C860 /* blocos_rioTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "blocos_rioTests-Prefix.pch"; sourceTree = "<group>"; };
 		D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blocos_rioTests.h; sourceTree = "<group>"; };
 		D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blocos_rioTests.m; sourceTree = "<group>"; };
+		D454951C1303A1A40052470F /* NSManagedObjectContext+DeleteAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+DeleteAll.h"; path = "Models/NSManagedObjectContext+DeleteAll.h"; sourceTree = "<group>"; };
+		D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+DeleteAll.m"; path = "Models/NSManagedObjectContext+DeleteAll.m"; sourceTree = "<group>"; };
 		D455BEE112FB4926006A757A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D45F54E01300D97C00B5ACF6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = "../blocos-rio-assets/images/Icon.png"; sourceTree = SOURCE_ROOT; };
 		D45F54E11300D97C00B5ACF6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../blocos-rio-assets/images/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -273,13 +267,9 @@
 		D48768F112FA31DB00420CE6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D42556B112FA34CD00F8EAAA /* Bloco.h */,
-				D42556B212FA34CD00F8EAAA /* Bloco.m */,
-				D42556B312FA34CD00F8EAAA /* Desfile.h */,
-				D42556B412FA34CD00F8EAAA /* Desfile.m */,
-				D42556B512FA34CD00F8EAAA /* Bairro.h */,
-				D42556B612FA34CD00F8EAAA /* Bairro.m */,
 				D48768EE12FA2F1800420CE6 /* Blocos.xcdatamodeld */,
+				D454951C1303A1A40052470F /* NSManagedObjectContext+DeleteAll.h */,
+				D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -461,9 +451,6 @@
 				D426A72112F9BDFE0096C860 /* AppDelegate.m in Sources */,
 				D420FD8A12FA1D4100A822EE /* BlocosController.m in Sources */,
 				D48768F012FA2F1800420CE6 /* Blocos.xcdatamodeld in Sources */,
-				D42556B712FA34CD00F8EAAA /* Bloco.m in Sources */,
-				D42556B812FA34CD00F8EAAA /* Desfile.m in Sources */,
-				D42556B912FA34CD00F8EAAA /* Bairro.m in Sources */,
 				D4FE813012FA3CC400C2D0A4 /* ioapi.c in Sources */,
 				D4FE813112FA3CC400C2D0A4 /* mztools.c in Sources */,
 				D4FE813212FA3CC400C2D0A4 /* unzip.c in Sources */,
@@ -474,6 +461,7 @@
 				D402D14212FE55AA00534FBC /* BlocosPorDataController.m in Sources */,
 				D402D14812FE5A4200534FBC /* FavoritosController.m in Sources */,
 				D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */,
+				D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

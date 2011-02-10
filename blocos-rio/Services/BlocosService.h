@@ -25,6 +25,8 @@
 
 + (NSURL *)blocosXmlUrl;
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
 - (void)updateBlocosData;
 
 @end

@@ -39,6 +39,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self copyBundledBlocosXmlToDocumentsDir];
     
+    BlocosService *service = [[[BlocosService alloc] init] autorelease];
+    service.managedObjectContext = self.managedObjectContext;
+    [service updateBlocosData];
+    
     BlocosController *blocos = [[[BlocosController alloc] init] autorelease];
     BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] init] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] init] autorelease];
@@ -175,7 +179,7 @@
  Returns the URL to the application's Documents directory.
  */
 - (NSURL *)applicationDocumentsDirectory {
-    return [NSURL URLWithString:[self applicationDocumentsDirectoryString]];
+    return [NSURL fileURLWithPath:[self applicationDocumentsDirectoryString]];
 }
 
 - (void)awakeFromNib {

@@ -19,9 +19,12 @@
 
 @interface BlocosService (Private)
 - (void)unzipAndUpdate:(NSString *)zipFile;
+- (void)saveBlocosRawArray:(NSArray *)blocosRawArray;
 @end
 
 @implementation BlocosService
+
+@synthesize managedObjectContext;
 
 + (NSURL *)blocosXmlUrl {
     NSString *documents = [[AppDelegate sharedDelegate] applicationDocumentsDirectoryString];
@@ -32,6 +35,7 @@
     [zipData release];
     [errorOnHTTPRequest release];
     [blocosXMLDelegate release];
+    [managedObjectContext release];
     [super dealloc];
 }
 
@@ -119,14 +123,15 @@
         [parser parse];
         [parser release];
         
-        NSLog(@"%d blocos carregados", blocosXMLDelegate.blocosRawArray.count);
         if (blocosXMLDelegate.parseError == nil) {
-            [[NSFileManager defaultManager] copyItemAtURL:xml toURL:[BlocosService blocosXmlUrl] error:nil];
+            NSError *error = nil;
+            [[NSFileManager defaultManager] copyItemAtURL:xml toURL:[BlocosService blocosXmlUrl] error:&error];
+            ZAssert(error != nil, @"Copia do XML falhou %@\n%@", [error localizedDescription], [error userInfo]);
+            
+            [self saveBlocosRawArray:[blocosXMLDelegate blocosRawArray]];
         } else {
             // TODO informar erro no arquivo xml
         }
-        
-        // pegar os dados do blocosXMLDelegate e atualizar o banco
     } else {
         // TODO informar do erro ao descompactar
     }
@@ -137,6 +142,56 @@
 
 -(void) ErrorMessage:(NSString*) msg {
     NSLog(@"ZipArchive error message %@", msg);
+}
+
+- (void)saveBlocosRawArray:(NSArray *)blocosRawArray {
+    ZAssert(managedObjectContext, @"managedObjectContext não setado.");
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
+    NSEntityDescription *bairroEntity = [NSEntityDescription entityForName:@"Bairro" inManagedObjectContext:managedObjectContext];
+    
+    NSError *error = nil;
+    
+    [managedObjectContext deleteAllObjects:@"Desfile"];
+
+    for (NSDictionary *campos in blocosRawArray) {
+        NSString *blocoNome = [campos objectForKey:@"nome"];
+        ZAssert(blocoNome, @"Nome do bloco inexistente %@", campos);
+        [request setEntity:blocoEntity];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"nome == %@", blocoNome]];
+        
+        NSManagedObject *bloco = [[managedObjectContext executeFetchRequest:request error:&error] lastObject];
+        ZAssert(error == nil, @"Erro ao procurar bloco %@", [error localizedDescription]);
+        
+        if (!bloco) {
+            bloco = [NSEntityDescription insertNewObjectForEntityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
+            [bloco setValue:blocoNome forKey:@"nome"];
+        }
+        
+        NSString *bairroNome = [campos objectForKey:@"bairro"];
+        ZAssert(bairroNome, @"Bairro inexistente %@", campos);
+        [request setEntity:bairroEntity];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"nome == %@", bairroNome]];
+        
+        NSManagedObject *bairro = [[managedObjectContext executeFetchRequest:request error:&error] lastObject];
+        ZAssert(error == nil, @"Erro ao procurar bairro %@", [error localizedDescription]);
+        
+        if (!bairro) {
+            bairro = [NSEntityDescription insertNewObjectForEntityForName:@"Bairro" inManagedObjectContext:managedObjectContext];
+            [bairro setValue:bairroNome forKey:@"nome"];
+        }
+        
+        NSManagedObject *desfile = [NSEntityDescription insertNewObjectForEntityForName:@"Desfile" inManagedObjectContext:managedObjectContext];
+        [desfile setValue:bloco forKey:@"bloco"];
+        [desfile setValue:bairro forKey:@"bairro"];
+        [desfile setValue:[campos objectForKey:@"data"] forKey:@"dataHora"];
+        [desfile setValue:[campos objectForKey:@"endereco"] forKey:@"endereco"];
+    }
+    [request release];
+    
+    [managedObjectContext save:&error];
+    ZAssert(error == nil, @"Erro salvando atualização de blocos %@", [error localizedDescription]);
 }
 
 @end
