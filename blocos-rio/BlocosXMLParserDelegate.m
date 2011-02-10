@@ -74,12 +74,19 @@
         dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
         dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:-3];
         NSDate *dataHoraConvertida = [dateFormatter dateFromString:dataHora];
+        NSLog(@"dataConvertida %@", dataHoraConvertida);
         [dateFormatter release];        
         
-        NSDictionary *dadosBloco = [NSDictionary dictionaryWithObjectsAndKeys:dataHoraConvertida, @"data", 
-                                    bairroAtual, @"bairro", nomeAtual, @"nome", 
+        NSMutableDictionary *dadosBloco = [NSMutableDictionary dictionaryWithObjectsAndKeys: 
+                                    bairroAtual,@"bairro", 
+                                    nomeAtual, @"nome", 
                                     enderecoAtual, @"endereco", nil];
-        [blocosRawData addObject:dadosBloco];
+        if (!dataHoraConvertida) {
+            [dadosBloco setObject:[NSNull null] forKey:@"data"]; // Resolve o problema quando a data é inválida. gh-1
+        } else {
+            [dadosBloco setObject:dataHoraConvertida forKey:@"data"]; 
+        }
+        [blocosRawData addObject:[dadosBloco copy]];
     }
     
     [currentStringValue release];
