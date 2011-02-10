@@ -17,9 +17,11 @@
 
 @interface BlocosController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
 @private
-    NSArray *blocosArray;
+
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end

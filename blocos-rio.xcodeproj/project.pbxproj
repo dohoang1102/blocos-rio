@@ -83,7 +83,7 @@
 		D45F54E01300D97C00B5ACF6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = "../blocos-rio-assets/images/Icon.png"; sourceTree = SOURCE_ROOT; };
 		D45F54E11300D97C00B5ACF6 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../blocos-rio-assets/images/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		D45F550A1300E56C00B5ACF6 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../blocos-rio-assets/images/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
-		D45F550B1300E56C00B5ACF6 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = "../blocos-rio-assets/images/iTunesArtwork"; sourceTree = SOURCE_ROOT; };
+		D45F550B1300E56C00B5ACF6 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; name = iTunesArtwork; path = "../blocos-rio-assets/images/iTunesArtwork"; sourceTree = SOURCE_ROOT; };
 		D45F55201300EE1800B5ACF6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../blocos-rio-assets/images/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
 		D46657B712F9CA350041AF53 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/MainWindow.xib"; sourceTree = "<group>"; };
 		D47B1ED012FE29580036171C /* BlocosXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosXMLParserDelegate.h; sourceTree = "<group>"; };

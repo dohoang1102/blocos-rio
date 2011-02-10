@@ -17,7 +17,7 @@
 
 @implementation BlocosController
 
-@synthesize tableView;
+@synthesize tableView, fetchedResultsController, managedObjectContext;
 
 - (id)init {
     self = [self initWithNibName:@"Blocos" bundle:nil];
@@ -35,7 +35,6 @@
 
 - (void)dealloc {
     [tableView release];
-    [blocosArray release];
     [super dealloc];
 }
 
@@ -58,25 +57,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[BlocosService blocosXmlUrl]];
-    BlocosXMLParserDelegate *parserDelegate = [[BlocosXMLParserDelegate alloc] init];
-    parser.delegate = parserDelegate;
-    [parser parse];
-    [parser release];
-    
-    if (parserDelegate.parseError == nil) {
-        NSArray *blocosRawArray = parserDelegate.blocosRawArray;
-        NSMutableSet *blocos = [NSMutableSet set];
-        for (NSDictionary *campos in blocosRawArray) {
-            [blocos addObject:[campos objectForKey:@"nome"]];
-        }
-        NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
-        blocosArray = [[blocos sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]] retain];
-    } else {
-        blocosArray = [[NSArray array] retain];
-    }
-    [parserDelegate release];
 }
 
 - (void)viewDidUnload {
@@ -95,7 +75,8 @@
 #pragma mark UITableViewDataSource methods
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-    return [blocosArray count];
+	id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,9 +87,36 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
     }
     
-    cell.textLabel.text = [blocosArray objectAtIndex:indexPath.row];
+	NSManagedObject *bloco = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [bloco valueForKey:@"nome"];
 
     return cell;
+}
+
+#pragma mark -
+#pragma mark Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController {
+	ZAssert(managedObjectContext, @"BlocosController - managedObjectContext não setado");
+	
+	if (!fetchedResultsController) {
+		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		[request setEntity:[NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext]];
+		
+		[request setFetchBatchSize:20];
+		
+		NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"nome" ascending:YES] autorelease];
+		[request setSortDescriptors:[NSArray arrayWithObject:sortByNome]];
+		
+		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
+																		 sectionNameKeyPath:nil cacheName:@"ListaBlocosCache"];
+		// TODO implementar o delegate para ser notificado de mudanças nos dados
+		//fetchedResultsController.delegate = self;
+		
+		[request release];
+	}
+	
+	return fetchedResultsController;
 }
 
 @end
