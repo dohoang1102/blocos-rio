@@ -7,7 +7,7 @@
 //
 
 #import "Bloco.h"
-
+#import "Desfile.h"
 
 @implementation Bloco
 

@@ -19,4 +19,9 @@
     
 }
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc;
+
 @end

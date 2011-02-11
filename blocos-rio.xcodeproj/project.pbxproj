@@ -37,9 +37,12 @@
 		D48768ED12FA2B5600420CE6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48768EC12FA2B5600420CE6 /* CoreData.framework */; };
 		D48768F012FA2F1800420CE6 /* Blocos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D48768EE12FA2F1800420CE6 /* Blocos.xcdatamodeld */; };
 		D4A0B40A1304B18300710056 /* Bloco.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B4091304B18300710056 /* Bloco.m */; };
+		D4A0B40D1304C40500710056 /* Desfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B40C1304C40500710056 /* Desfile.m */; };
+		D4A0B4111304CBC500710056 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B4101304CBC500710056 /* NSDate+Utils.m */; };
 		D4C692B312FF770200E56F2E /* por-blocos.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B112FF770200E56F2E /* por-blocos.png */; };
 		D4C692B412FF770200E56F2E /* por-blocos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B212FF770200E56F2E /* por-blocos@2x.png */; };
 		D4C692CB12FF86E200E56F2E /* blocos.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4C692CA12FF86E200E56F2E /* blocos.xml */; };
+		D4EFA7ED1304D6F9001BCF4F /* Bairro.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EFA7EC1304D6F9001BCF4F /* Bairro.m */; };
 		D4F343FA12FEDBFD006DC90C /* por-bairro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F343F812FEDBFD006DC90C /* por-bairro@2x.png */; };
 		D4F343FB12FEDBFD006DC90C /* por-data@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F343F912FEDBFD006DC90C /* por-data@2x.png */; };
 		D4FE813012FA3CC400C2D0A4 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812612FA3CC400C2D0A4 /* ioapi.c */; };
@@ -93,9 +96,15 @@
 		D48768EF12FA2F1800420CE6 /* Blocos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Blocos.xcdatamodel; sourceTree = "<group>"; };
 		D4A0B4081304B18300710056 /* Bloco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bloco.h; path = Models/Bloco.h; sourceTree = "<group>"; };
 		D4A0B4091304B18300710056 /* Bloco.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bloco.m; path = Models/Bloco.m; sourceTree = "<group>"; };
+		D4A0B40B1304C40500710056 /* Desfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Desfile.h; path = Models/Desfile.h; sourceTree = "<group>"; };
+		D4A0B40C1304C40500710056 /* Desfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Desfile.m; path = Models/Desfile.m; sourceTree = "<group>"; };
+		D4A0B40F1304CBC500710056 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Utils.h"; path = "Categories/NSDate+Utils.h"; sourceTree = "<group>"; };
+		D4A0B4101304CBC500710056 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Utils.m"; path = "Categories/NSDate+Utils.m"; sourceTree = "<group>"; };
 		D4C692B112FF770200E56F2E /* por-blocos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos.png"; sourceTree = "<group>"; };
 		D4C692B212FF770200E56F2E /* por-blocos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos@2x.png"; sourceTree = "<group>"; };
 		D4C692CA12FF86E200E56F2E /* blocos.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blocos.xml; sourceTree = "<group>"; };
+		D4EFA7EB1304D6F9001BCF4F /* Bairro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bairro.h; path = Models/Bairro.h; sourceTree = "<group>"; };
+		D4EFA7EC1304D6F9001BCF4F /* Bairro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bairro.m; path = Models/Bairro.m; sourceTree = "<group>"; };
 		D4F343F812FEDBFD006DC90C /* por-bairro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro@2x.png"; path = "../../blocos-rio-assets/images/por-bairro@2x.png"; sourceTree = "<group>"; };
 		D4F343F912FEDBFD006DC90C /* por-data@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-data@2x.png"; path = "../../blocos-rio-assets/images/por-data@2x.png"; sourceTree = "<group>"; };
 		D4FE812512FA3CC400C2D0A4 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
@@ -177,6 +186,7 @@
 				D46657B512F9CA220041AF53 /* Views */,
 				D4FE813812FA3D5E00C2D0A4 /* Services */,
 				D48768F112FA31DB00420CE6 /* Models */,
+				D4A0B40E1304CB6E00710056 /* Categories */,
 				D44C22EF12FE601A00305649 /* Static Resources */,
 				D426A71F12F9BDFE0096C860 /* AppDelegate.h */,
 				D426A72012F9BDFE0096C860 /* AppDelegate.m */,
@@ -270,13 +280,26 @@
 		D48768F112FA31DB00420CE6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D4A0B4081304B18300710056 /* Bloco.h */,
-				D4A0B4091304B18300710056 /* Bloco.m */,
 				D48768EE12FA2F1800420CE6 /* Blocos.xcdatamodeld */,
 				D454951C1303A1A40052470F /* NSManagedObjectContext+DeleteAll.h */,
 				D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */,
+				D4EFA7EB1304D6F9001BCF4F /* Bairro.h */,
+				D4EFA7EC1304D6F9001BCF4F /* Bairro.m */,
+				D4A0B4081304B18300710056 /* Bloco.h */,
+				D4A0B4091304B18300710056 /* Bloco.m */,
+				D4A0B40B1304C40500710056 /* Desfile.h */,
+				D4A0B40C1304C40500710056 /* Desfile.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D4A0B40E1304CB6E00710056 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D4A0B40F1304CBC500710056 /* NSDate+Utils.h */,
+				D4A0B4101304CBC500710056 /* NSDate+Utils.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		D4C692B012FF770200E56F2E /* Images */ = {
@@ -468,6 +491,9 @@
 				D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */,
 				D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */,
 				D4A0B40A1304B18300710056 /* Bloco.m in Sources */,
+				D4A0B40D1304C40500710056 /* Desfile.m in Sources */,
+				D4A0B4111304CBC500710056 /* NSDate+Utils.m in Sources */,
+				D4EFA7ED1304D6F9001BCF4F /* Bairro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
