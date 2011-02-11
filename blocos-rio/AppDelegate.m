@@ -39,11 +39,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self copyBundledBlocosXmlToDocumentsDir];
 
-// TODO corrigir o erro no BlocoPorDatas quando o service atualiza os dados e
-// os dados j‡ est‹o carregados pelo controller
-//    BlocosService *service = [[[BlocosService alloc] init] autorelease];
-//    service.managedObjectContext = self.managedObjectContext;
-//    [service updateBlocosData];
+    BlocosService *service = [[[BlocosService alloc] init] autorelease];
+    service.managedObjectContext = self.managedObjectContext;
+    [service updateBlocosData];
     
     NSManagedObjectContext *moc = self.managedObjectContext;
     

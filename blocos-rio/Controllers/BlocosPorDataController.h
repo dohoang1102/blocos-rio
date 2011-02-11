@@ -14,11 +14,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BlocosPorDataController : UIViewController {
+@interface BlocosPorDataController : UIViewController<NSFetchedResultsControllerDelegate> {
 @private
     
 }
 
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

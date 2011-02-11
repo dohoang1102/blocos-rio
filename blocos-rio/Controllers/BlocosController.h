@@ -15,7 +15,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BlocosController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+@interface BlocosController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
 @private
 
 }

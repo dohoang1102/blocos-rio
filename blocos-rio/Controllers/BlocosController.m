@@ -43,6 +43,8 @@
 
 - (void)dealloc {
     [tableView release];
+    [managedObjectContext release];
+    [fetchedResultsController release];
     [super dealloc];
 }
 
@@ -147,13 +149,16 @@
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
 																		 sectionNameKeyPath:@"nomeLetraInicial" cacheName:@"ListaBlocosCache"];
-		// TODO implementar o delegate para ser notificado de mudanças nos dados
-		//fetchedResultsController.delegate = self;
+		fetchedResultsController.delegate = self;
 		
 		[request release];
 	}
 	
 	return fetchedResultsController;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [tableView reloadData];
 }
 
 @end
