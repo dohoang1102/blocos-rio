@@ -77,7 +77,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 #pragma mark -
@@ -123,12 +123,13 @@
     
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId] autorelease];
     }
     
 	NSManagedObject *desfile = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSManagedObject *bloco = [desfile valueForKey:@"bloco"];
     cell.textLabel.text = [bloco valueForKey:@"nome"];
+    cell.detailTextLabel.text = [[desfile valueForKey:@"dataHora"] timeToString];
     
     return cell;
 }

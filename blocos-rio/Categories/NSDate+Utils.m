@@ -8,6 +8,11 @@
 
 #import "NSDate+Utils.h"
 
+@interface NSDate (UtilsPrivate)
+
+- (NSString *)dateToStringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle;
+
+@end
 
 @implementation NSDate (Utils)
 
@@ -17,20 +22,26 @@
 }
 
 - (NSString *)dateToMediumStyleString {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    NSString *convertida = [dateFormatter stringFromDate:self];
-    [dateFormatter release];
-    return convertida;    
+    return [self dateToStringWithDateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
 }
 
 - (NSString *)dateTimeToMediumStyleString {
+    return [self dateToStringWithDateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterShortStyle];
+}
+
+- (NSString *)timeToString {
+    return [self dateToStringWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+}
+
+#pragma mark -
+#pragma mark Private
+- (NSString *)dateToStringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle { 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    dateFormatter.dateStyle = dateStyle;
+    dateFormatter.timeStyle = timeStyle;
     NSString *convertida = [dateFormatter stringFromDate:self];
     [dateFormatter release];
     return convertida;    
-}
+}; 
 
 @end

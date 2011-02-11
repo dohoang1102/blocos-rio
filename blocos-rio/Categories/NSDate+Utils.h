@@ -12,7 +12,9 @@
 @interface NSDate (Utils)
 
 - (NSDate *)dateWithoutTime;
+
 - (NSString *)dateToMediumStyleString;
 - (NSString *)dateTimeToMediumStyleString;
+- (NSString *)timeToString;
 
 @end
