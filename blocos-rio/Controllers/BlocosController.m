@@ -24,6 +24,14 @@
     return self;
 }
 
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc {
+    self = [self init];
+    if (self) {
+        self.managedObjectContext = moc;
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -57,6 +65,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]);
 }
 
 - (void)viewDidUnload {
@@ -73,6 +84,10 @@
 #pragma mark UITableViewDelegate methods
 
 #pragma mark UITableViewDataSource methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.fetchedResultsController sections] count];
+}
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
 	id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
@@ -93,6 +108,28 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo name];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    NSMutableArray* indexTitles = [NSMutableArray arrayWithObject:UITableViewIndexSearch];  // add magnifying glass
+    [indexTitles addObjectsFromArray:[self.fetchedResultsController sectionIndexTitles]];
+    return indexTitles;
+}
+
+- (NSInteger)tableView:(UITableView *)aTableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    NSInteger section = -1;
+    if (title == UITableViewIndexSearch) {
+        [aTableView scrollRectToVisible:self.searchDisplayController.searchBar.frame animated:NO];
+    } else {
+        section = [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index-1];
+    }
+    
+    return section;
+}
+
 #pragma mark -
 #pragma mark Fetched results controller
 
@@ -109,7 +146,7 @@
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByNome]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:nil cacheName:@"ListaBlocosCache"];
+																		 sectionNameKeyPath:@"nomeLetraInicial" cacheName:@"ListaBlocosCache"];
 		// TODO implementar o delegate para ser notificado de mudanças nos dados
 		//fetchedResultsController.delegate = self;
 		

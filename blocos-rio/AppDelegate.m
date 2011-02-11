@@ -43,7 +43,9 @@
     service.managedObjectContext = self.managedObjectContext;
     [service updateBlocosData];
     
-    BlocosController *blocos = [[[BlocosController alloc] init] autorelease];
+    NSManagedObjectContext *moc = self.managedObjectContext;
+    
+    BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] init] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] init] autorelease];
     FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
