@@ -28,5 +28,6 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (void)updateBlocosData;
+- (void)updateBlocosDataWithLocalXml;
 
 @end

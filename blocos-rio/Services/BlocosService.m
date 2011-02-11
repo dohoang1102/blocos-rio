@@ -20,6 +20,7 @@
 @interface BlocosService (Private)
 - (void)unzipAndUpdate:(NSString *)zipFile;
 - (void)saveBlocosRawArray:(NSArray *)blocosRawArray;
+- (BlocosXMLParserDelegate *)blocoXmlParserDelegate;
 @end
 
 @implementation BlocosService
@@ -29,6 +30,20 @@
 + (NSURL *)blocosXmlUrl {
     NSString *documents = [[AppDelegate sharedDelegate] applicationDocumentsDirectoryString];
     return [NSURL fileURLWithPath:[documents stringByAppendingString:@"/blocos.xml"]];
+}
+
+- (void)updateBlocosDataWithLocalXml {
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[BlocosService blocosXmlUrl]];
+    parser.delegate = [self blocoXmlParserDelegate];
+    parser.shouldResolveExternalEntities = NO;
+    [parser parse];
+    [parser release];
+    
+    if ([self blocoXmlParserDelegate].parseError == nil) {
+        [self saveBlocosRawArray:[[self blocoXmlParserDelegate] blocosRawArray]];
+    } else {
+        // TODO informar erro no arquivo xml
+    }
 }
 
 - (void)dealloc {
@@ -112,9 +127,7 @@
     NSString *unzipPath = [NSTemporaryDirectory() stringByAppendingString:@"blocos"];
     if ([zip UnzipFileTo:unzipPath overWrite:YES]) {
         
-        if (blocosXMLDelegate == nil) {
-            blocosXMLDelegate = [[BlocosXMLParserDelegate alloc] init];
-        }
+        [self blocoXmlParserDelegate];
         
         NSURL *xml = [NSURL fileURLWithPath:[unzipPath stringByAppendingString:@"/blocos-2011.xml"]];
         NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:xml];
@@ -192,6 +205,13 @@
     
     [managedObjectContext save:&error];
     ZAssert(error == nil, @"Erro salvando atualização de blocos %@", [error localizedDescription]);
+}
+
+- (BlocosXMLParserDelegate *)blocoXmlParserDelegate {
+    if (blocosXMLDelegate == nil) {
+        blocosXMLDelegate = [[BlocosXMLParserDelegate alloc] init];
+    }
+    return blocosXMLDelegate;
 }
 
 @end

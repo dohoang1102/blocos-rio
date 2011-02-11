@@ -38,10 +38,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self copyBundledBlocosXmlToDocumentsDir];
-
-    BlocosService *service = [[[BlocosService alloc] init] autorelease];
-    service.managedObjectContext = self.managedObjectContext;
-    [service updateBlocosData];
     
     NSManagedObjectContext *moc = self.managedObjectContext;
     
@@ -204,6 +200,11 @@
         NSError *copyError = nil;
         if (![fileManager copyItemAtPath:xmlBundled toPath:blocosXmlPath error:&copyError]) {
             NSLog(@"ERRO ao copiar arquivo xml. Causa: %@", copyError);
+        } else {
+            // Se der certo atualiza os dados
+            BlocosService *service = [[[BlocosService alloc] init] autorelease];
+            service.managedObjectContext = self.managedObjectContext;
+            [service updateBlocosDataWithLocalXml];
         }
     }    
 }
