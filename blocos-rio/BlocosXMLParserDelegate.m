@@ -85,7 +85,9 @@
         } else {
             [dadosBloco setObject:dataHoraConvertida forKey:@"data"]; 
         }
-        [blocosRawData addObject:[dadosBloco copy]];
+        NSDictionary *imutableDados = [dadosBloco copy];
+        [blocosRawData addObject:imutableDados];
+        [imutableDados release];
     }
     
     [currentStringValue release];

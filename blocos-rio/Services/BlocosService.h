@@ -15,6 +15,18 @@
 #import <Foundation/Foundation.h>
 #import "BlocosXMLParserDelegate.h"
 
+#define kLastUpdateDateKey @"BlocosServiceLastUpdateBlocosKey"
+
+@class BlocosService;
+
+@protocol BlocosServiceDelegate <NSObject>
+
+@optional
+- (void)blocosService:(BlocosService *)blocosService didUpdateBlocosDataOnDate:(NSDate *)lastUpdate;
+- (void)blocosService:(BlocosService *)blocosService didFailWithError:(NSError *)error;
+
+@end
+
 @interface BlocosService : NSObject {
 @private
     NSMutableData *zipData;
@@ -26,6 +38,7 @@
 + (NSURL *)blocosXmlUrl;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, assign) id<BlocosServiceDelegate> delegate;
 
 - (void)updateBlocosData;
 - (void)updateBlocosDataWithLocalXml;

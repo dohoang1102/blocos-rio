@@ -18,6 +18,7 @@
 #import "FavoritosController.h"
 #import "BlocosPorBairroController.h"
 #import "BlocosService.h"
+#import "OpcoesController.h"
 
 @interface AppDelegate (Private)
 - (void)copyBundledBlocosXmlToDocumentsDir;
@@ -44,9 +45,11 @@
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] initWithManagedObjectContext:moc] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] init] autorelease];
-    FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
+//    FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
+    OpcoesController *opcoes = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
+    UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoes] autorelease];
     tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, bairro, favoritos, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, bairro, navOpcoes, nil];
     tabBarController.selectedViewController = blocosPorData;
 	
     self.window.rootViewController = self.tabBarController;
@@ -63,6 +66,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Save data if appropriate.
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)dealloc {

@@ -25,7 +25,7 @@
 
 @implementation BlocosService
 
-@synthesize managedObjectContext;
+@synthesize managedObjectContext, delegate;
 
 + (NSURL *)blocosXmlUrl {
     NSString *documents = [[AppDelegate sharedDelegate] applicationDocumentsDirectoryString];
@@ -33,6 +33,8 @@
 }
 
 - (void)updateBlocosDataWithLocalXml {
+    [self retain];
+    
     NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[BlocosService blocosXmlUrl]];
     parser.delegate = [self blocoXmlParserDelegate];
     parser.shouldResolveExternalEntities = NO;
@@ -42,7 +44,10 @@
     if ([self blocoXmlParserDelegate].parseError == nil) {
         [self saveBlocosRawArray:[[self blocoXmlParserDelegate] blocosRawArray]];
     } else {
-        // TODO informar erro no arquivo xml
+        if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
+            [delegate blocosService:self didFailWithError:[self blocoXmlParserDelegate].parseError];
+        }
+        [self release];
     }
 }
 
@@ -55,6 +60,8 @@
 }
 
 - (void)updateBlocosData {
+    [self retain];
+    
     NSURL *url = [NSURL URLWithString:kUrlToUpdate];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLConnection *conn = [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
@@ -96,22 +103,25 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     if (errorOnHTTPRequest == nil) {
+        NSError *error = nil;
         NSString *filePath = [NSTemporaryDirectory() stringByAppendingString:@"blocos.zip"];
-        if ([zipData writeToFile:filePath atomically:YES]) {
+        if ([zipData writeToFile:filePath options:NSDataWritingAtomic error:&error]) {
             [self unzipAndUpdate:filePath];
         } else {
-            // TODO tratar erro ao salvar o zip
+            [self connection:conn didFailWithError:error];
         }
-
     } else {
         [self connection:conn didFailWithError:errorOnHTTPRequest];
-        [errorOnHTTPRequest release];
-        errorOnHTTPRequest = nil;
     }
 }
 
 - (void)connection:(NSURLConnection *)conn didFailWithError:(NSError *)error {
-    
+    if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
+        [delegate blocosService:self didFailWithError:error];
+    }
+    [errorOnHTTPRequest release];
+    errorOnHTTPRequest = nil;
+    [self release];
 }
 
 
@@ -143,10 +153,11 @@
             
             [self saveBlocosRawArray:[blocosXMLDelegate blocosRawArray]];
         } else {
-            // TODO informar erro no arquivo xml
+            if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
+                [delegate blocosService:self didFailWithError:[self blocoXmlParserDelegate].parseError];
+            }
+            [self release];
         }
-    } else {
-        // TODO informar do erro ao descompactar
     }
     
     [zip UnzipCloseFile];
@@ -154,7 +165,11 @@
 }
 
 -(void) ErrorMessage:(NSString*) msg {
-    NSLog(@"ZipArchive error message %@", msg);
+    if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
+        NSError *error = [NSError errorWithDomain:@"Unzip" code:0 userInfo:[NSDictionary dictionaryWithObject:msg forKey:@"message"]];
+        [delegate blocosService:self didFailWithError:error];
+    }
+    [self release];
 }
 
 - (void)saveBlocosRawArray:(NSArray *)blocosRawArray {
@@ -205,6 +220,20 @@
     
     [managedObjectContext save:&error];
     ZAssert(error == nil, @"Erro salvando atualização de blocos %@", [error localizedDescription]);
+    if (error) {
+        if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
+            [delegate blocosService:self didFailWithError:error];
+        }
+    } else {
+        if ([delegate respondsToSelector:@selector(blocosService:didUpdateBlocosDataOnDate:)]) {
+            NSDate *lastUpdate = [NSDate date];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:lastUpdate forKey:kLastUpdateDateKey];
+            [delegate blocosService:self didUpdateBlocosDataOnDate:lastUpdate];
+        }
+    }
+    
+    [self release];
 }
 
 - (BlocosXMLParserDelegate *)blocoXmlParserDelegate {
