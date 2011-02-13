@@ -13,6 +13,8 @@
 //    limitations under the License.
 
 #import "BlocosPorDataController.h"
+#import "DesfileTableViewCell.h"
+#import "Desfile.h"
 
 
 @implementation BlocosPorDataController
@@ -92,7 +94,7 @@
 	if (!fetchedResultsController) {
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-		
+		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@", [NSDate date]]];
 		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
@@ -100,7 +102,6 @@
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
 																		 sectionNameKeyPath:@"dataSemHora" cacheName:@"BlocosPorDataCache"];
-		// TODO implementar o delegate para ser notificado de mudanças nos dados
 		fetchedResultsController.delegate = self;
 		
 		[request release];
@@ -128,16 +129,15 @@
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"BlocosPorDataCell";
     
-    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:cellId];
+	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    DesfileTableViewCell *cell = (DesfileTableViewCell *) [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId] autorelease];
+        cell = [[[DesfileTableViewCell alloc] initWithDesfile:desfile reuseIdentifier:cellId] autorelease];
+    } else {
+        cell.desfile = desfile;
     }
-    
-	NSManagedObject *desfile = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSManagedObject *bloco = [desfile valueForKey:@"bloco"];
-    cell.textLabel.text = [bloco valueForKey:@"nome"];
-    cell.detailTextLabel.text = [[desfile valueForKey:@"dataHora"] timeToString];
-    
+
     return cell;
 }
 

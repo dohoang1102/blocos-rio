@@ -25,6 +25,8 @@
 		D426A73312F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
 		D426A73C12F9BDFE0096C860 /* blocos_rioTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */; };
 		D426A73E12F9BDFE0096C860 /* blocos_rioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */; };
+		D446AB7B130781F500A39517 /* DesfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D446AB7A130781F500A39517 /* DesfileTableViewCell.m */; };
+		D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D446ABE813078E0E00A39517 /* NSString+Utils.m */; };
 		D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */ = {isa = PBXBuildFile; fileRef = D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */; };
 		D455BEE212FB4926006A757A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D455BEE112FB4926006A757A /* libz.dylib */; };
 		D45F54E21300D97C00B5ACF6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D45F54E01300D97C00B5ACF6 /* Icon.png */; };
@@ -84,6 +86,10 @@
 		D426A73A12F9BDFE0096C860 /* blocos_rioTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "blocos_rioTests-Prefix.pch"; sourceTree = "<group>"; };
 		D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blocos_rioTests.h; sourceTree = "<group>"; };
 		D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blocos_rioTests.m; sourceTree = "<group>"; };
+		D446AB79130781F500A39517 /* DesfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesfileTableViewCell.h; path = Views/DesfileTableViewCell.h; sourceTree = "<group>"; };
+		D446AB7A130781F500A39517 /* DesfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesfileTableViewCell.m; path = Views/DesfileTableViewCell.m; sourceTree = "<group>"; };
+		D446ABE713078E0E00A39517 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		D446ABE813078E0E00A39517 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 		D454951C1303A1A40052470F /* NSManagedObjectContext+DeleteAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+DeleteAll.h"; path = "Models/NSManagedObjectContext+DeleteAll.h"; sourceTree = "<group>"; };
 		D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+DeleteAll.m"; path = "Models/NSManagedObjectContext+DeleteAll.m"; sourceTree = "<group>"; };
 		D455BEE112FB4926006A757A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -284,6 +290,8 @@
 				D46657B612F9CA350041AF53 /* MainWindow.xib */,
 				D420FD8C12FA1DA200A822EE /* Blocos.xib */,
 				D402D14312FE566500534FBC /* BlocosPorData.xib */,
+				D446AB79130781F500A39517 /* DesfileTableViewCell.h */,
+				D446AB7A130781F500A39517 /* DesfileTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -309,6 +317,8 @@
 			children = (
 				D4A0B40F1304CBC500710056 /* NSDate+Utils.h */,
 				D4A0B4101304CBC500710056 /* NSDate+Utils.m */,
+				D446ABE713078E0E00A39517 /* NSString+Utils.h */,
+				D446ABE813078E0E00A39517 /* NSString+Utils.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -508,6 +518,8 @@
 				D4A0B4111304CBC500710056 /* NSDate+Utils.m in Sources */,
 				D4EFA7ED1304D6F9001BCF4F /* Bairro.m in Sources */,
 				D4622139130732D7006FCE9F /* OpcoesController.m in Sources */,
+				D446AB7B130781F500A39517 /* DesfileTableViewCell.m in Sources */,
+				D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

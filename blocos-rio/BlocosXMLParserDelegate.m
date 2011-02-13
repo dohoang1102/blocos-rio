@@ -59,15 +59,15 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName { 
     if ([elementName isEqualToString:@"d"]) {
-        dataAtual = [currentStringValue copy];
+        dataAtual = [[currentStringValue copy] trim];
     } else if ([elementName isEqualToString:@"b"]) {
-        bairroAtual = [currentStringValue copy];
+        bairroAtual = [[currentStringValue copy] trim];
     } else if ([elementName isEqualToString:@"n"]) {
-        nomeAtual = [currentStringValue copy];
+        nomeAtual = [[currentStringValue copy] trim];
     } else if ([elementName isEqualToString:@"e"]) {
-        enderecoAtual = [currentStringValue copy];
+        enderecoAtual = [[currentStringValue copy] trim];
     } else if ([elementName isEqualToString:@"h"]) {
-        horaAtual = ![currentStringValue isEqualToString:@""] ? [currentStringValue copy] : @"00";
+        horaAtual = ![currentStringValue isEqualToString:@""] ? [[currentStringValue copy] trim] : @"00";
         
         NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@:00", horaAtual, nil];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

@@ -6,7 +6,8 @@
 //  Copyright (c) 2011 Felipe Cypriano. All rights reserved.
 //
 
-@class Bairro, Bloco;
+#import "Bloco.h"
+#import "Bairro.h"
 
 @interface Desfile : NSManagedObject {
 @private

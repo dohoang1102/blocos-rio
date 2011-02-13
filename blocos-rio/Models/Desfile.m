@@ -6,9 +6,7 @@
 //  Copyright (c) 2011 Felipe Cypriano. All rights reserved.
 //
 
-#import "Desfile.h"
-#import "Bloco.h"
-#import "Bairro.h"
+#import "Desfile.h"s
 
 @implementation Desfile
 @dynamic endereco;
