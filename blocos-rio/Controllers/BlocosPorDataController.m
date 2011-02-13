@@ -13,7 +13,7 @@
 //    limitations under the License.
 
 #import "BlocosPorDataController.h"
-#import "DesfileTableViewCell.h"
+#import "DesfileEnderecoCell.h"
 #import "Desfile.h"
 
 
@@ -131,9 +131,9 @@
     
 	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    DesfileTableViewCell *cell = (DesfileTableViewCell *) [aTableView dequeueReusableCellWithIdentifier:cellId];
+    DesfileEnderecoCell *cell = (DesfileEnderecoCell *) [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[DesfileTableViewCell alloc] initWithDesfile:desfile reuseIdentifier:cellId] autorelease];
+        cell = [[[DesfileEnderecoCell alloc] initWithDesfile:desfile reuseIdentifier:cellId] autorelease];
     } else {
         cell.desfile = desfile;
     }

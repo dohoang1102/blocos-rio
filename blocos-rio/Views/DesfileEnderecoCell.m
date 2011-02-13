@@ -6,10 +6,10 @@
 //  Copyright 2011 Felipe Cypriano. All rights reserved.
 //
 
-#import "DesfileTableViewCell.h"
+#import "DesfileEnderecoCell.h"
 
 
-@implementation DesfileTableViewCell
+@implementation DesfileEnderecoCell
 
 @synthesize desfile;
 

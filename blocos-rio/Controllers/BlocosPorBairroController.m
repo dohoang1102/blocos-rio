@@ -13,9 +13,19 @@
 //    limitations under the License.
 
 #import "BlocosPorBairroController.h"
-
+#import "Desfile.h"
 
 @implementation BlocosPorBairroController
+
+@synthesize managedObjectContext, fetchedResultsController;
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc {
+    self = [self init];
+    if (self) {
+        self.managedObjectContext = moc;
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,8 +36,8 @@
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    [managedObjectContext release];
     [super dealloc];
 }
 
@@ -48,16 +58,15 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    ZAssert(error == nil, @"Erro ao obter blocos por bairro %@", [error localizedDescription]);
 }
-*/
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -66,6 +75,69 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return YES;
+}
+
+#pragma mark -
+#pragma mark Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    ZAssert(managedObjectContext, @"managedObjectContext não setado");
+	
+	if (!fetchedResultsController) {
+		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
+		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@", [NSDate date]]];
+		[request setFetchBatchSize:20];
+		
+        NSSortDescriptor *sortByBairro = [[[NSSortDescriptor alloc] initWithKey:@"bairro.nome" ascending:YES] autorelease];
+		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
+		[request setSortDescriptors:[NSArray arrayWithObjects:sortByBairro, sortByData, nil]];
+		
+		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
+																		 sectionNameKeyPath:@"bairro.nome" cacheName:@"BlocosPorBairroCache"];
+		fetchedResultsController.delegate = self;
+		
+		[request release];
+	}
+	
+	return fetchedResultsController;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
+
+#pragma mark -
+#pragma UITableViewDataSource methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.fetchedResultsController sections] count];
+}
+
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+	id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellId = @"BlocosPorBairroCell";
+    
+	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:cellId];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId] autorelease];
+    }
+    
+    cell.textLabel.text = desfile.bloco.nome;
+    cell.detailTextLabel.text = [desfile.dataHora dateTimeToMediumStyleString];
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo name];
 }
 
 @end

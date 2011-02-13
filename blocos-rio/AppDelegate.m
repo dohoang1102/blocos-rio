@@ -44,7 +44,7 @@
     
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] initWithManagedObjectContext:moc] autorelease];
-    BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] init] autorelease];
+    BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
 //    FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
     OpcoesController *opcoes = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoes] autorelease];

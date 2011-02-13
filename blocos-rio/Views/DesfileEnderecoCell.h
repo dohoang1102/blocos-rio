@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Desfile.h"
 
-@interface DesfileTableViewCell : UITableViewCell {
+@interface DesfileEnderecoCell : UITableViewCell {
 @private
     UILabel *lblNome;
     UILabel *lblEndereco;
