@@ -12,26 +12,6 @@
 @implementation Bloco
 
 @dynamic nome;
-@dynamic nomeLetraInicial;
 @dynamic desfiles;
-
-- (NSString *)nomeLetraInicial {
-    NSString * tmpValue;
-    
-    [self willAccessValueForKey:@"nomeLetraInicial"];
-    
-    if ([self.nome length] > 0) {
-        tmpValue = [[self.nome substringToIndex:1] uppercaseString];
-        if ([[NSScanner scannerWithString:tmpValue] scanInt:NULL]) { //return # if its a number
-            tmpValue = @"#";
-        }        
-    } else {
-        tmpValue = @"";
-    }
-    
-    [self didAccessValueForKey:@"nomeLetraInicial"];
-    
-    return tmpValue;
-}
 
 @end

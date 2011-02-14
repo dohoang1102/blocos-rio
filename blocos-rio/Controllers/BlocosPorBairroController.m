@@ -141,6 +141,15 @@
     return [sectionInfo name];
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [self.fetchedResultsController sectionIndexTitles];
+}
+
+- (NSInteger)tableView:(UITableView *)aTableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {    
+    return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+}
+
+
 #pragma mark -
 #pragma mark UITableViewDelegate methods
 

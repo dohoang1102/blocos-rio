@@ -149,7 +149,7 @@
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByNome]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:@"nomeLetraInicial" cacheName:@"ListaBlocosCache"];
+																		 sectionNameKeyPath:@"nome" cacheName:@"ListaBlocosCache"];
 		fetchedResultsController.delegate = self;
 		
 		[request release];
