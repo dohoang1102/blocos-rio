@@ -101,7 +101,7 @@
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByData]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:@"dataSemHora" cacheName:@"BlocosPorDataCache"];
+																		 sectionNameKeyPath:@"dataSemHora" cacheName:nil];
 		fetchedResultsController.delegate = self;
 		
 		[request release];
@@ -145,5 +145,18 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo name];
 }
+
+#pragma mark -
+#pragma mark UITableViewDelegate methods
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return [ExpandableHeaderView viewHeight];
+//}
+//
+//- (UIView *)tableView:(UITableView *)aTableView viewForHeaderInSection:(NSInteger)section {
+//    ExpandableHeaderView *header = [ExpandableHeaderView expandableHeaderViewForSection:section opened:YES];
+//    header.textLabel.text = [self tableView:aTableView titleForHeaderInSection:(NSInteger)section];
+//    return header;
+//}
 
 @end

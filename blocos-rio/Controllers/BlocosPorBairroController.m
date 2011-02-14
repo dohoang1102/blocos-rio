@@ -94,7 +94,7 @@
 		[request setSortDescriptors:[NSArray arrayWithObjects:sortByBairro, sortByData, nil]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:@"bairro.nome" cacheName:@"BlocosPorBairroCache"];
+																		 sectionNameKeyPath:@"bairro.nome" cacheName:nil];
 		fetchedResultsController.delegate = self;
 		
 		[request release];

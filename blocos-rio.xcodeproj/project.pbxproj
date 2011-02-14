@@ -13,6 +13,7 @@
 		D402D14812FE5A4200534FBC /* FavoritosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14712FE5A4200534FBC /* FavoritosController.m */; };
 		D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */; };
 		D402D14D12FE5DD000534FBC /* por-bairro.png in Resources */ = {isa = PBXBuildFile; fileRef = D402D14C12FE5DD000534FBC /* por-bairro.png */; };
+		D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */; };
 		D420FD8A12FA1D4100A822EE /* BlocosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D420FD8912FA1D4100A822EE /* BlocosController.m */; };
 		D420FD8E12FA1DA200A822EE /* Blocos.xib in Resources */ = {isa = PBXBuildFile; fileRef = D420FD8C12FA1DA200A822EE /* Blocos.xib */; };
 		D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71012F9BDFE0096C860 /* UIKit.framework */; };
@@ -25,6 +26,7 @@
 		D426A73312F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
 		D426A73C12F9BDFE0096C860 /* blocos_rioTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */; };
 		D426A73E12F9BDFE0096C860 /* blocos_rioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */; };
+		D43CC32613088FB2005CC417 /* BlocoDetalhesController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CC32513088FB2005CC417 /* BlocoDetalhesController.m */; };
 		D446AB7B130781F500A39517 /* DesfileEnderecoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D446AB7A130781F500A39517 /* DesfileEnderecoCell.m */; };
 		D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D446ABE813078E0E00A39517 /* NSString+Utils.m */; };
 		D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */ = {isa = PBXBuildFile; fileRef = D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */; };
@@ -47,6 +49,10 @@
 		D4C692B312FF770200E56F2E /* por-blocos.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B112FF770200E56F2E /* por-blocos.png */; };
 		D4C692B412FF770200E56F2E /* por-blocos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B212FF770200E56F2E /* por-blocos@2x.png */; };
 		D4C692CB12FF86E200E56F2E /* blocos.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4C692CA12FF86E200E56F2E /* blocos.xml */; };
+		D4D6FBA213082ACD00F1BE66 /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D6FBA013082ACD00F1BE66 /* arrow-right.png */; };
+		D4D6FBA313082ACD00F1BE66 /* arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D6FBA113082ACD00F1BE66 /* arrow-right@2x.png */; };
+		D4D6FBF8130833AB00F1BE66 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D6FBF7130833AB00F1BE66 /* QuartzCore.framework */; };
+		D4D6FC7313083ABE00F1BE66 /* BlocoDetalhes.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D6FC7113083ABE00F1BE66 /* BlocoDetalhes.xib */; };
 		D4EFA7ED1304D6F9001BCF4F /* Bairro.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EFA7EC1304D6F9001BCF4F /* Bairro.m */; };
 		D4F343FA12FEDBFD006DC90C /* por-bairro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F343F812FEDBFD006DC90C /* por-bairro@2x.png */; };
 		D4F343FB12FEDBFD006DC90C /* por-data@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F343F912FEDBFD006DC90C /* por-data@2x.png */; };
@@ -68,6 +74,8 @@
 		D402D14912FE5C7E00534FBC /* BlocosPorBairroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorBairroController.h; sourceTree = "<group>"; };
 		D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorBairroController.m; sourceTree = "<group>"; };
 		D402D14C12FE5DD000534FBC /* por-bairro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro.png"; path = "../../blocos-rio-assets/images/por-bairro.png"; sourceTree = "<group>"; };
+		D405D1AA130816070053FDE3 /* ExpandableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandableHeaderView.h; path = Views/ExpandableHeaderView.h; sourceTree = "<group>"; };
+		D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandableHeaderView.m; path = Views/ExpandableHeaderView.m; sourceTree = "<group>"; };
 		D420FD8812FA1D4100A822EE /* BlocosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosController.h; sourceTree = "<group>"; };
 		D420FD8912FA1D4100A822EE /* BlocosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosController.m; sourceTree = "<group>"; };
 		D420FD8D12FA1DA200A822EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/Blocos.xib"; sourceTree = "<group>"; };
@@ -86,6 +94,8 @@
 		D426A73A12F9BDFE0096C860 /* blocos_rioTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "blocos_rioTests-Prefix.pch"; sourceTree = "<group>"; };
 		D426A73B12F9BDFE0096C860 /* blocos_rioTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blocos_rioTests.h; sourceTree = "<group>"; };
 		D426A73D12F9BDFE0096C860 /* blocos_rioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blocos_rioTests.m; sourceTree = "<group>"; };
+		D43CC32413088FB2005CC417 /* BlocoDetalhesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocoDetalhesController.h; sourceTree = "<group>"; };
+		D43CC32513088FB2005CC417 /* BlocoDetalhesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocoDetalhesController.m; sourceTree = "<group>"; };
 		D446AB79130781F500A39517 /* DesfileEnderecoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesfileEnderecoCell.h; path = Views/DesfileEnderecoCell.h; sourceTree = "<group>"; };
 		D446AB7A130781F500A39517 /* DesfileEnderecoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesfileEnderecoCell.m; path = Views/DesfileEnderecoCell.m; sourceTree = "<group>"; };
 		D446ABE713078E0E00A39517 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
@@ -116,6 +126,10 @@
 		D4C692B112FF770200E56F2E /* por-blocos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos.png"; sourceTree = "<group>"; };
 		D4C692B212FF770200E56F2E /* por-blocos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos@2x.png"; sourceTree = "<group>"; };
 		D4C692CA12FF86E200E56F2E /* blocos.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blocos.xml; sourceTree = "<group>"; };
+		D4D6FBA013082ACD00F1BE66 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
+		D4D6FBA113082ACD00F1BE66 /* arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right@2x.png"; sourceTree = "<group>"; };
+		D4D6FBF7130833AB00F1BE66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D4D6FC7213083ABE00F1BE66 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/BlocoDetalhes.xib"; sourceTree = "<group>"; };
 		D4EFA7EB1304D6F9001BCF4F /* Bairro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bairro.h; path = Models/Bairro.h; sourceTree = "<group>"; };
 		D4EFA7EC1304D6F9001BCF4F /* Bairro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bairro.m; path = Models/Bairro.m; sourceTree = "<group>"; };
 		D4F343F812FEDBFD006DC90C /* por-bairro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro@2x.png"; path = "../../blocos-rio-assets/images/por-bairro@2x.png"; sourceTree = "<group>"; };
@@ -145,6 +159,7 @@
 				D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */,
 				D426A71312F9BDFE0096C860 /* Foundation.framework in Frameworks */,
 				D426A71512F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */,
+				D4D6FBF8130833AB00F1BE66 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +203,7 @@
 				D426A71212F9BDFE0096C860 /* Foundation.framework */,
 				D426A71412F9BDFE0096C860 /* CoreGraphics.framework */,
 				D455BEE112FB4926006A757A /* libz.dylib */,
+				D4D6FBF7130833AB00F1BE66 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,6 +269,8 @@
 				D402D14712FE5A4200534FBC /* FavoritosController.m */,
 				D402D14912FE5C7E00534FBC /* BlocosPorBairroController.h */,
 				D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */,
+				D43CC32413088FB2005CC417 /* BlocoDetalhesController.h */,
+				D43CC32513088FB2005CC417 /* BlocoDetalhesController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +310,9 @@
 				D402D14312FE566500534FBC /* BlocosPorData.xib */,
 				D446AB79130781F500A39517 /* DesfileEnderecoCell.h */,
 				D446AB7A130781F500A39517 /* DesfileEnderecoCell.m */,
+				D405D1AA130816070053FDE3 /* ExpandableHeaderView.h */,
+				D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */,
+				D4D6FC7113083ABE00F1BE66 /* BlocoDetalhes.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -326,6 +347,8 @@
 		D4C692B012FF770200E56F2E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D4D6FBA013082ACD00F1BE66 /* arrow-right.png */,
+				D4D6FBA113082ACD00F1BE66 /* arrow-right@2x.png */,
 				D4C692B112FF770200E56F2E /* por-blocos.png */,
 				D4C692B212FF770200E56F2E /* por-blocos@2x.png */,
 			);
@@ -464,6 +487,9 @@
 				D45F55211300EE1800B5ACF6 /* Icon-Small@2x.png in Resources */,
 				D462213C130732F0006FCE9F /* opcoes.png in Resources */,
 				D462213D130732F0006FCE9F /* opcoes@2x.png in Resources */,
+				D4D6FBA213082ACD00F1BE66 /* arrow-right.png in Resources */,
+				D4D6FBA313082ACD00F1BE66 /* arrow-right@2x.png in Resources */,
+				D4D6FC7313083ABE00F1BE66 /* BlocoDetalhes.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +546,8 @@
 				D4622139130732D7006FCE9F /* OpcoesController.m in Sources */,
 				D446AB7B130781F500A39517 /* DesfileEnderecoCell.m in Sources */,
 				D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */,
+				D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */,
+				D43CC32613088FB2005CC417 /* BlocoDetalhesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +594,14 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
+		D4D6FC7113083ABE00F1BE66 /* BlocoDetalhes.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4D6FC7213083ABE00F1BE66 /* pt-BR */,
+			);
+			name = BlocoDetalhes.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -581,7 +617,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 			};
@@ -597,7 +633,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
