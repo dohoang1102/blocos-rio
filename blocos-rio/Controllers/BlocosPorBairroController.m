@@ -14,6 +14,7 @@
 
 #import "BlocosPorBairroController.h"
 #import "Desfile.h"
+#import "BlocoDetalhesController.h"
 
 @implementation BlocosPorBairroController
 
@@ -138,6 +139,17 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo name];
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate methods
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+    BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:desfile.bloco];
+    detalhes.managedObjectContext = self.managedObjectContext;
+    [self presentModalViewController:detalhes animated:YES];
+    [detalhes release];
 }
 
 @end
