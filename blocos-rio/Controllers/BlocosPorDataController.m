@@ -95,7 +95,7 @@
 	if (!fetchedResultsController) {
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@", [NSDate date]]];
+		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", [NSDate date]]];
 		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];

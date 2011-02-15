@@ -142,14 +142,14 @@
 	if (!fetchedResultsController) {
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext]];
-		
+		[request setPredicate:[NSPredicate predicateWithFormat:@"desfiles.@count > 0"]];
 		[request setFetchBatchSize:20];
 		
-		NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"nome" ascending:YES] autorelease];
+		NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"nomeSemAcento" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByNome]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:@"nome" cacheName:@"ListaBlocosCache"];
+																		 sectionNameKeyPath:@"nomeLetraInicial" cacheName:@"ListaBlocosCache"];
 		fetchedResultsController.delegate = self;
 		
 		[request release];

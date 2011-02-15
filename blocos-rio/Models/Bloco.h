@@ -14,6 +14,8 @@
 }
 
 @property (nonatomic, retain) NSString * nome;
+@property (nonatomic, retain) NSString * nomeLetraInicial;
+@property (nonatomic, retain) NSString * nomeSemAcento;
 @property (nonatomic, retain) NSSet* desfiles;
 
 @end

@@ -18,5 +18,6 @@
 @interface NSString (Utils)
 
 - (NSString *)trim;
+- (NSString *)removeAccents;
 
 @end

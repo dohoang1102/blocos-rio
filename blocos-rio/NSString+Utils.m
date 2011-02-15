@@ -21,4 +21,10 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (NSString *)removeAccents {
+    NSData *stringData = [self dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *cleanString = [[[NSString alloc] initWithData:stringData encoding:NSASCIIStringEncoding] autorelease];    
+    return cleanString;
+}
+
 @end

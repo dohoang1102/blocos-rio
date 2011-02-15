@@ -14,6 +14,8 @@
 		D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */; };
 		D402D14D12FE5DD000534FBC /* por-bairro.png in Resources */ = {isa = PBXBuildFile; fileRef = D402D14C12FE5DD000534FBC /* por-bairro.png */; };
 		D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */; };
+		D406A0BB1309FC22009A8919 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D406A0B91309FC22009A8919 /* LaunchImage.png */; };
+		D406A0BC1309FC22009A8919 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D406A0BA1309FC22009A8919 /* LaunchImage@2x.png */; };
 		D420FD8A12FA1D4100A822EE /* BlocosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D420FD8912FA1D4100A822EE /* BlocosController.m */; };
 		D420FD8E12FA1DA200A822EE /* Blocos.xib in Resources */ = {isa = PBXBuildFile; fileRef = D420FD8C12FA1DA200A822EE /* Blocos.xib */; };
 		D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71012F9BDFE0096C860 /* UIKit.framework */; };
@@ -76,6 +78,8 @@
 		D402D14C12FE5DD000534FBC /* por-bairro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro.png"; path = "../../blocos-rio-assets/images/por-bairro.png"; sourceTree = "<group>"; };
 		D405D1AA130816070053FDE3 /* ExpandableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandableHeaderView.h; path = Views/ExpandableHeaderView.h; sourceTree = "<group>"; };
 		D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandableHeaderView.m; path = Views/ExpandableHeaderView.m; sourceTree = "<group>"; };
+		D406A0B91309FC22009A8919 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		D406A0BA1309FC22009A8919 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		D420FD8812FA1D4100A822EE /* BlocosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosController.h; sourceTree = "<group>"; };
 		D420FD8912FA1D4100A822EE /* BlocosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosController.m; sourceTree = "<group>"; };
 		D420FD8D12FA1DA200A822EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/Blocos.xib"; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 		D4C692B012FF770200E56F2E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D406A0B91309FC22009A8919 /* LaunchImage.png */,
+				D406A0BA1309FC22009A8919 /* LaunchImage@2x.png */,
 				D4D6FBA013082ACD00F1BE66 /* arrow-right.png */,
 				D4D6FBA113082ACD00F1BE66 /* arrow-right@2x.png */,
 				D4C692B112FF770200E56F2E /* por-blocos.png */,
@@ -490,6 +496,8 @@
 				D4D6FBA213082ACD00F1BE66 /* arrow-right.png in Resources */,
 				D4D6FBA313082ACD00F1BE66 /* arrow-right@2x.png in Resources */,
 				D4D6FC7313083ABE00F1BE66 /* BlocoDetalhes.xib in Resources */,
+				D406A0BB1309FC22009A8919 /* LaunchImage.png in Resources */,
+				D406A0BC1309FC22009A8919 /* LaunchImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +613,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D406A0CA1309FCC4009A8919 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Cypriano";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EA4B76A-6C14-42DC-BED5-7B6C4437A27B";
+				SDKROOT = iphoneos;
+			};
+			name = "App Store";
+		};
+		D406A0CB1309FCC4009A8919 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "blocos-rio/blocos_rio-Prefix.pch";
+				INFOPLIST_FILE = "blocos-rio/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				PRODUCT_NAME = "blocos-rio";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "App Store";
+		};
+		D406A0CC1309FCC4009A8919 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/blocos-rio.app/blocos-rio";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "blocos-rioTests/blocos_rioTests-Prefix.pch";
+				INFOPLIST_FILE = "blocos-rioTests/Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = "App Store";
+		};
 		D426A73F12F9BDFE0096C860 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -725,6 +789,7 @@
 			buildConfigurations = (
 				D426A73F12F9BDFE0096C860 /* Debug */,
 				D426A74012F9BDFE0096C860 /* Release */,
+				D406A0CA1309FCC4009A8919 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -734,6 +799,7 @@
 			buildConfigurations = (
 				D426A74212F9BDFE0096C860 /* Debug */,
 				D426A74312F9BDFE0096C860 /* Release */,
+				D406A0CB1309FCC4009A8919 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -743,6 +809,7 @@
 			buildConfigurations = (
 				D426A74512F9BDFE0096C860 /* Debug */,
 				D426A74612F9BDFE0096C860 /* Release */,
+				D406A0CC1309FCC4009A8919 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

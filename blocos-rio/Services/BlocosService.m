@@ -195,6 +195,7 @@
         if (!bloco) {
             bloco = [NSEntityDescription insertNewObjectForEntityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
             [bloco setValue:blocoNome forKey:@"nome"];
+            [bloco setValue:[blocoNome removeAccents] forKey:@"nomeSemAcento"];
         }
         
         NSString *bairroNome = [campos objectForKey:@"bairro"];
@@ -213,7 +214,10 @@
         NSManagedObject *desfile = [NSEntityDescription insertNewObjectForEntityForName:@"Desfile" inManagedObjectContext:managedObjectContext];
         [desfile setValue:bloco forKey:@"bloco"];
         [desfile setValue:bairro forKey:@"bairro"];
-        [desfile setValue:[campos objectForKey:@"data"] forKey:@"dataHora"];
+        id dataHora = [campos objectForKey:@"data"];
+        if (![dataHora isKindOfClass:[NSNull class]]) {
+            [desfile setValue:[campos objectForKey:@"data"] forKey:@"dataHora"];
+        }
         [desfile setValue:[campos objectForKey:@"endereco"] forKey:@"endereco"];
     }
     [request release];
