@@ -72,7 +72,6 @@
         NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@:00", horaAtual, nil];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
-        dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:-3];
         NSDate *dataHoraConvertida = [dateFormatter dateFromString:dataHora];
         [dateFormatter release];        
         
