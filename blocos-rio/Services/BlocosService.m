@@ -185,9 +185,10 @@
 
     for (NSDictionary *campos in blocosRawArray) {
         NSString *blocoNome = [campos objectForKey:@"nome"];
+		NSString *blocoNomeSemAcento = [blocoNome removeAccents];
         ZAssert(blocoNome, @"Nome do bloco inexistente %@", campos);
         [request setEntity:blocoEntity];
-        [request setPredicate:[NSPredicate predicateWithFormat:@"nome == %@", blocoNome]];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"nomeSemAcento == %@", blocoNomeSemAcento]];
         
         NSManagedObject *bloco = [[managedObjectContext executeFetchRequest:request error:&error] lastObject];
         ZAssert(error == nil, @"Erro ao procurar bloco %@", [error localizedDescription]);
@@ -195,7 +196,7 @@
         if (!bloco) {
             bloco = [NSEntityDescription insertNewObjectForEntityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
             [bloco setValue:blocoNome forKey:@"nome"];
-            [bloco setValue:[blocoNome removeAccents] forKey:@"nomeSemAcento"];
+            [bloco setValue:blocoNomeSemAcento forKey:@"nomeSemAcento"];
         }
         
         NSString *bairroNome = [campos objectForKey:@"bairro"];

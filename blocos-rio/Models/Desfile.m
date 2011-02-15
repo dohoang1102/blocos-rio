@@ -19,7 +19,12 @@
     NSString *tmpValue = nil;
     
     [self willAccessValueForKey:@"dataSemHora"];
-    tmpValue = [[self.dataHora dateWithoutTime] dateToMediumStyleString];
+	if (self.dataHora != nil) {
+		tmpValue = [[self.dataHora dateWithoutTime] dateToMediumStyleString];
+	} else {
+		tmpValue = @"Sem Data";
+	}
+
     [self didAccessValueForKey:@"dataSemHora"];
     
     return tmpValue;
