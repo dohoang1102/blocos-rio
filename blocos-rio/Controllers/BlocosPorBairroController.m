@@ -92,7 +92,8 @@
 		
         NSSortDescriptor *sortByBairro = [[[NSSortDescriptor alloc] initWithKey:@"bairro.nome" ascending:YES] autorelease];
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
-		[request setSortDescriptors:[NSArray arrayWithObjects:sortByBairro, sortByData, nil]];
+        NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"bloco.nome" ascending:YES] autorelease];
+		[request setSortDescriptors:[NSArray arrayWithObjects:sortByBairro, sortByData, sortByNome, nil]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
 																		 sectionNameKeyPath:@"bairro.nome" cacheName:nil];
