@@ -55,6 +55,9 @@
     ZAssert(error == nil, @"Erro ao obter desfiles do bloco %@: %@", bloco, [error localizedDescription]);    
     
     [self updateComponentWithBlocoData];
+    
+    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Ações" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil 
+                                     otherButtonTitles:@"Ver no Mapa", nil];
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -71,8 +74,8 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [actionSheet release];
+    actionSheet = nil;
 }
 
 
@@ -110,7 +113,6 @@
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId] autorelease];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     cell.textLabel.text = [desfile.dataHora dateTimeToMediumStyleString];
@@ -132,6 +134,10 @@
 
 #pragma mark -
 #pragma mark UITableViewDelegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [actionSheet showInView:self.view];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60.0;
@@ -173,6 +179,23 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark -
+#pragma mark UIActionSheetDelegate methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        Desfile *desfile = (Desfile *) [self.desfilesFetchedResults objectAtIndexPath:[tableView indexPathForSelectedRow]];
+        NSString *mapsQuery = [NSString stringWithFormat:@"%@, %@ - Rio de Janeiro", desfile.endereco, desfile.bairro.nome];
+        NSString *mapsURL = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [mapsQuery stringWithPercentEscape]];
+        [[UIApplication sharedApplication] openURL:[[NSURL alloc] initWithString:mapsURL]];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+    }
+}
 
 #pragma mark -
 #pragma mark Private methods

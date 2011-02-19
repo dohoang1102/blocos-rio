@@ -27,4 +27,8 @@
     return cleanString;
 }
 
+- (NSString*)stringWithPercentEscape {            
+    return [(NSString *) CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)[[self mutableCopy] autorelease], NULL, CFSTR("￼=,!$&'()*+;@?\n\"<>#\t :/"),kCFStringEncodingUTF8) autorelease];
+}
+
 @end

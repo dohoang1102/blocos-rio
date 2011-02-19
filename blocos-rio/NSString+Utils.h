@@ -19,5 +19,6 @@
 
 - (NSString *)trim;
 - (NSString *)removeAccents;
+- (NSString*)stringWithPercentEscape;
 
 @end

@@ -15,9 +15,10 @@
 #import <UIKit/UIKit.h>
 #import "Bloco.h"
 
-@interface BlocoDetalhesController : UIViewController<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate> {
+@interface BlocoDetalhesController : UIViewController<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIActionSheetDelegate> {
 @private
     CGFloat maxRowSize;
+    UIActionSheet *actionSheet;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *lblNome;
