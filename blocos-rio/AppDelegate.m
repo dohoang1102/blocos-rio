@@ -39,17 +39,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self copyBundledBlocosXmlToDocumentsDir];
+    [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     
     NSManagedObjectContext *moc = self.managedObjectContext;
     
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] initWithManagedObjectContext:moc] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
+    UINavigationController *navBairro = [[[UINavigationController alloc] initWithRootViewController:bairro] autorelease];
+    navBairro.navigationBar.tintColor = [UIColor blackColor];
 //    FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
     OpcoesController *opcoes = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoes] autorelease];
+    navOpcoes.navigationBar.tintColor = [UIColor blackColor];
     tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, bairro, navOpcoes, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, navBairro, navOpcoes, nil];
     tabBarController.selectedViewController = blocosPorData;
 	
     self.window.rootViewController = self.tabBarController;
