@@ -25,4 +25,6 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc;
 
+- (IBAction)scrollToFirstTodaysRow;
+
 @end

@@ -95,7 +95,7 @@
 	if (!fetchedResultsController) {
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", [NSDate date]]];
+		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", [[NSDate date] dateWithoutTime]]];
 		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
@@ -167,5 +167,25 @@
 //    header.textLabel.text = [self tableView:aTableView titleForHeaderInSection:(NSInteger)section];
 //    return header;
 //}
+
+#pragma mark -
+#pragma mark Eventos da view
+
+- (IBAction)scrollToFirstTodaysRow {
+    NSString *dataSemHoraHoje = [Desfile dateToDataSemHora:[NSDate date]];
+    NSUInteger section = NSNotFound;
+    NSArray *sections = [self.fetchedResultsController sections];
+    for (NSUInteger i = 0; i < sections.count; i++) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:i];
+        if ([[sectionInfo name] isEqual:dataSemHoraHoje]) {
+            section = i;
+            break;
+        }
+    }
+    if (section != NSNotFound) {
+        NSIndexPath *firstTodaysRow = [NSIndexPath indexPathForRow:0 inSection:section];
+        [tableView scrollToRowAtIndexPath:firstTodaysRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
 
 @end

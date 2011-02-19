@@ -12,10 +12,14 @@
 @interface Desfile : NSManagedObject {
 @private
 }
+
++ (NSString *)dateToDataSemHora:(NSDate *)date;
+
 @property (nonatomic, retain) NSString * endereco;
 @property (nonatomic, retain) NSDate * dataHora;
 @property (nonatomic, retain) NSString * dataSemHora;
 @property (nonatomic, retain) Bloco * bloco;
 @property (nonatomic, retain) Bairro * bairro;
+
 
 @end
