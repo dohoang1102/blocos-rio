@@ -13,6 +13,7 @@
 //    limitations under the License.
 #import <UIKit/UIKit.h>
 
+#define kBlocoPorDataLastDateSeen @"BlocosPorDataLastDateSeen"
 
 @interface BlocosPorDataController : UIViewController<NSFetchedResultsControllerDelegate> {
 @private

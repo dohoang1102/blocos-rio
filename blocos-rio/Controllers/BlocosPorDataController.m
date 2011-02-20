@@ -95,7 +95,8 @@
 	if (!fetchedResultsController) {
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", [[NSDate date] dateWithoutTime]]];
+        NSDate *currentDate = [[NSDate date] dateWithoutTime];
+		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", currentDate]];
 		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
@@ -106,6 +107,9 @@
 		fetchedResultsController.delegate = self;
 		
 		[request release];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:currentDate forKey:kBlocoPorDataLastDateSeen];        
 	}
 	
 	return fetchedResultsController;

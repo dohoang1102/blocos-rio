@@ -14,7 +14,6 @@
 
 #import "AppDelegate.h"
 #import "BlocosController.h"
-#import "BlocosPorDataController.h"
 #import "FavoritosController.h"
 #import "BlocosPorBairroController.h"
 #import "BlocosService.h"
@@ -44,7 +43,7 @@
     NSManagedObjectContext *moc = self.managedObjectContext;
     
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
-    BlocosPorDataController *blocosPorData = [[[BlocosPorDataController alloc] initWithManagedObjectContext:moc] autorelease];
+    blocosPorData = [[BlocosPorDataController alloc] initWithManagedObjectContext:moc];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBairro = [[[UINavigationController alloc] initWithRootViewController:bairro] autorelease];
     navBairro.navigationBar.tintColor = [UIColor blackColor];
@@ -68,6 +67,25 @@
      */
 }
 
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    shouldTryToScrollToTodaysRow = YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    if (shouldTryToScrollToTodaysRow && tabBarController.selectedViewController == blocosPorData) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDate *lastDate = [defaults objectForKey:kBlocoPorDataLastDateSeen];
+        NSDate *currentDate = [[NSDate date] dateWithoutTime];
+        if ([currentDate compare:lastDate] == NSOrderedDescending) {
+            [blocosPorData scrollToFirstTodaysRow];
+            
+            [defaults setObject:currentDate forKey:kBlocoPorDataLastDateSeen];
+        }
+        
+        shouldTryToScrollToTodaysRow = NO;
+    }
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Save data if appropriate.
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -76,6 +94,7 @@
 - (void)dealloc {
     [window release];
     [navigationController release];
+    [blocosPorData release];
     [tabBarController release];
     [managedObjectContext_ release];
     [managedObjectModel_ release];

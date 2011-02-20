@@ -13,11 +13,13 @@
 //    limitations under the License.
 
 #import <UIKit/UIKit.h>
+#import "BlocosPorDataController.h"
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
 @private
-
     UINavigationController *navigationController;
+    BOOL shouldTryToScrollToTodaysRow;
+    BlocosPorDataController *blocosPorData;
 }
 
 + (AppDelegate *)sharedDelegate;
