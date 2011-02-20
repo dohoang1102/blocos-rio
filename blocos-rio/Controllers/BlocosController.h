@@ -17,7 +17,8 @@
 
 @interface BlocosController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
 @private
-
+    NSArray *searchResultsArray;
+    NSFetchRequest *searchFetchRequest;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;

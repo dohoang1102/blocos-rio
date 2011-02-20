@@ -312,11 +312,11 @@
 				D46657B612F9CA350041AF53 /* MainWindow.xib */,
 				D420FD8C12FA1DA200A822EE /* Blocos.xib */,
 				D402D14312FE566500534FBC /* BlocosPorData.xib */,
+				D4D6FC7113083ABE00F1BE66 /* BlocoDetalhes.xib */,
 				D446AB79130781F500A39517 /* DesfileEnderecoCell.h */,
 				D446AB7A130781F500A39517 /* DesfileEnderecoCell.m */,
 				D405D1AA130816070053FDE3 /* ExpandableHeaderView.h */,
 				D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */,
-				D4D6FC7113083ABE00F1BE66 /* BlocoDetalhes.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";

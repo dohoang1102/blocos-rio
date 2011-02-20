@@ -47,6 +47,7 @@
     [tableView release];
     [managedObjectContext release];
     [fetchedResultsController release];
+    [searchResultsArray release];
     [super dealloc];
 }
 
@@ -72,10 +73,18 @@
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]);
+    
+    searchFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
+    [searchFetchRequest setEntity:blocoEntity];    
+    NSSortDescriptor *sortSearchByNome = [NSSortDescriptor sortDescriptorWithKey:@"nome" ascending:YES];
+    [searchFetchRequest setSortDescriptors:[NSArray arrayWithObject:sortSearchByNome]];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+    [searchFetchRequest release];
+    searchFetchRequest = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -87,8 +96,14 @@
 
 #pragma mark UITableViewDelegate methods
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Bloco *bloco = (Bloco *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+- (void) tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	Bloco *bloco = nil;
+    if (aTableView == self.tableView) {
+        bloco = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    } else if (aTableView == self.searchDisplayController.searchResultsTableView) {
+        bloco = [searchResultsArray objectAtIndex:indexPath.row];
+    }
+
     BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:bloco];
     detalhes.managedObjectContext = self.managedObjectContext;
     [self presentModalViewController:detalhes animated:YES];
@@ -97,13 +112,24 @@
 
 #pragma mark UITableViewDataSource methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
+    NSInteger numberOfSections = 1;
+    if (aTableView == self.tableView) {
+        numberOfSections = [[self.fetchedResultsController sections] count];
+    }
+    return numberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-	id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    NSInteger numberOfRows = 0;
+    if (aTableView == self.tableView) {
+        id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        numberOfRows = [sectionInfo numberOfObjects];
+    } else if (aTableView == self.searchDisplayController.searchResultsTableView) {
+        numberOfRows = [searchResultsArray count];
+    }
+
+    return numberOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,23 +140,46 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
     }
     
-	NSManagedObject *bloco = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	NSManagedObject *bloco = nil;
+    if (aTableView == self.tableView) {
+        bloco = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    } else if (aTableView == self.searchDisplayController.searchResultsTableView) {
+        bloco = [searchResultsArray objectAtIndex:indexPath.row];
+    }
+    
     cell.textLabel.text = [bloco valueForKey:@"nome"];
 
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo name];
+- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section { 
+    NSString *title = @"Resultados";
+    if (aTableView == self.tableView) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        title = [sectionInfo name];
+    }
+    return title;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [self.fetchedResultsController sectionIndexTitles];
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)aTableView {
+    NSMutableArray *indexTitles = nil;
+    if (aTableView == self.tableView) {
+        indexTitles = [NSMutableArray arrayWithObject:UITableViewIndexSearch];  // add magnifying glass
+        [indexTitles addObjectsFromArray:[self.fetchedResultsController sectionIndexTitles]];
+    }
+    
+    return indexTitles;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {    
-    return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+    NSInteger section = -1;
+    if (title == UITableViewIndexSearch) {
+        [aTableView scrollRectToVisible:self.searchDisplayController.searchBar.frame animated:NO];
+    } else {
+        section = [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index-1];
+    }
+
+    return section;
 }
 
 #pragma mark -
@@ -160,6 +209,34 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [tableView reloadData];
+}
+
+#pragma mark -
+#pragma mark Search methods
+
+- (void)searchBlocosByNome:(NSString *)searchTerm {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
+    [request setEntity:blocoEntity];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"nome CONTAINS[cd] %@", searchTerm]];
+    
+    NSError *error = nil;
+    if (searchResultsArray) {
+        [searchResultsArray release];
+    }
+    searchResultsArray = [[managedObjectContext executeFetchRequest:request error:&error] retain];
+    [request release];
+    ZAssert(error == nil, @"Erro ao procurar bloco por nome %@", [error localizedDescription]);
+}
+
+#pragma mark -
+#pragma mark UISearchDisplayControllerDelegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self searchBlocosByNome:searchString];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 @end
