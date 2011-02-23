@@ -22,13 +22,24 @@
 
 @implementation NSDate (Utils)
 
+static NSCalendar *calendar;
 - (NSDate *)dateWithoutTime { 
-    NSDateComponents* comps = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];
+    if (calendar == nil) {
+        calendar = [[NSCalendar currentCalendar] retain];
+    }
+    NSDateComponents* comps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
+static NSDateFormatter *dateMediumFormatter;
 - (NSString *)dateToMediumStyleString {
-    return [self dateToStringWithDateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
+    if (dateMediumFormatter == nil) {
+        dateMediumFormatter = [[NSDateFormatter alloc] init];
+        dateMediumFormatter.dateStyle = NSDateFormatterMediumStyle;
+        dateMediumFormatter.timeStyle = NSDateFormatterNoStyle;
+    }
+    return [dateMediumFormatter stringFromDate:self];
+    //return [self dateToStringWithDateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
 }
 
 - (NSString *)dateTimeToMediumStyleString {
@@ -41,12 +52,14 @@
 
 #pragma mark -
 #pragma mark Private
+static NSDateFormatter *dateFormatter;
 - (NSString *)dateToStringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle { 
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+    }
     dateFormatter.dateStyle = dateStyle;
     dateFormatter.timeStyle = timeStyle;
     NSString *convertida = [dateFormatter stringFromDate:self];
-    [dateFormatter release];
     return convertida;    
 }; 
 

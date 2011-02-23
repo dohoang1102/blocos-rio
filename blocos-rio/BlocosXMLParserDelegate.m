@@ -19,19 +19,27 @@
 
 @synthesize parseError;
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
+        
+        releasePool = [[NSAutoreleasePool alloc] init];        
+    }
+    return self;
+}
+
 - (NSArray *)blocosRawArray {
     return [[blocosRawData copy] autorelease];
 }
 
 - (void)dealloc {
-    [dataAtual release];
-    [bairroAtual release];
-    [nomeAtual release];
-    [enderecoAtual release];
-    [horaAtual release];
     [currentStringValue release];
     [blocosRawData release];
     [parseError release];
+    [releasePool release]; 
+    [dateFormatter release];
     [super dealloc];
 }
 
@@ -42,6 +50,10 @@
         [parseError release];
         parseError = nil;
     }
+}
+
+- (void) parserDidEndDocument:(NSXMLParser *)parser {
+    [releasePool drain];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
@@ -59,13 +71,13 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName { 
     if ([elementName isEqualToString:@"d"]) {
-        dataAtual = [[currentStringValue trim] copy];
+        dataAtual = [[[currentStringValue trim] copy] autorelease];
     } else if ([elementName isEqualToString:@"b"]) {
-        bairroAtual = [[currentStringValue trim] copy];
+        bairroAtual = [[[currentStringValue trim] copy] autorelease];
     } else if ([elementName isEqualToString:@"n"]) {
-        nomeAtual = [[currentStringValue trim] copy];
+        nomeAtual = [[[currentStringValue trim] copy] autorelease];
     } else if ([elementName isEqualToString:@"e"]) {
-        enderecoAtual = [[currentStringValue trim] copy];
+        enderecoAtual = [[[currentStringValue trim] copy] autorelease];
     } else if ([elementName isEqualToString:@"h"]) {
         if ([currentStringValue isEqualToString:@""]) {
             [currentStringValue appendString:@"00"];
@@ -73,10 +85,7 @@
         horaAtual = [[currentStringValue trim] copy];
         
         NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@:00", horaAtual, nil];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
         NSDate *dataHoraConvertida = [dateFormatter dateFromString:dataHora];
-        [dateFormatter release];        
         
         NSMutableDictionary *dadosBloco = [NSMutableDictionary dictionaryWithObjectsAndKeys: 
                                     bairroAtual,@"bairro", 
@@ -91,10 +100,6 @@
         [blocosRawData addObject:imutableDados];
         [imutableDados release];
         
-        [dataAtual release];
-        [bairroAtual release];
-        [nomeAtual release];
-        [enderecoAtual release];
         [horaAtual release];
     }
     
@@ -103,7 +108,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)theParseError {
-    NSLog(@"Blocos XML error. Line %d Column %d -- %@", parser.lineNumber, parser.columnNumber, theParseError);
+    DLog(@"Blocos XML error. Line %d Column %d -- %@", parser.lineNumber, parser.columnNumber, theParseError);
     parseError = [theParseError retain];
 }
 

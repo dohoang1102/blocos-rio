@@ -27,6 +27,9 @@
     
     NSMutableString *currentStringValue;
     NSMutableArray *blocosRawData;
+    
+    NSDateFormatter *dateFormatter;
+    NSAutoreleasePool *releasePool;
 }
 
 @property (nonatomic, readonly) NSError *parseError; 
