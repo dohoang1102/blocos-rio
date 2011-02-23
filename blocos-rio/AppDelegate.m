@@ -72,11 +72,12 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    if (shouldTryToScrollToTodaysRow && tabBarController.selectedViewController == blocosPorData) {
+    if (shouldTryToScrollToTodaysRow) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSDate *lastDate = [defaults objectForKey:kBlocoPorDataLastDateSeen];
         NSDate *currentDate = [[NSDate date] dateWithoutTime];
         if ([currentDate compare:lastDate] == NSOrderedDescending) {
+            [blocosPorData atualizarProximoDiaDesfiles];
             [blocosPorData scrollToFirstTodaysRow];
             
             [defaults setObject:currentDate forKey:kBlocoPorDataLastDateSeen];

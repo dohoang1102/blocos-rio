@@ -17,15 +17,17 @@
 
 @interface BlocosPorDataController : UIViewController<NSFetchedResultsControllerDelegate> {
 @private
-    
+    NSDate *proximoDiaDesfiles;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *btnHoje;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc;
 
 - (IBAction)scrollToFirstTodaysRow;
+- (void)atualizarProximoDiaDesfiles;
 
 @end

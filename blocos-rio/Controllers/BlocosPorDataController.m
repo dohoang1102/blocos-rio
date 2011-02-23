@@ -20,7 +20,7 @@
 
 @implementation BlocosPorDataController
 
-@synthesize managedObjectContext, fetchedResultsController, tableView;
+@synthesize managedObjectContext, fetchedResultsController, tableView, btnHoje;
 
 - (id)init {
     self = [self initWithNibName:@"BlocosPorData" bundle:nil];
@@ -72,11 +72,44 @@
     [super viewDidLoad];
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
-    ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]);
+    ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]); 
+    
+    [self atualizarProximoDiaDesfiles];
+}
+
+- (void)atualizarProximoDiaDesfiles {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
+    NSDate *currentDate = [[NSDate date] dateWithoutTime];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ AND dataHora != NULL", currentDate]];
+    NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortByData]];
+    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSArray *desfiles = [managedObjectContext executeFetchRequest:request error:&error];
+    [request release];
+    ZAssert(error == nil, @"Erro ao obter primeiro dia de desfiles %@", [error localizedDescription]);
+    if (desfiles.count > 0) {
+        proximoDiaDesfiles = [[[desfiles objectAtIndex:0] dataHora] retain];
+        
+        if ([[proximoDiaDesfiles dateWithoutTime] compare:[[NSDate date] dateWithoutTime]] == NSOrderedSame) {
+            btnHoje.title = @"Hoje";            
+        } else {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"dd";
+            btnHoje.title = [NSString stringWithFormat:@"Dia %@", [dateFormatter stringFromDate:proximoDiaDesfiles]];
+            [dateFormatter release];
+        }
+    } else {
+        proximoDiaDesfiles = [[NSDate date] retain];
+        btnHoje.title = @"Hoje";
+    }
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+    [proximoDiaDesfiles release];
+    proximoDiaDesfiles = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -176,12 +209,12 @@
 #pragma mark Eventos da view
 
 - (IBAction)scrollToFirstTodaysRow {
-    NSString *dataSemHoraHoje = [Desfile dateToDataSemHora:[NSDate date]];
+    NSString *proximaDataSemHora = [Desfile dateToDataSemHora:proximoDiaDesfiles];
     NSUInteger section = NSNotFound;
     NSArray *sections = [self.fetchedResultsController sections];
     for (NSUInteger i = 0; i < sections.count; i++) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:i];
-        if ([[sectionInfo name] isEqual:dataSemHoraHoje]) {
+        if ([[sectionInfo name] isEqual:proximaDataSemHora]) {
             section = i;
             break;
         }

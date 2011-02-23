@@ -218,7 +218,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
     [request setEntity:blocoEntity];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"nome CONTAINS[cd] %@", searchTerm]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"nome CONTAINS[cd] %@ AND desfiles.@count > 0", searchTerm]];
     
     NSError *error = nil;
     if (searchResultsArray) {

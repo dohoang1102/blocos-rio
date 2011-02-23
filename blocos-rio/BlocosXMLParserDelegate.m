@@ -59,15 +59,18 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName { 
     if ([elementName isEqualToString:@"d"]) {
-        dataAtual = [[currentStringValue copy] trim];
+        dataAtual = [[currentStringValue trim] copy];
     } else if ([elementName isEqualToString:@"b"]) {
-        bairroAtual = [[currentStringValue copy] trim];
+        bairroAtual = [[currentStringValue trim] copy];
     } else if ([elementName isEqualToString:@"n"]) {
-        nomeAtual = [[currentStringValue copy] trim];
+        nomeAtual = [[currentStringValue trim] copy];
     } else if ([elementName isEqualToString:@"e"]) {
-        enderecoAtual = [[currentStringValue copy] trim];
+        enderecoAtual = [[currentStringValue trim] copy];
     } else if ([elementName isEqualToString:@"h"]) {
-        horaAtual = ![currentStringValue isEqualToString:@""] ? [[currentStringValue copy] trim] : @"00";
+        if ([currentStringValue isEqualToString:@""]) {
+            [currentStringValue appendString:@"00"];
+        }
+        horaAtual = [[currentStringValue trim] copy];
         
         NSString *dataHora = [dataAtual stringByAppendingFormat:@" %@:00", horaAtual, nil];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -87,6 +90,12 @@
         NSDictionary *imutableDados = [dadosBloco copy];
         [blocosRawData addObject:imutableDados];
         [imutableDados release];
+        
+        [dataAtual release];
+        [bairroAtual release];
+        [nomeAtual release];
+        [enderecoAtual release];
+        [horaAtual release];
     }
     
     [currentStringValue release];
