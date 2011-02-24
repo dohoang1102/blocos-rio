@@ -17,10 +17,30 @@
 
 #define kUrlToUpdate @"http://dl.dropbox.com/u/8159675/blocodroid/blocos.zip"
 
+/**
+ * Faz o parser do XML e o import pro banco de dados numa thread separada
+ */
+@interface UpdateBlocosDataOperation : NSOperation {
+    NSManagedObjectContext *backgroundManagedContext;
+    NSString *blocosXmlPath;
+    BlocosXMLParserDelegate *blocosXMLDelegate;
+}
+
+@property (nonatomic, retain) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, assign) BlocosService *service;
+
+- initWithBlocosXmlPath:(NSString *)xmlPath;
+- (BlocosXMLParserDelegate *)blocosXmlParserDelegate;
+- (void)saveBlocosRawArray:(NSArray *)blocosRawArray;
+
+@end
+
+
+
 @interface BlocosService (Private)
 - (void)unzipAndUpdate:(NSString *)zipFile;
-- (void)saveBlocosRawArray:(NSArray *)blocosRawArray;
-- (BlocosXMLParserDelegate *)blocoXmlParserDelegate;
+- (void)serviceFailedWithError:(NSError *)error;
+- (void)serviceDidUpdateBlocosOnDate:(NSDate *)lastUpdateDate;
 @end
 
 @implementation BlocosService
@@ -35,26 +55,16 @@
 - (void)updateBlocosDataWithLocalXml {
     [self retain];
     
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[BlocosService blocosXmlUrl]];
-    parser.delegate = [self blocoXmlParserDelegate];
-    parser.shouldResolveExternalEntities = NO;
-    [parser parse];
-    [parser release];
-    
-    if ([self blocoXmlParserDelegate].parseError == nil) {
-        [self saveBlocosRawArray:[[self blocoXmlParserDelegate] blocosRawArray]];
-    } else {
-        if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
-            [delegate blocosService:self didFailWithError:[self blocoXmlParserDelegate].parseError];
-        }
-        [self release];
-    }
+    UpdateBlocosDataOperation *updateOperation = [[UpdateBlocosDataOperation alloc] initWithBlocosXmlPath:[[BlocosService blocosXmlUrl] path]];
+    updateOperation.persistentStoreCoordinator = [managedObjectContext persistentStoreCoordinator];
+    updateOperation.service = self;
+    [[[AppDelegate sharedDelegate] operationQueue] addOperation:updateOperation];
+    [updateOperation release];    
 }
 
 - (void)dealloc {
     [zipData release];
     [errorOnHTTPRequest release];
-    [blocosXMLDelegate release];
     [managedObjectContext release];
     [super dealloc];
 }
@@ -136,28 +146,12 @@
     
     NSString *unzipPath = [NSTemporaryDirectory() stringByAppendingString:@"blocos"];
     if ([zip UnzipFileTo:unzipPath overWrite:YES]) {
-        
-        [self blocoXmlParserDelegate];
-        
-        NSURL *xml = [NSURL fileURLWithPath:[unzipPath stringByAppendingString:@"/blocos-2011.xml"]];
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:xml];
-        parser.delegate = blocosXMLDelegate;
-        parser.shouldResolveExternalEntities = NO;
-        [parser parse];
-        [parser release];
-        
-        if (blocosXMLDelegate.parseError == nil) {
-            NSError *error = nil;
-            [[NSFileManager defaultManager] copyItemAtURL:xml toURL:[BlocosService blocosXmlUrl] error:&error];
-            ZAssert(error != nil, @"Copia do XML falhou %@\n%@", [error localizedDescription], [error userInfo]);
-            
-            [self saveBlocosRawArray:[blocosXMLDelegate blocosRawArray]];
-        } else {
-            if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
-                [delegate blocosService:self didFailWithError:[self blocoXmlParserDelegate].parseError];
-            }
-            [self release];
-        }
+        NSString *xmlPath = [unzipPath stringByAppendingString:@"/blocos-2011.xml"];
+        UpdateBlocosDataOperation *updateOperation = [[UpdateBlocosDataOperation alloc] initWithBlocosXmlPath:xmlPath];
+        updateOperation.persistentStoreCoordinator = [managedObjectContext persistentStoreCoordinator];
+        updateOperation.service = self;
+        [[[AppDelegate sharedDelegate] operationQueue] addOperation:updateOperation];
+        [updateOperation release];
     }
     
     [zip UnzipCloseFile];
@@ -165,24 +159,98 @@
 }
 
 -(void) ErrorMessage:(NSString*) msg {
+    NSError *error = [NSError errorWithDomain:@"Unzip" code:0 userInfo:[NSDictionary dictionaryWithObject:msg forKey:@"message"]];
+    [self serviceFailedWithError:error];
+}
+
+- (void)serviceFailedWithError:(NSError *)error {
     if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
-        NSError *error = [NSError errorWithDomain:@"Unzip" code:0 userInfo:[NSDictionary dictionaryWithObject:msg forKey:@"message"]];
         [delegate blocosService:self didFailWithError:error];
     }
     [self release];
 }
 
+- (void)serviceDidUpdateBlocosOnDate:(NSDate *)lastUpdateDate {
+    if ([delegate respondsToSelector:@selector(blocosService:didUpdateBlocosDataOnDate:)]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:lastUpdateDate forKey:kLastUpdateDateKey];
+        [delegate blocosService:self didUpdateBlocosDataOnDate:lastUpdateDate];
+    }
+    [self release];
+}
+
+@end
+
+@implementation UpdateBlocosDataOperation
+
+@synthesize persistentStoreCoordinator, service;
+
+- initWithBlocosXmlPath:(NSString *)xmlPath {
+    self = [super init];
+    if (self) {
+        blocosXmlPath = [xmlPath retain];
+    }
+    return self;
+}
+
+- (void) dealloc {
+    [blocosXmlPath release];
+    [persistentStoreCoordinator release];
+    [backgroundManagedContext release];
+    [super dealloc];
+}
+
+- (NSManagedObjectContext *)backgroundManagedContext {
+    ZAssert(self.persistentStoreCoordinator, @"Persistent store coordinator não setado");
+    if (!backgroundManagedContext) {
+        backgroundManagedContext = [[NSManagedObjectContext alloc] init];
+        [backgroundManagedContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    }
+    return backgroundManagedContext;
+}
+
+- (void) main {
+    ZAssert(blocosXmlPath, @"xmlPath não setado");
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(backgroundContextDidSave:)
+                                                 name:NSManagedObjectContextDidSaveNotification
+                                               object:backgroundManagedContext];    
+    
+    NSURL *xml = [NSURL fileURLWithPath:blocosXmlPath];
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:xml];
+    parser.delegate = self.blocosXmlParserDelegate;
+    parser.shouldResolveExternalEntities = NO;
+    [parser parse];
+    [parser release];
+    
+    if (self.blocosXmlParserDelegate.parseError == nil) {
+        NSError *error = nil;
+        [[NSFileManager defaultManager] copyItemAtURL:xml toURL:[BlocosService blocosXmlUrl] error:&error];
+        ZAssert(error != nil, @"Copia do XML falhou %@\n%@", [error localizedDescription], [error userInfo]);
+
+        // TODO salvar os dados oriundos do XML
+        [self saveBlocosRawArray:[blocosXMLDelegate blocosRawArray]];
+    } else {
+        [service performSelectorOnMainThread:@selector(serviceFailedWithError:) withObject:self.blocosXmlParserDelegate.parseError waitUntilDone:NO];
+    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSManagedObjectContextDidSaveNotification
+                                                  object:backgroundManagedContext];
+}
+
 - (void)saveBlocosRawArray:(NSArray *)blocosRawArray {
-    ZAssert(managedObjectContext, @"managedObjectContext não setado.");
+    ZAssert(self.backgroundManagedContext, @"backgroundManagedContext não setado.");
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
-    NSEntityDescription *bairroEntity = [NSEntityDescription entityForName:@"Bairro" inManagedObjectContext:managedObjectContext];
+    NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:backgroundManagedContext];
+    NSEntityDescription *bairroEntity = [NSEntityDescription entityForName:@"Bairro" inManagedObjectContext:backgroundManagedContext];
     
     NSError *error = nil;
     
-    [managedObjectContext deleteAllObjects:@"Desfile"];
-
+    [backgroundManagedContext deleteAllObjects:@"Desfile"];
+    
     for (NSDictionary *campos in blocosRawArray) {
         NSString *blocoNome = [campos objectForKey:@"nome"];
 		NSString *blocoNomeSemAcento = [blocoNome removeAccents];
@@ -190,11 +258,11 @@
         [request setEntity:blocoEntity];
         [request setPredicate:[NSPredicate predicateWithFormat:@"nomeSemAcento == %@", blocoNomeSemAcento]];
         
-        NSManagedObject *bloco = [[managedObjectContext executeFetchRequest:request error:&error] lastObject];
+        NSManagedObject *bloco = [[backgroundManagedContext executeFetchRequest:request error:&error] lastObject];
         ZAssert(error == nil, @"Erro ao procurar bloco %@", [error localizedDescription]);
         
         if (!bloco) {
-            bloco = [NSEntityDescription insertNewObjectForEntityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
+            bloco = [NSEntityDescription insertNewObjectForEntityForName:@"Bloco" inManagedObjectContext:backgroundManagedContext];
             [bloco setValue:blocoNome forKey:@"nome"];
             [bloco setValue:blocoNomeSemAcento forKey:@"nomeSemAcento"];
         }
@@ -204,15 +272,15 @@
         [request setEntity:bairroEntity];
         [request setPredicate:[NSPredicate predicateWithFormat:@"nome == %@", bairroNome]];
         
-        NSManagedObject *bairro = [[managedObjectContext executeFetchRequest:request error:&error] lastObject];
+        NSManagedObject *bairro = [[backgroundManagedContext executeFetchRequest:request error:&error] lastObject];
         ZAssert(error == nil, @"Erro ao procurar bairro %@", [error localizedDescription]);
         
         if (!bairro) {
-            bairro = [NSEntityDescription insertNewObjectForEntityForName:@"Bairro" inManagedObjectContext:managedObjectContext];
+            bairro = [NSEntityDescription insertNewObjectForEntityForName:@"Bairro" inManagedObjectContext:backgroundManagedContext];
             [bairro setValue:bairroNome forKey:@"nome"];
         }
         
-        NSManagedObject *desfile = [NSEntityDescription insertNewObjectForEntityForName:@"Desfile" inManagedObjectContext:managedObjectContext];
+        NSManagedObject *desfile = [NSEntityDescription insertNewObjectForEntityForName:@"Desfile" inManagedObjectContext:backgroundManagedContext];
         [desfile setValue:bloco forKey:@"bloco"];
         [desfile setValue:bairro forKey:@"bairro"];
         id dataHora = [campos objectForKey:@"data"];
@@ -223,25 +291,29 @@
     }
     [request release];
     
-    [managedObjectContext save:&error];
+    [backgroundManagedContext save:&error];
     ZAssert(error == nil, @"Erro salvando atualização de blocos %@", [error localizedDescription]);
     if (error) {
-        if ([delegate respondsToSelector:@selector(blocosService:didFailWithError:)]) {
-            [delegate blocosService:self didFailWithError:error];
-        }
+        [service performSelectorOnMainThread:@selector(serviceFailedWithError:) withObject:error waitUntilDone:NO];
     } else {
-        if ([delegate respondsToSelector:@selector(blocosService:didUpdateBlocosDataOnDate:)]) {
-            NSDate *lastUpdate = [NSDate date];
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:lastUpdate forKey:kLastUpdateDateKey];
-            [delegate blocosService:self didUpdateBlocosDataOnDate:lastUpdate];
-        }
+        [service performSelectorOnMainThread:@selector(serviceDidUpdateBlocosOnDate:) withObject:[NSDate date] waitUntilDone:NO];
     }
-    
-    [self release];
 }
 
-- (BlocosXMLParserDelegate *)blocoXmlParserDelegate {
+- (void)backgroundContextDidSave:(NSNotification *)notification {
+    /* Make sure we're on the main thread when updating the main context */
+    if (![NSThread isMainThread]) {
+        [self performSelectorOnMainThread:@selector(backgroundContextDidSave:)
+                               withObject:notification
+                            waitUntilDone:NO];
+        return;
+    }
+    
+    /* merge in the changes to the main context */
+    [service.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
+}
+
+- (BlocosXMLParserDelegate *)blocosXmlParserDelegate {
     if (blocosXMLDelegate == nil) {
         blocosXMLDelegate = [[BlocosXMLParserDelegate alloc] init];
     }
@@ -249,3 +321,4 @@
 }
 
 @end
+

@@ -32,6 +32,8 @@
 
 @synthesize managedObjectContext=managedObjectContext_, managedObjectModel=managedObjectModel_, persistentStoreCoordinator=persistentStoreCoordinator_;
 
+@synthesize operationQueue;
+
 + (AppDelegate *)sharedDelegate {
     return [UIApplication sharedApplication].delegate;
 }
@@ -100,6 +102,7 @@
     [managedObjectContext_ release];
     [managedObjectModel_ release];
     [persistentStoreCoordinator_ release];
+    [operationQueue release];
     [super dealloc];
 }
 
@@ -118,6 +121,13 @@
             abort();
         } 
     }
+}
+
+- (NSOperationQueue *) operationQueue {
+    if (!operationQueue) {
+        operationQueue = [[NSOperationQueue alloc] init];
+    }
+    return operationQueue;
 }
 
 #pragma mark - Core Data stack

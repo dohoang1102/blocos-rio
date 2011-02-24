@@ -31,8 +31,6 @@
 @private
     NSMutableData *zipData;
     NSError *errorOnHTTPRequest;
-    
-    BlocosXMLParserDelegate *blocosXMLDelegate;
 }
 
 + (NSURL *)blocosXmlUrl;

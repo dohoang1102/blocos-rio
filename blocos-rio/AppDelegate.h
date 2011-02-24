@@ -33,6 +33,8 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (nonatomic, readonly) NSOperationQueue *operationQueue; 
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (NSString *)applicationDocumentsDirectoryString;
