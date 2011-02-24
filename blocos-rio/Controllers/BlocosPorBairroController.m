@@ -13,8 +13,7 @@
 //    limitations under the License.
 
 #import "BlocosPorBairroController.h"
-#import "Desfile.h"
-#import "BlocoDetalhesController.h"
+#import "DesfilesDoBairroController.h"
 
 @implementation BlocosPorBairroController
 
@@ -31,8 +30,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Blocos Por Bairro";
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Bairro" image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
+        self.title = @"Bairros";
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Bairros" image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
     }
     return self;
 }
@@ -86,17 +85,15 @@
 	
 	if (!fetchedResultsController) {
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
-		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@", [NSDate date]]];
+		[request setEntity:[NSEntityDescription entityForName:@"Bairro" inManagedObjectContext:managedObjectContext]];
+		[request setPredicate:[NSPredicate predicateWithFormat:@"desfiles.@count > 0"]];
 		[request setFetchBatchSize:20];
 		
-        NSSortDescriptor *sortByBairro = [[[NSSortDescriptor alloc] initWithKey:@"bairro.nome" ascending:YES] autorelease];
-		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
-        NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"bloco.nome" ascending:YES] autorelease];
-		[request setSortDescriptors:[NSArray arrayWithObjects:sortByBairro, sortByData, sortByNome, nil]];
+        NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"nome" ascending:YES] autorelease];
+		[request setSortDescriptors:[NSArray arrayWithObjects:sortByNome, nil]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:@"bairro.nome" cacheName:nil];
+																		 sectionNameKeyPath:nil cacheName:nil];
 		fetchedResultsController.delegate = self;
 		
 		[request release];
@@ -124,15 +121,15 @@
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"BlocosPorBairroCell";
     
-	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
+	NSManagedObject *bairro = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = desfile.bloco.nome;
-    cell.detailTextLabel.text = [desfile.dataHora dateTimeToMediumStyleString];
+    cell.textLabel.text = [bairro valueForKey:@"nome"];
     
     return cell;
 }
@@ -155,11 +152,10 @@
 #pragma mark UITableViewDelegate methods
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
-    BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:desfile.bloco];
-    detalhes.managedObjectContext = self.managedObjectContext;
-    [self presentModalViewController:detalhes animated:YES];
-    [detalhes release];
+	id bairro = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	DesfilesDoBairroController *desfiles = [[DesfilesDoBairroController alloc] initWithBairro:bairro managedObjectContext:managedObjectContext];
+	[self.navigationController pushViewController:desfiles animated:YES];
+	[desfiles release];
 }
 
 @end

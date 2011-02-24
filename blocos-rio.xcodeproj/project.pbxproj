@@ -48,6 +48,7 @@
 		D4A0B40A1304B18300710056 /* Bloco.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B4091304B18300710056 /* Bloco.m */; };
 		D4A0B40D1304C40500710056 /* Desfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B40C1304C40500710056 /* Desfile.m */; };
 		D4A0B4111304CBC500710056 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B4101304CBC500710056 /* NSDate+Utils.m */; };
+		D4A85AA01316D618001B6311 /* DesfilesDoBairroController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85A9F1316D618001B6311 /* DesfilesDoBairroController.m */; };
 		D4C692B312FF770200E56F2E /* por-blocos.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B112FF770200E56F2E /* por-blocos.png */; };
 		D4C692B412FF770200E56F2E /* por-blocos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B212FF770200E56F2E /* por-blocos@2x.png */; };
 		D4C692CB12FF86E200E56F2E /* blocos.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4C692CA12FF86E200E56F2E /* blocos.xml */; };
@@ -127,6 +128,8 @@
 		D4A0B40C1304C40500710056 /* Desfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Desfile.m; path = Models/Desfile.m; sourceTree = "<group>"; };
 		D4A0B40F1304CBC500710056 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Utils.h"; path = "Categories/NSDate+Utils.h"; sourceTree = "<group>"; };
 		D4A0B4101304CBC500710056 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Utils.m"; path = "Categories/NSDate+Utils.m"; sourceTree = "<group>"; };
+		D4A85A9E1316D618001B6311 /* DesfilesDoBairroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesfilesDoBairroController.h; sourceTree = "<group>"; };
+		D4A85A9F1316D618001B6311 /* DesfilesDoBairroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesfilesDoBairroController.m; sourceTree = "<group>"; };
 		D4C692B112FF770200E56F2E /* por-blocos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos.png"; sourceTree = "<group>"; };
 		D4C692B212FF770200E56F2E /* por-blocos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos@2x.png"; sourceTree = "<group>"; };
 		D4C692CA12FF86E200E56F2E /* blocos.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blocos.xml; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */,
 				D43CC32413088FB2005CC417 /* BlocoDetalhesController.h */,
 				D43CC32513088FB2005CC417 /* BlocoDetalhesController.m */,
+				D4A85A9E1316D618001B6311 /* DesfilesDoBairroController.h */,
+				D4A85A9F1316D618001B6311 /* DesfilesDoBairroController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */,
 				D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */,
 				D43CC32613088FB2005CC417 /* BlocoDetalhesController.m in Sources */,
+				D4A85AA01316D618001B6311 /* DesfilesDoBairroController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
