@@ -22,8 +22,7 @@
     UILabel *lblHora;
 }
 
-@property (nonatomic, retain) Desfile *desfile;
-
-- (id)initWithDesfile:(Desfile *)umDesfile reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (void)updateWithDesfile:(Desfile *)newDesfile;
 
 @end

@@ -227,6 +227,19 @@
     }
 }
 
+#pragma mark -
+#pragma mark Merge da atualização em background
+- (void)blocosServiceBackgroundContextDidSave:(NSNotification *)notification {
+    if (![NSThread isMainThread]) {
+        [self performSelectorOnMainThread:@selector(blocosServiceBackgroundContextDidSave:)
+                               withObject:notification
+                            waitUntilDone:NO];
+        return;
+    }
+	
+	[[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
+}
+
 
 #pragma mark -
 #pragma mark Private methods

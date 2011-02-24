@@ -211,9 +211,9 @@
 
 - (void) main {
     ZAssert(blocosXmlPath, @"xmlPath não setado");
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(backgroundContextDidSave:)
+	id appDelegate = [AppDelegate sharedDelegate];
+    [[NSNotificationCenter defaultCenter] addObserver:appDelegate
+                                             selector:@selector(blocosServiceBackgroundContextDidSave:)
                                                  name:NSManagedObjectContextDidSaveNotification
                                                object:backgroundManagedContext];    
     
@@ -229,13 +229,12 @@
         [[NSFileManager defaultManager] copyItemAtURL:xml toURL:[BlocosService blocosXmlUrl] error:&error];
         ZAssert(error != nil, @"Copia do XML falhou %@\n%@", [error localizedDescription], [error userInfo]);
 
-        // TODO salvar os dados oriundos do XML
         [self saveBlocosRawArray:[blocosXMLDelegate blocosRawArray]];
     } else {
         [service performSelectorOnMainThread:@selector(serviceFailedWithError:) withObject:self.blocosXmlParserDelegate.parseError waitUntilDone:NO];
     }
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self
+    [[NSNotificationCenter defaultCenter] removeObserver:appDelegate
                                                     name:NSManagedObjectContextDidSaveNotification
                                                   object:backgroundManagedContext];
 }
@@ -298,19 +297,6 @@
     } else {
         [service performSelectorOnMainThread:@selector(serviceDidUpdateBlocosOnDate:) withObject:[NSDate date] waitUntilDone:NO];
     }
-}
-
-- (void)backgroundContextDidSave:(NSNotification *)notification {
-    /* Make sure we're on the main thread when updating the main context */
-    if (![NSThread isMainThread]) {
-        [self performSelectorOnMainThread:@selector(backgroundContextDidSave:)
-                               withObject:notification
-                            waitUntilDone:NO];
-        return;
-    }
-    
-    /* merge in the changes to the main context */
-    [service.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
 }
 
 - (BlocosXMLParserDelegate *)blocosXmlParserDelegate {

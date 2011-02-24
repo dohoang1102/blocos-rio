@@ -17,13 +17,8 @@
 
 @implementation DesfileEnderecoCell
 
-@synthesize desfile;
-
-- (id)initWithDesfile:(Desfile *)umDesfile reuseIdentifier:(NSString *)reuseIdentifier {
+- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [self initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.desfile = umDesfile;
-    }
     return self;
 }
 
@@ -71,19 +66,13 @@
     [lblNome release];
     [lblEndereco release];
     [lblHora release];
-    [desfile release];
     [super dealloc];
 }
 
-- (void)setDesfile:(Desfile *)newDesfile {
-    if (newDesfile != desfile) {
-        [desfile release];
-        desfile = [newDesfile retain];
-    }
-    
-    lblNome.text = desfile.bloco.nome;
-    lblEndereco.text = [NSString stringWithFormat:@"%@, %@", desfile.endereco, desfile.bairro.nome];
-    lblHora.text = [desfile.dataHora timeToString];
+- (void)updateWithDesfile:(Desfile *)newDesfile {
+    lblNome.text = newDesfile.bloco.nome;
+    lblEndereco.text = [NSString stringWithFormat:@"%@, %@", newDesfile.endereco, newDesfile.bairro.nome];
+    lblHora.text = [newDesfile.dataHora timeToString];
 }
 
 

@@ -171,10 +171,10 @@
     
     DesfileEnderecoCell *cell = (DesfileEnderecoCell *) [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[[DesfileEnderecoCell alloc] initWithDesfile:desfile reuseIdentifier:cellId] autorelease];
-    } else {
-        cell.desfile = desfile;
+        cell = [[[DesfileEnderecoCell alloc] initWithReuseIdentifier:cellId] autorelease];
     }
+	
+	[cell updateWithDesfile:desfile];
 
     return cell;
 }
@@ -194,16 +194,6 @@
     [self presentModalViewController:detalhes animated:YES];
     [detalhes release];
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return [ExpandableHeaderView viewHeight];
-//}
-//
-//- (UIView *)tableView:(UITableView *)aTableView viewForHeaderInSection:(NSInteger)section {
-//    ExpandableHeaderView *header = [ExpandableHeaderView expandableHeaderViewForSection:section opened:YES];
-//    header.textLabel.text = [self tableView:aTableView titleForHeaderInSection:(NSInteger)section];
-//    return header;
-//}
 
 #pragma mark -
 #pragma mark Eventos da view
