@@ -23,4 +23,6 @@
 - (NSString *)dateTimeToMediumStyleString;
 - (NSString *)timeToString;
 
+- (CGFloat)daysSince:(NSDate *)sinceDate;
+
 @end

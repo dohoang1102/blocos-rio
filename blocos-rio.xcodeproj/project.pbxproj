@@ -10,7 +10,6 @@
 		D402D0F112FE530900534FBC /* por-data.png in Resources */ = {isa = PBXBuildFile; fileRef = D402D0F012FE530900534FBC /* por-data.png */; };
 		D402D14212FE55AA00534FBC /* BlocosPorDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14112FE55AA00534FBC /* BlocosPorDataController.m */; };
 		D402D14512FE566500534FBC /* BlocosPorData.xib in Resources */ = {isa = PBXBuildFile; fileRef = D402D14312FE566500534FBC /* BlocosPorData.xib */; };
-		D402D14812FE5A4200534FBC /* FavoritosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14712FE5A4200534FBC /* FavoritosController.m */; };
 		D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */; };
 		D402D14D12FE5DD000534FBC /* por-bairro.png in Resources */ = {isa = PBXBuildFile; fileRef = D402D14C12FE5DD000534FBC /* por-bairro.png */; };
 		D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */; };
@@ -72,8 +71,6 @@
 		D402D13E12FE559900534FBC /* BlocosPorDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorDataController.h; sourceTree = "<group>"; };
 		D402D14112FE55AA00534FBC /* BlocosPorDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorDataController.m; sourceTree = "<group>"; };
 		D402D14412FE566500534FBC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/BlocosPorData.xib"; sourceTree = "<group>"; };
-		D402D14612FE5A4200534FBC /* FavoritosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritosController.h; sourceTree = "<group>"; };
-		D402D14712FE5A4200534FBC /* FavoritosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritosController.m; sourceTree = "<group>"; };
 		D402D14912FE5C7E00534FBC /* BlocosPorBairroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorBairroController.h; sourceTree = "<group>"; };
 		D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorBairroController.m; sourceTree = "<group>"; };
 		D402D14C12FE5DD000534FBC /* por-bairro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro.png"; path = "../../blocos-rio-assets/images/por-bairro.png"; sourceTree = "<group>"; };
@@ -272,8 +269,6 @@
 				D420FD8912FA1D4100A822EE /* BlocosController.m */,
 				D402D13E12FE559900534FBC /* BlocosPorDataController.h */,
 				D402D14112FE55AA00534FBC /* BlocosPorDataController.m */,
-				D402D14612FE5A4200534FBC /* FavoritosController.h */,
-				D402D14712FE5A4200534FBC /* FavoritosController.m */,
 				D402D14912FE5C7E00534FBC /* BlocosPorBairroController.h */,
 				D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */,
 				D43CC32413088FB2005CC417 /* BlocoDetalhesController.h */,
@@ -549,7 +544,6 @@
 				D4FE813712FA3D5800C2D0A4 /* BlocosService.m in Sources */,
 				D47B1ED212FE29580036171C /* BlocosXMLParserDelegate.m in Sources */,
 				D402D14212FE55AA00534FBC /* BlocosPorDataController.m in Sources */,
-				D402D14812FE5A4200534FBC /* FavoritosController.m in Sources */,
 				D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */,
 				D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */,
 				D4A0B40A1304B18300710056 /* Bloco.m in Sources */,

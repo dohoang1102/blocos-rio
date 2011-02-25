@@ -15,11 +15,14 @@
 #import <UIKit/UIKit.h>
 #import "BlocosPorDataController.h"
 
+@class OpcoesController;
+
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
 @private
     UINavigationController *navigationController;
-    BOOL shouldTryToScrollToTodaysRow;
+    BOOL didActiveFromBackground;
     BlocosPorDataController *blocosPorData;
+    OpcoesController *opcoesController;
 }
 
 + (AppDelegate *)sharedDelegate;

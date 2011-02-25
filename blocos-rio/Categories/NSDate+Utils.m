@@ -50,6 +50,14 @@ static NSDateFormatter *dateMediumFormatter;
     return [self dateToStringWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
 }
 
+#define kSecondInDay 86400
+- (CGFloat)daysSince:(NSDate *)sinceDate {
+    NSTimeInterval sinceDiff = [sinceDate timeIntervalSinceNow];
+    NSTimeInterval selfDiff = [self timeIntervalSinceNow];
+    NSTimeInterval dateDiff = selfDiff - sinceDiff;
+    return dateDiff / kSecondInDay;
+}
+
 #pragma mark -
 #pragma mark Private
 static NSDateFormatter *dateFormatter;

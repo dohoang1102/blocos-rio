@@ -173,7 +173,7 @@
 - (void)serviceDidUpdateBlocosOnDate:(NSDate *)lastUpdateDate {
     if ([delegate respondsToSelector:@selector(blocosService:didUpdateBlocosDataOnDate:)]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:lastUpdateDate forKey:kLastUpdateDateKey];
+        [defaults setObject:lastUpdateDate forKey:kBlocosServiceLastUpdateDateKey];
         [delegate blocosService:self didUpdateBlocosDataOnDate:lastUpdateDate];
     }
     [self release];

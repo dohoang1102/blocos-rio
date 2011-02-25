@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import "BlocosXMLParserDelegate.h"
 
-#define kLastUpdateDateKey @"BlocosServiceLastUpdateBlocosKey"
+#define kBlocosServiceLastUpdateDateKey @"BlocosServiceLastUpdateBlocosKey"
 
 @class BlocosService;
 

@@ -54,6 +54,16 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)atualizarDados {
+    [updateIndicator startAnimating];
+    
+    BlocosService *service = [[BlocosService alloc] init];
+    service.delegate = self;
+    service.managedObjectContext = managedObjectContext;
+    [service updateBlocosData];
+    [service release];    
+}
+
 #pragma mark - View lifecycle
 
 /*
@@ -66,13 +76,16 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    updateIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    
+    updateIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    lastUpdateDate = [[defaults objectForKey:kLastUpdateDateKey] retain];
+    lastUpdateDate = [[defaults objectForKey:kBlocosServiceLastUpdateDateKey] retain];
     
     lastUpdateInfo = lastUpdateDate == nil ? @"nunca" : [lastUpdateDate dateTimeToMediumStyleString];
-    [lastUpdateInfo retain];
+    [lastUpdateInfo retain];    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload {
@@ -122,13 +135,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [updateIndicator startAnimating];
-    
-    BlocosService *service = [[BlocosService alloc] init];
-    service.delegate = self;
-    service.managedObjectContext = managedObjectContext;
-    [service updateBlocosData];
-    [service release];
+    [self atualizarDados];
 }
 
 #pragma mark -

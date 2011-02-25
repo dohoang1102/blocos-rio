@@ -14,13 +14,14 @@
 
 #import "AppDelegate.h"
 #import "BlocosController.h"
-#import "FavoritosController.h"
 #import "BlocosPorBairroController.h"
 #import "BlocosService.h"
 #import "OpcoesController.h"
 
 @interface AppDelegate (Private)
 - (void)copyBundledBlocosXmlToDocumentsDir;
+- (void)atualizarDadosUmaVezPorDia;
+- (void)tryToScrollBlocosPorDiaTableView;
 @end
 
 
@@ -49,9 +50,8 @@
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBairro = [[[UINavigationController alloc] initWithRootViewController:bairro] autorelease];
     navBairro.navigationBar.tintColor = [UIColor blackColor];
-//    FavoritosController *favoritos = [[[FavoritosController alloc] init] autorelease];
-    OpcoesController *opcoes = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
-    UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoes] autorelease];
+    opcoesController = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
+    UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoesController] autorelease];
     navOpcoes.navigationBar.tintColor = [UIColor blackColor];
     tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, navBairro, navOpcoes, nil];
@@ -70,23 +70,38 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    shouldTryToScrollToTodaysRow = YES;
+    didActiveFromBackground = YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    if (shouldTryToScrollToTodaysRow) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDate *lastDate = [defaults objectForKey:kBlocoPorDataLastDateSeen];
-        NSDate *currentDate = [[NSDate date] dateWithoutTime];
-        if ([currentDate compare:lastDate] == NSOrderedDescending) {
-            [blocosPorData atualizarProximoDiaDesfiles];
-            [blocosPorData scrollToFirstTodaysRow];
-            
-            [defaults setObject:currentDate forKey:kBlocoPorDataLastDateSeen];
-        }
+    if (didActiveFromBackground) {
+        [self atualizarDadosUmaVezPorDia];
+        [self tryToScrollBlocosPorDiaTableView];
         
-        shouldTryToScrollToTodaysRow = NO;
+        didActiveFromBackground = NO;
     }
+}
+
+- (void)tryToScrollBlocosPorDiaTableView {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastDate = [defaults objectForKey:kBlocoPorDataLastDateSeen];
+    NSDate *currentDate = [[NSDate date] dateWithoutTime];
+    if ([currentDate compare:lastDate] == NSOrderedDescending) {
+        [blocosPorData atualizarProximoDiaDesfiles];
+        [blocosPorData scrollToFirstTodaysRow];
+        
+        [defaults setObject:currentDate forKey:kBlocoPorDataLastDateSeen];
+    }
+}
+
+- (void)atualizarDadosUmaVezPorDia {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastUpdate = [defaults objectForKey:kBlocosServiceLastUpdateDateKey];
+    NSDate *currentDate = [NSDate date];
+    if (lastUpdate == nil || [currentDate daysSince:lastUpdate] >= 1) {
+        [opcoesController atualizarDados];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -103,6 +118,7 @@
     [managedObjectModel_ release];
     [persistentStoreCoordinator_ release];
     [operationQueue release];
+    [opcoesController release];
     [super dealloc];
 }
 

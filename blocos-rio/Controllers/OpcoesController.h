@@ -26,4 +26,6 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc;
 
+- (void)atualizarDados;
+
 @end
