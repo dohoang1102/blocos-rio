@@ -198,19 +198,21 @@
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext]];
 		[request setPredicate:[NSPredicate predicateWithFormat:@"desfiles.@count > 0"]];
-		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"nomeSemAcento" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByNome]];
 		
 		fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:@"nomeLetraInicial" cacheName:@"ListaBlocosCache"];
+																		 sectionNameKeyPath:@"nomeLetraInicial" cacheName:nil];
 		fetchedResultsController.delegate = self;
 		
 		[request release];
 	}
 	
 	return fetchedResultsController;
+}
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    DLog(@"");
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {

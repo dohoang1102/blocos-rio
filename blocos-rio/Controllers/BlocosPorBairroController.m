@@ -87,7 +87,6 @@
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Bairro" inManagedObjectContext:managedObjectContext]];
 		[request setPredicate:[NSPredicate predicateWithFormat:@"desfiles.@count > 0"]];
-		[request setFetchBatchSize:20];
 		
         NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"nome" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObjects:sortByNome, nil]];

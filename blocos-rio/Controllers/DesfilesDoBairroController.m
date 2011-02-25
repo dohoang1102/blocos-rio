@@ -93,7 +93,6 @@
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
 		id bairro = [managedObjectContext objectWithID:bairroId];
 		[request setPredicate:[NSPredicate predicateWithFormat:@"bairro == %@ AND dataHora >= %@", bairro, [NSDate date]]];
-		[request setFetchBatchSize:20];
 		
         NSSortDescriptor *sortByDataHora = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
         NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"bloco.nome" ascending:YES] autorelease];

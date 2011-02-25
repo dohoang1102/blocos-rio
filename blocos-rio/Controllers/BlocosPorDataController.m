@@ -137,7 +137,6 @@
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
         NSDate *currentDate = [[NSDate date] dateWithoutTime];
 		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", currentDate]];
-		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByData]];
@@ -153,6 +152,10 @@
 	}
 	
 	return fetchedResultsController;
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    DLog(@"");
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {

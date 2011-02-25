@@ -153,7 +153,6 @@
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
 		[request setPredicate:[NSPredicate predicateWithFormat:@"bloco = %@", bloco]];
-		[request setFetchBatchSize:20];
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObjects:sortByData, nil]];

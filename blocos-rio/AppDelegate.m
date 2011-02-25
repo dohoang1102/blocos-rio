@@ -158,6 +158,7 @@
         if (coordinator != nil) {
             managedObjectContext_ = [[NSManagedObjectContext alloc] init];
             [managedObjectContext_ setPersistentStoreCoordinator:coordinator];
+            [managedObjectContext_ setMergePolicy:NSOverwriteMergePolicy];
         }
     }
     
