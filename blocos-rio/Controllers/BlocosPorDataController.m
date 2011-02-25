@@ -75,6 +75,11 @@
     ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]); 
     
     [self atualizarProximoDiaDesfiles];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselectSelectedRow:) name:kBlocoDetalhesDismissModalNotification object:nil];
+}
+
+- (void)deselectSelectedRow:(NSNotification *)notification {
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)atualizarProximoDiaDesfiles {
@@ -110,6 +115,8 @@
     [super viewDidUnload];
     [proximoDiaDesfiles release];
     proximoDiaDesfiles = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -192,7 +199,7 @@
     BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:desfile.bloco];
     detalhes.managedObjectContext = self.managedObjectContext;
     [self presentModalViewController:detalhes animated:YES];
-    [detalhes release];
+    [detalhes release];    
 }
 
 #pragma mark -

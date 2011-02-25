@@ -15,6 +15,8 @@
 #import <UIKit/UIKit.h>
 #import "Bloco.h"
 
+#define kBlocoDetalhesDismissModalNotification @"BlocoDetalhesDismissModalNotification"
+
 @interface BlocoDetalhesController : UIViewController<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIActionSheetDelegate> {
 @private
     CGFloat maxRowSize;

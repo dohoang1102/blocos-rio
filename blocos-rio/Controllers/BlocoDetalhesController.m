@@ -177,6 +177,7 @@
 
 - (IBAction)btnVoltarTouched {
     [self dismissModalViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kBlocoDetalhesDismissModalNotification object:self];
 }
 
 #pragma mark -

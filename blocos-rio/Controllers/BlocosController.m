@@ -79,14 +79,20 @@
     [searchFetchRequest setEntity:blocoEntity];    
     NSSortDescriptor *sortSearchByNome = [NSSortDescriptor sortDescriptorWithKey:@"nome" ascending:YES];
     [searchFetchRequest setSortDescriptors:[NSArray arrayWithObject:sortSearchByNome]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselectSelectedRow:) name:kBlocoDetalhesDismissModalNotification object:nil];
+}
+
+- (void)deselectSelectedRow:(NSNotification *)notification {
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     [searchFetchRequest release];
     searchFetchRequest = nil;
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
