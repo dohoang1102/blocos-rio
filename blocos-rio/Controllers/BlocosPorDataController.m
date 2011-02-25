@@ -154,10 +154,6 @@
 	return fetchedResultsController;
 }
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    DLog(@"");
-}
-
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [tableView reloadData];
 }
