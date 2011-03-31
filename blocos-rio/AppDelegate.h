@@ -15,6 +15,8 @@
 #import <UIKit/UIKit.h>
 #import "BlocosPorDataController.h"
 
+#define kDataUltimoDesfileKey @"DataUltimoDesfileUserKey"
+
 @class OpcoesController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
@@ -41,6 +43,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (NSString *)applicationDocumentsDirectoryString;
+- (BOOL)shoudlShowOnlyFutureDesfiles;
 
 
 @end

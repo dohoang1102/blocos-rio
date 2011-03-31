@@ -74,7 +74,13 @@
     [self.fetchedResultsController performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]); 
     
-    [self atualizarProximoDiaDesfiles];
+    if ([[AppDelegate sharedDelegate] shoudlShowOnlyFutureDesfiles]) {
+        [self atualizarProximoDiaDesfiles];
+    } else {
+        btnHoje.title = @"Início";
+        btnHoje.action = @selector(scrollToTableViewTop);
+    }
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselectSelectedRow:) name:kBlocoDetalhesDismissModalNotification object:nil];
 }
 
@@ -133,10 +139,13 @@
     ZAssert(managedObjectContext, @"managedObjectContext não setado");
 	
 	if (!fetchedResultsController) {
+        NSDate *currentDate = [[NSDate date] dateWithoutTime];
+        
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-        NSDate *currentDate = [[NSDate date] dateWithoutTime];
-		[request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", currentDate]];
+        if ([[AppDelegate sharedDelegate] shoudlShowOnlyFutureDesfiles]) {
+            [request setPredicate:[NSPredicate predicateWithFormat:@"dataHora >= %@ OR dataHora = NULL", currentDate]];
+        }        
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObject:sortByData]];
@@ -219,6 +228,10 @@
         NSIndexPath *firstTodaysRow = [NSIndexPath indexPathForRow:0 inSection:section];
         [tableView scrollToRowAtIndexPath:firstTodaysRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
+}
+
+- (void)scrollToTableViewTop {
+    [tableView setContentOffset:CGPointZero animated:YES];
 }
 
 @end

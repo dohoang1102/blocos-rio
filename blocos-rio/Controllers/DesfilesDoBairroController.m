@@ -97,10 +97,17 @@
     ZAssert(managedObjectContext, @"managedObjectContext não setado");
 	
 	if (!fetchedResultsController) {
+        NSPredicate *desfilesPredicate = nil;
+        id bairro = [managedObjectContext objectWithID:bairroId];
+        if ([[AppDelegate sharedDelegate] shoudlShowOnlyFutureDesfiles]) {
+            desfilesPredicate = [NSPredicate predicateWithFormat:@"bairro == %@ AND dataHora >= %@", bairro, [[NSDate date] dateWithoutTime]];
+        } else {
+            desfilesPredicate = [NSPredicate predicateWithFormat:@"bairro == %@", bairro];
+        }        
+        
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		[request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:managedObjectContext]];
-		id bairro = [managedObjectContext objectWithID:bairroId];
-		[request setPredicate:[NSPredicate predicateWithFormat:@"bairro == %@ AND dataHora >= %@", bairro, [[NSDate date] dateWithoutTime]]];
+		[request setPredicate:desfilesPredicate];
 		
         NSSortDescriptor *sortByDataHora = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
         NSSortDescriptor *sortByNome = [[[NSSortDescriptor alloc] initWithKey:@"bloco.nome" ascending:YES] autorelease];

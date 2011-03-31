@@ -22,6 +22,7 @@
 - (void)copyBundledBlocosXmlToDocumentsDir;
 - (void)atualizarDadosUmaVezPorDia;
 - (void)tryToScrollBlocosPorDiaTableView;
+- (void)atualizarDataUltimoDesfile;
 @end
 
 
@@ -44,6 +45,12 @@
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     
     NSManagedObjectContext *moc = self.managedObjectContext;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    id dataUltimoDesfile = [userDefaults objectForKey:kDataUltimoDesfileKey];
+    if (dataUltimoDesfile == nil) {
+        [self atualizarDataUltimoDesfile];
+    }
     
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     blocosPorData = [[BlocosPorDataController alloc] initWithManagedObjectContext:moc];
@@ -98,10 +105,17 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDate *lastUpdate = [defaults objectForKey:kBlocosServiceLastUpdateDateKey];
     NSDate *currentDate = [NSDate date];
-    if (lastUpdate == nil || [currentDate daysSince:lastUpdate] >= 1) {
+    if (lastUpdate == nil || ([self shoudlShowOnlyFutureDesfiles] && [currentDate daysSince:lastUpdate] >= 1)) {
         [opcoesController atualizarDados];
     }
     
+}
+
+- (BOOL)shoudlShowOnlyFutureDesfiles {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *ultimoDesfile = [defaults objectForKey:kDataUltimoDesfileKey];
+    NSDate *currentDate = [NSDate date];
+    return [currentDate compare:ultimoDesfile] != NSOrderedDescending;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -255,6 +269,7 @@
     }
 	
 	[[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
+    [self atualizarDataUltimoDesfile];
 }
 
 
@@ -275,6 +290,22 @@
             [service updateBlocosDataWithLocalXml];
         }
     }    
+}
+
+- (void)atualizarDataUltimoDesfile {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Desfile" inManagedObjectContext:[self managedObjectContext]]];
+    NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:NO] autorelease];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortByData]];
+    [request setFetchLimit:1];
+    
+    NSError *error = nil;
+    id ultimoDesfile = [[[self managedObjectContext] executeFetchRequest:request error:&error] lastObject];
+    ZAssert(error == nil, @"Erro ao atualizar data do último desfile. Causa: %@ %@", [error localizedDescription], [error userInfo]);
+    [request release];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:[ultimoDesfile dataHora] forKey:kDataUltimoDesfileKey];
 }
 
 
