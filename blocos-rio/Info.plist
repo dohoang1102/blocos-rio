@@ -32,11 +32,13 @@
 	<key>CFBundleURLTypes</key>
 	<array/>
 	<key>CFBundleVersion</key>
-	<string>1.1.1</string>
+	<string>1.1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>UILaunchImageFile</key>
+	<string>LaunchImage</string>
 	<key>UIPrerenderedIcon</key>
 	<string>YES</string>
 	<key>UISupportedInterfaceOrientations</key>
@@ -50,7 +52,5 @@
 	<array/>
 	<key>UTImportedTypeDeclarations</key>
 	<array/>
-	<key>UILaunchImageFile</key>
-	<string>LaunchImage</string>
 </dict>
 </plist>
