@@ -17,6 +17,7 @@
 #import "BlocosPorBairroController.h"
 #import "BlocosService.h"
 #import "OpcoesController.h"
+#import "TrackingService.h"
 
 @interface AppDelegate (Private)
 - (void)copyBundledBlocosXmlToDocumentsDir;
@@ -26,7 +27,9 @@
 @end
 
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    TrackingService *trackingService;
+}
 
 @synthesize window;
 @synthesize navigationController;
@@ -37,7 +40,7 @@
 @synthesize operationQueue;
 
 + (AppDelegate *)sharedDelegate {
-    return [UIApplication sharedApplication].delegate;
+    return UIAppDelegate;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -66,6 +69,9 @@
 	
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+
+    trackingService = [[TrackingService alloc] init];
+    [trackingService trackUsageWithTarget:self selector:_cmd];
     return YES;
 }
 
@@ -78,6 +84,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     didActiveFromBackground = YES;
+    [trackingService trackUsageWithTarget:self selector:_cmd];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -118,9 +125,28 @@
     return [currentDate compare:ultimoDesfile] != NSOrderedDescending;
 }
 
+#define USER_UUID_KEY @"UserUUID"
+- (NSString *)userUUID {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *uuid = [userDefaults stringForKey:USER_UUID_KEY];
+    if (!uuid) {
+        CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+        uuid = (NSString *) CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+        CFRelease(uuidRef);
+
+        [userDefaults setObject:uuid forKey:USER_UUID_KEY];
+    }
+    return uuid;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [trackingService trackUsageWithTarget:self selector:_cmd];
+}
+
+
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Save data if appropriate.
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [trackingService trackUsageWithTarget:self selector:_cmd];
 }
 
 - (void)dealloc {
@@ -133,6 +159,7 @@
     [persistentStoreCoordinator_ release];
     [operationQueue release];
     [opcoesController release];
+    [trackingService release];
     [super dealloc];
 }
 

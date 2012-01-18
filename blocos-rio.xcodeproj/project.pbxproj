@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55139F1414C61BD60061879C /* TrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 55139F1314C61BD60061879C /* TrackingService.m */; };
 		D402D0F112FE530900534FBC /* por-data.png in Resources */ = {isa = PBXBuildFile; fileRef = D402D0F012FE530900534FBC /* por-data.png */; };
 		D402D14212FE55AA00534FBC /* BlocosPorDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14112FE55AA00534FBC /* BlocosPorDataController.m */; };
 		D402D14512FE566500534FBC /* BlocosPorData.xib in Resources */ = {isa = PBXBuildFile; fileRef = D402D14312FE566500534FBC /* BlocosPorData.xib */; };
@@ -64,9 +65,12 @@
 		D4FE813312FA3CC400C2D0A4 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812C12FA3CC400C2D0A4 /* zip.c */; };
 		D4FE813412FA3CC400C2D0A4 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812F12FA3CC400C2D0A4 /* ZipArchive.mm */; };
 		D4FE813712FA3D5800C2D0A4 /* BlocosService.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813612FA3D5800C2D0A4 /* BlocosService.m */; };
+		D4FE813812FA3D5E00C2D0A7 /* TrackUsageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0A6 /* TrackUsageOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55139F1214C61BD60061879C /* TrackingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackingService.h; path = Services/TrackingService.h; sourceTree = "<group>"; };
+		55139F1314C61BD60061879C /* TrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackingService.m; path = Services/TrackingService.m; sourceTree = "<group>"; };
 		D402D0F012FE530900534FBC /* por-data.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-data.png"; path = "../../blocos-rio-assets/images/por-data.png"; sourceTree = "<group>"; };
 		D402D13E12FE559900534FBC /* BlocosPorDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorDataController.h; sourceTree = "<group>"; };
 		D402D14112FE55AA00534FBC /* BlocosPorDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorDataController.m; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		D4FE812F12FA3CC400C2D0A4 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		D4FE813512FA3D5800C2D0A4 /* BlocosService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlocosService.h; path = Services/BlocosService.h; sourceTree = "<group>"; };
 		D4FE813612FA3D5800C2D0A4 /* BlocosService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlocosService.m; path = Services/BlocosService.m; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0A6 /* TrackUsageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackUsageOperation.m; path = Services/TrackUsageOperation.m; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0A8 /* TrackUsageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackUsageOperation.h; path = Services/TrackUsageOperation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,8 +408,20 @@
 				D4FE813612FA3D5800C2D0A4 /* BlocosService.m */,
 				D47B1ED012FE29580036171C /* BlocosXMLParserDelegate.h */,
 				D47B1ED112FE29580036171C /* BlocosXMLParserDelegate.m */,
+				D4FE813812FA3D5E00C2D0A5 /* Track Usage */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		D4FE813812FA3D5E00C2D0A5 /* Track Usage */ = {
+			isa = PBXGroup;
+			children = (
+				D4FE813812FA3D5E00C2D0A8 /* TrackUsageOperation.h */,
+				D4FE813812FA3D5E00C2D0A6 /* TrackUsageOperation.m */,
+				55139F1214C61BD60061879C /* TrackingService.h */,
+				55139F1314C61BD60061879C /* TrackingService.m */,
+			);
+			name = "Track Usage";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +468,7 @@
 		D426A70312F9BDFE0096C860 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Felipe Cypriano";
 			};
 			buildConfigurationList = D426A70612F9BDFE0096C860 /* Build configuration list for PBXProject "blocos-rio" */;
@@ -556,6 +575,8 @@
 				D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */,
 				D43CC32613088FB2005CC417 /* BlocoDetalhesController.m in Sources */,
 				D4A85AA01316D618001B6311 /* DesfilesDoBairroController.m in Sources */,
+				55139F1414C61BD60061879C /* TrackingService.m in Sources */,
+				D4FE813812FA3D5E00C2D0A7 /* TrackUsageOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,11 +640,11 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Felipe Cypriano";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EA4B76A-6C14-42DC-BED5-7B6C4437A27B";
@@ -638,8 +659,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blocos-rio/blocos_rio-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "blocos-rio/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "blocos-rio";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -658,6 +680,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blocos-rioTests/blocos_rioTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "blocos-rioTests/Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -677,11 +700,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 			};
@@ -693,11 +716,11 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -713,8 +736,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blocos-rio/blocos_rio-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "blocos-rio/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "blocos-rio";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -728,8 +752,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blocos-rio/blocos_rio-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "blocos-rio/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "blocos-rio";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -748,6 +773,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blocos-rioTests/blocos_rioTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "blocos-rioTests/Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -770,6 +796,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blocos-rioTests/blocos_rioTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "blocos-rioTests/Tests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
