@@ -16,7 +16,10 @@
 #import "DesfileEnderecoCell.h"
 #import "Desfile.h"
 #import "BlocoDetalhesController.h"
+#import "MapController.h"
 
+#define TITLE_TO_BACK_BUTTON @"Dias"
+#define TITLE @"Blocos Por Dia"
 
 @implementation BlocosPorDataController
 
@@ -38,8 +41,13 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Blocos Por Dia";
+        self.title = TITLE;
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Dia" image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
+        btnHoje = [[UIBarButtonItem alloc] initWithTitle:@"Hoje"
+                                                   style:UIBarButtonItemStyleBordered
+                                                  target:self
+                                                  action:@selector(scrollToFirstTodaysRow)];
+        self.navigationItem.rightBarButtonItem = btnHoje;
     }
     return self;
 }
@@ -48,6 +56,8 @@
     [tableView release];
     [managedObjectContext release];
     [fetchedResultsController release];
+    [btnHoje release];
+    [proximoDiaDesfiles release];
     [super dealloc];
 }
 
@@ -132,6 +142,11 @@
     return YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.title = TITLE;
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+}
+
 #pragma mark -
 #pragma mark Fetched results controller
 
@@ -187,6 +202,7 @@
     DesfileEnderecoCell *cell = (DesfileEnderecoCell *) [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[DesfileEnderecoCell alloc] initWithReuseIdentifier:cellId] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 	
 	[cell updateWithDesfile:desfile];
@@ -203,11 +219,11 @@
 #pragma mark UITableViewDelegate methods
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.title = TITLE_TO_BACK_BUTTON;
 	Desfile *desfile = (Desfile *) [self.fetchedResultsController objectAtIndexPath:indexPath];
-    BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:desfile.bloco];
-    detalhes.managedObjectContext = self.managedObjectContext;
-    [self presentModalViewController:detalhes animated:YES];
-    [detalhes release];    
+    MapController *mapController = [[MapController alloc] iniWithDesfile:desfile];
+    [[self navigationController] pushViewController:mapController animated:YES];
+    [mapController release];
 }
 
 #pragma mark -

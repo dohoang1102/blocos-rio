@@ -18,6 +18,8 @@
 		D406A0BC1309FC22009A8919 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D406A0BA1309FC22009A8919 /* LaunchImage@2x.png */; };
 		D420FD8A12FA1D4100A822EE /* BlocosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D420FD8912FA1D4100A822EE /* BlocosController.m */; };
 		D420FD8E12FA1DA200A822EE /* Blocos.xib in Resources */ = {isa = PBXBuildFile; fileRef = D420FD8C12FA1DA200A822EE /* Blocos.xib */; };
+		D425B03914C9F902002CC3F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D425B03814C9F902002CC3F2 /* CoreLocation.framework */; };
+		D425B03B14C9FA13002CC3F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D425B03A14C9FA13002CC3F2 /* MapKit.framework */; };
 		D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71012F9BDFE0096C860 /* UIKit.framework */; };
 		D426A71312F9BDFE0096C860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71212F9BDFE0096C860 /* Foundation.framework */; };
 		D426A71512F9BDFE0096C860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D426A71412F9BDFE0096C860 /* CoreGraphics.framework */; };
@@ -49,6 +51,7 @@
 		D4A0B40D1304C40500710056 /* Desfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B40C1304C40500710056 /* Desfile.m */; };
 		D4A0B4111304CBC500710056 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B4101304CBC500710056 /* NSDate+Utils.m */; };
 		D4A85AA01316D618001B6311 /* DesfilesDoBairroController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85A9F1316D618001B6311 /* DesfilesDoBairroController.m */; };
+		D4AFF1D814CA06550033DDC9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AFF1D714CA06550033DDC9 /* AddressBook.framework */; };
 		D4C692B312FF770200E56F2E /* por-blocos.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B112FF770200E56F2E /* por-blocos.png */; };
 		D4C692B412FF770200E56F2E /* por-blocos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4C692B212FF770200E56F2E /* por-blocos@2x.png */; };
 		D4C692CB12FF86E200E56F2E /* blocos.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4C692CA12FF86E200E56F2E /* blocos.xml */; };
@@ -66,6 +69,7 @@
 		D4FE813412FA3CC400C2D0A4 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = D4FE812F12FA3CC400C2D0A4 /* ZipArchive.mm */; };
 		D4FE813712FA3D5800C2D0A4 /* BlocosService.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813612FA3D5800C2D0A4 /* BlocosService.m */; };
 		D4FE813812FA3D5E00C2D0A7 /* TrackUsageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0A6 /* TrackUsageOperation.m */; };
+		D4FE813812FA3D5E00C2D0AA /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0A9 /* MapController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,8 @@
 		D420FD8912FA1D4100A822EE /* BlocosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosController.m; sourceTree = "<group>"; };
 		D420FD8D12FA1DA200A822EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/Blocos.xib"; sourceTree = "<group>"; };
 		D420FD9012FA200100A822EE /* pt-BR */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D425B03814C9F902002CC3F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D425B03A14C9FA13002CC3F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D426A70C12F9BDFE0096C860 /* blocos-rio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "blocos-rio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D426A71012F9BDFE0096C860 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D426A71212F9BDFE0096C860 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +137,7 @@
 		D4A0B4101304CBC500710056 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Utils.m"; path = "Categories/NSDate+Utils.m"; sourceTree = "<group>"; };
 		D4A85A9E1316D618001B6311 /* DesfilesDoBairroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesfilesDoBairroController.h; sourceTree = "<group>"; };
 		D4A85A9F1316D618001B6311 /* DesfilesDoBairroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesfilesDoBairroController.m; sourceTree = "<group>"; };
+		D4AFF1D714CA06550033DDC9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		D4C692B112FF770200E56F2E /* por-blocos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos.png"; sourceTree = "<group>"; };
 		D4C692B212FF770200E56F2E /* por-blocos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "por-blocos@2x.png"; sourceTree = "<group>"; };
 		D4C692CA12FF86E200E56F2E /* blocos.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = blocos.xml; sourceTree = "<group>"; };
@@ -157,6 +164,8 @@
 		D4FE813612FA3D5800C2D0A4 /* BlocosService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlocosService.m; path = Services/BlocosService.m; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0A6 /* TrackUsageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackUsageOperation.m; path = Services/TrackUsageOperation.m; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0A8 /* TrackUsageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackUsageOperation.h; path = Services/TrackUsageOperation.h; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0A9 /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0AB /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +173,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AFF1D814CA06550033DDC9 /* AddressBook.framework in Frameworks */,
+				D425B03B14C9FA13002CC3F2 /* MapKit.framework in Frameworks */,
+				D425B03914C9F902002CC3F2 /* CoreLocation.framework in Frameworks */,
 				D455BEE212FB4926006A757A /* libz.dylib in Frameworks */,
 				D48768ED12FA2B5600420CE6 /* CoreData.framework in Frameworks */,
 				D426A71112F9BDFE0096C860 /* UIKit.framework in Frameworks */,
@@ -208,6 +220,9 @@
 		D426A70F12F9BDFE0096C860 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4AFF1D714CA06550033DDC9 /* AddressBook.framework */,
+				D425B03A14C9FA13002CC3F2 /* MapKit.framework */,
+				D425B03814C9F902002CC3F2 /* CoreLocation.framework */,
 				D48768EC12FA2B5600420CE6 /* CoreData.framework */,
 				D426A71012F9BDFE0096C860 /* UIKit.framework */,
 				D426A71212F9BDFE0096C860 /* Foundation.framework */,
@@ -269,6 +284,8 @@
 		D426A75312F9C17E0096C860 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE813812FA3D5E00C2D0AB /* MapController.h */,
+				D4FE813812FA3D5E00C2D0A9 /* MapController.m */,
 				D4622137130732D7006FCE9F /* OpcoesController.h */,
 				D4622138130732D7006FCE9F /* OpcoesController.m */,
 				D420FD8812FA1D4100A822EE /* BlocosController.h */,
@@ -577,6 +594,7 @@
 				D4A85AA01316D618001B6311 /* DesfilesDoBairroController.m in Sources */,
 				55139F1414C61BD60061879C /* TrackingService.m in Sources */,
 				D4FE813812FA3D5E00C2D0A7 /* TrackUsageOperation.m in Sources */,
+				D4FE813812FA3D5E00C2D0AA /* MapController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

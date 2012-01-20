@@ -184,6 +184,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
+        // TODO use the MapController with NavigationController
         Desfile *desfile = (Desfile *) [self.desfilesFetchedResults objectAtIndexPath:[tableView indexPathForSelectedRow]];
         NSString *mapsQuery = [NSString stringWithFormat:@"%@, %@ - Rio de Janeiro", desfile.endereco, desfile.bairro.nome];
         NSString *mapsURL = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [mapsQuery stringWithPercentEscape]];

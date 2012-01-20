@@ -54,18 +54,19 @@
     if (dataUltimoDesfile == nil) {
         [self atualizarDataUltimoDesfile];
     }
-    
+
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     blocosPorData = [[BlocosPorDataController alloc] initWithManagedObjectContext:moc];
+    UINavigationController *navData = [[[UINavigationController alloc] initWithRootViewController:blocosPorData] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBairro = [[[UINavigationController alloc] initWithRootViewController:bairro] autorelease];
-    navBairro.navigationBar.tintColor = [UIColor blackColor];
     opcoesController = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoesController] autorelease];
-    navOpcoes.navigationBar.tintColor = [UIColor blackColor];
     tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects: blocosPorData, blocos, navBairro, navOpcoes, nil];
-    tabBarController.selectedViewController = blocosPorData;
+    tabBarController.viewControllers = [NSArray arrayWithObjects: navData, blocos, navBairro, navOpcoes, nil];
+    tabBarController.selectedViewController = navData;
 	
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
