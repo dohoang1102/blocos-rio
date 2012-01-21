@@ -13,9 +13,9 @@
 //    limitations under the License.
 
 #import "DesfilesDoBairroController.h"
-#import "BlocoDetalhesController.h"
 #import "Bairro.h"
 #import "DesfileEnderecoCell.h"
+#import "MapController.h"
 
 @implementation DesfilesDoBairroController
 
@@ -147,6 +147,7 @@
     DesfileEnderecoCell *cell = (DesfileEnderecoCell *) [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[DesfileEnderecoCell alloc] initWithReuseIdentifier:cellId] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 	
 	[cell updateWithDesfile:desfile];
@@ -164,10 +165,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	id desfile = [self.fetchedResultsController objectAtIndexPath:indexPath];
-	BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:[desfile valueForKey:@"bloco"]];
-	detalhes.managedObjectContext = self.managedObjectContext;
-	[self presentModalViewController:detalhes animated:YES];
-	[detalhes release];
+    MapController *mapController = [[MapController alloc] iniWithDesfile:desfile];
+    [[self navigationController] pushViewController:mapController animated:YES];
+    [mapController release];
 }
 
 @end

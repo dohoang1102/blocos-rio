@@ -15,7 +15,6 @@
 #import "BlocosPorDataController.h"
 #import "DesfileEnderecoCell.h"
 #import "Desfile.h"
-#import "BlocoDetalhesController.h"
 #import "MapController.h"
 
 #define TITLE_TO_BACK_BUTTON @"Dias"
