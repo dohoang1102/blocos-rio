@@ -17,6 +17,9 @@
 #import "Bloco.h"
 #import "BlocoDetalhesController.h"
 
+#define TITLE @"Blocos Por Nome"
+#define TITLE_FOR_BACK_BUTTON @"Blocos"
+
 @implementation BlocosController
 
 @synthesize tableView, fetchedResultsController, managedObjectContext;
@@ -37,7 +40,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Blocos";
+        self.title = @"Blocos Por Nome";
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Blocos" image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
     }
     return self;
@@ -48,6 +51,7 @@
     [managedObjectContext release];
     [fetchedResultsController release];
     [searchResultsArray release];
+    [searchFetchRequest release];
     [super dealloc];
 }
 
@@ -100,6 +104,12 @@
     return YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.title = TITLE;
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+}
+
+
 #pragma mark UITableViewDelegate methods
 
 - (void) tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,9 +120,10 @@
         bloco = [searchResultsArray objectAtIndex:indexPath.row];
     }
 
+    self.title = TITLE_FOR_BACK_BUTTON;
     BlocoDetalhesController *detalhes = [[BlocoDetalhesController alloc] initWithBloco:bloco];
     detalhes.managedObjectContext = self.managedObjectContext;
-    [self presentModalViewController:detalhes animated:YES];
+    [[self navigationController] pushViewController:detalhes animated:YES];
     [detalhes release];
 }
 

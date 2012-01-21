@@ -58,6 +58,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
+    UINavigationController *navBlocos = [[[UINavigationController alloc] initWithRootViewController:blocos] autorelease];
     blocosPorData = [[BlocosPorDataController alloc] initWithManagedObjectContext:moc];
     UINavigationController *navData = [[[UINavigationController alloc] initWithRootViewController:blocosPorData] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
@@ -65,7 +66,7 @@
     opcoesController = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoesController] autorelease];
     tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects: navData, blocos, navBairro, navOpcoes, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects: navData, navBlocos, navBairro, navOpcoes, nil];
     tabBarController.selectedViewController = navData;
 	
     self.window.rootViewController = self.tabBarController;

@@ -20,7 +20,6 @@
 @interface BlocoDetalhesController : UIViewController<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIActionSheetDelegate> {
 @private
     CGFloat maxRowSize;
-    UIActionSheet *actionSheet;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *lblNome;
@@ -30,7 +29,5 @@
 @property (nonatomic, retain) NSFetchedResultsController *desfilesFetchedResults;
 
 - (id)initWithBloco:(Bloco *)bloco;
-
-- (IBAction)btnVoltarTouched;
 
 @end

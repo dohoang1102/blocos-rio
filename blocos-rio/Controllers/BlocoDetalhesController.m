@@ -14,6 +14,7 @@
 
 #import "BlocoDetalhesController.h"
 #import "Desfile.h"
+#import "MapController.h"
 
 @interface BlocoDetalhesController (Private)
 
@@ -37,6 +38,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         maxRowSize = 44.0;
+        self.title = @"Detalhes";
     }
     return self;
 }
@@ -55,9 +57,6 @@
     ZAssert(error == nil, @"Erro ao obter desfiles do bloco %@: %@", bloco, [error localizedDescription]);    
     
     [self updateComponentWithBlocoData];
-    
-    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Ações" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil 
-                                     otherButtonTitles:@"Ver no Mapa", nil];
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -74,8 +73,10 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    [actionSheet release];
-    actionSheet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
 }
 
 
@@ -113,6 +114,7 @@
     UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     cell.textLabel.text = [desfile.dataHora dateTimeToMediumStyleString];
@@ -136,7 +138,13 @@
 #pragma mark UITableViewDelegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [actionSheet showInView:self.view];
+    ZAssert([self navigationController], @"BlocoDetalhesController must be in a UINavigationController");
+
+    Desfile *desfile = (Desfile *) [self.desfilesFetchedResults objectAtIndexPath:[tableView indexPathForSelectedRow]];
+
+    MapController *mapController = [[MapController alloc] iniWithDesfile:desfile];
+    [[self navigationController] pushViewController:mapController animated:YES];
+    [mapController release];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -169,33 +177,6 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];
-}
-
-#pragma mark -
-#pragma mark Eventos da view
-
-- (IBAction)btnVoltarTouched {
-    [self dismissModalViewControllerAnimated:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kBlocoDetalhesDismissModalNotification object:self];
-}
-
-#pragma mark -
-#pragma mark UIActionSheetDelegate methods
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        // TODO use the MapController with NavigationController
-        Desfile *desfile = (Desfile *) [self.desfilesFetchedResults objectAtIndexPath:[tableView indexPathForSelectedRow]];
-        NSString *mapsQuery = [NSString stringWithFormat:@"%@, %@ - Rio de Janeiro", desfile.endereco, desfile.bairro.nome];
-        NSString *mapsURL = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [mapsQuery stringWithPercentEscape]];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mapsURL]];
-    }
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
-    }
 }
 
 #pragma mark -
