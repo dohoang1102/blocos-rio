@@ -154,16 +154,20 @@
     return self;
 }
 
+- (void)setTabBarItemTitle:(NSString *)title {
+    self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:title image:nil tag:0] autorelease];
+}
+
 - (void)setTabBarItemAtualizar {
-    self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Atualizar" image:nil tag:0] autorelease];
+    [self setTabBarItemTitle:NSLocalizedStringFromTable(@"Update Title", @"TabBar", @"Title for the update tab action")];
 }
 
 - (void)setTabBarItemAtualizando {
-    self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Atualizando..." image:nil tag:0] autorelease];
+    [self setTabBarItemTitle:NSLocalizedStringFromTable(@"Updating Title", @"TabBar", @"Title when the update is in progress")];
 }
 
 - (void)setTabBarItemAtualizado {
-    self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Atualizado" image:nil tag:0] autorelease];
+    [self setTabBarItemTitle:NSLocalizedStringFromTable(@"Updated Title", @"TabBar", @"Title when the update is complete")];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

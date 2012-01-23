@@ -30,8 +30,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Bairros";
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Bairros" image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
+        self.title = NSLocalizedString(@"Neighborhoods View Title", @"Title of the view that shows blocos by neighborhood");
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Neighborhoods Title", @"TabBar", @"Title for neighborhoods tab") image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
     }
     return self;
 }

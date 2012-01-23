@@ -38,7 +38,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         maxRowSize = 44.0;
-        self.title = @"Detalhes";
+        self.title = NSLocalizedString(@"Details", @"The word 'details'");
     }
     return self;
 }
@@ -128,7 +128,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
     NSString *title = nil;
     if (section == 0) {
-        title = @"Desfiles";
+        title = NSLocalizedString(@"Parades", @"The word 'parades");
     }
     
     return title;
@@ -183,7 +183,6 @@
 #pragma mark Private methods
 
 - (void)updateComponentWithBlocoData {
-    self.title = bloco.nome ? bloco.nome : @"Detalhes";
     lblNome.text = bloco.nome;
     
     CGRect newLabelFrame = lblNome.frame;

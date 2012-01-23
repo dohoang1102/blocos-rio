@@ -17,8 +17,8 @@
 #import "Desfile.h"
 #import "MapController.h"
 
-#define TITLE_TO_BACK_BUTTON @"Dias"
-#define TITLE @"Blocos Por Dia"
+#define TITLE_TO_BACK_BUTTON NSLocalizedString(@"Blocos By Day Back Button", @"The small title to show on the back button")
+#define TITLE NSLocalizedString(@"Blocos By Day", @"The title of the view blocos by day")
 
 @implementation BlocosPorDataController
 
@@ -41,8 +41,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = TITLE;
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:@"Dia" image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
-        btnHoje = [[UIBarButtonItem alloc] initWithTitle:@"Hoje"
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Blocos By Day", @"TabBar", @"Title for blocos by day") image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
+        btnHoje = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Today", @"The word 'Today'")
                                                    style:UIBarButtonItemStyleBordered
                                                   target:self
                                                   action:@selector(scrollToFirstTodaysRow)];
@@ -86,7 +86,7 @@
     if ([[AppDelegate sharedDelegate] shoudlShowOnlyFutureDesfiles]) {
         [self atualizarProximoDiaDesfiles];
     } else {
-        btnHoje.title = @"Início";
+        btnHoje.title = NSLocalizedString(@"Top", @"The word 'top', used to scrool to the top in blocos by day view");
         btnHoje.action = @selector(scrollToTableViewTop);
     }
 }
@@ -107,16 +107,16 @@
         proximoDiaDesfiles = [[[desfiles objectAtIndex:0] dataHora] retain];
         
         if ([[proximoDiaDesfiles dateWithoutTime] compare:[[NSDate date] dateWithoutTime]] == NSOrderedSame) {
-            btnHoje.title = @"Hoje";            
+            btnHoje.title = NSLocalizedString(@"Today", @"The word 'Today'");
         } else {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             dateFormatter.dateFormat = @"dd";
-            btnHoje.title = [NSString stringWithFormat:@"Dia %@", [dateFormatter stringFromDate:proximoDiaDesfiles]];
+            btnHoje.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Day", @"The word 'day'"), [dateFormatter stringFromDate:proximoDiaDesfiles]];
             [dateFormatter release];
         }
     } else {
         proximoDiaDesfiles = [[NSDate date] retain];
-        btnHoje.title = @"Hoje";
+        btnHoje.title = NSLocalizedString(@"Today", @"The word 'Today'");
     }
 }
 
