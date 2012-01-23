@@ -18,6 +18,7 @@
 #import "BlocosService.h"
 #import "OpcoesController.h"
 #import "TrackingService.h"
+#import "BackgroundUpdateTabBarController.h"
 
 @interface AppDelegate (Private)
 - (void)copyBundledBlocosXmlToDocumentsDir;
@@ -64,9 +65,8 @@
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBairro = [[[UINavigationController alloc] initWithRootViewController:bairro] autorelease];
     opcoesController = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
-    UINavigationController *navOpcoes = [[[UINavigationController alloc] initWithRootViewController:opcoesController] autorelease];
-    tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = [NSArray arrayWithObjects: navData, navBlocos, navBairro, navOpcoes, nil];
+    tabBarController = [[BackgroundUpdateTabBarController alloc] init];
+    tabBarController.viewControllers = [NSArray arrayWithObjects: navData, navBlocos, navBairro, nil];
     tabBarController.selectedViewController = navData;
 	
     self.window.rootViewController = self.tabBarController;

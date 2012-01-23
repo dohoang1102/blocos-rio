@@ -89,12 +89,6 @@
         btnHoje.title = @"Início";
         btnHoje.action = @selector(scrollToTableViewTop);
     }
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deselectSelectedRow:) name:kBlocoDetalhesDismissModalNotification object:nil];
-}
-
-- (void)deselectSelectedRow:(NSNotification *)notification {
-    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)atualizarProximoDiaDesfiles {
