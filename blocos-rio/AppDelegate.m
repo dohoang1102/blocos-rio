@@ -333,6 +333,8 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setValue:[ultimoDesfile dataHora] forKey:kDataUltimoDesfileKey];
+
+    [blocosPorData atualizarProximoDiaDesfiles];
 }
 
 

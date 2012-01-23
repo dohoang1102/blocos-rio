@@ -102,6 +102,7 @@
 
 - (void)blocosService:(BlocosService *)blocosService didFailWithError:(NSError *)error {
     [self stopAnimation];
+    [updateController setTabBarItemAtualizar];
 }
 
 - (void)dealloc {
