@@ -13,6 +13,9 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)aManagedObjectContext;
+
 - (void)updateData;
+- (void)restoreUpdateTabLabel;
 
 @end

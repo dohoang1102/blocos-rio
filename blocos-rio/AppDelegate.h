@@ -18,21 +18,20 @@
 #define kDataUltimoDesfileKey @"DataUltimoDesfileUserKey"
 #define UIAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 
-@class OpcoesController;
+@class BackgroundUpdateTabBarController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
 @private
     UINavigationController *navigationController;
     BOOL didActiveFromBackground;
     BlocosPorDataController *blocosPorData;
-    OpcoesController *opcoesController;
 }
 
 + (AppDelegate *)sharedDelegate;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) IBOutlet BackgroundUpdateTabBarController *tabBarController;
 
 // Core Data
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;

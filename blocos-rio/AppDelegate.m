@@ -12,13 +12,12 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 
-#import "AppDelegate.h"
 #import "BlocosController.h"
 #import "BlocosPorBairroController.h"
 #import "BlocosService.h"
-#import "OpcoesController.h"
 #import "TrackingService.h"
 #import "BackgroundUpdateTabBarController.h"
+#import "Desfile.h"
 
 @interface AppDelegate (Private)
 - (void)copyBundledBlocosXmlToDocumentsDir;
@@ -30,15 +29,15 @@
 
 @implementation AppDelegate {
     TrackingService *trackingService;
+    NSOperationQueue *operationQueue;
+    NSManagedObjectContext *managedObjectContext_;
+    NSManagedObjectModel *managedObjectModel_;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator_;
 }
 
 @synthesize window;
 @synthesize navigationController;
 @synthesize tabBarController;
-
-@synthesize managedObjectContext=managedObjectContext_, managedObjectModel=managedObjectModel_, persistentStoreCoordinator=persistentStoreCoordinator_;
-
-@synthesize operationQueue;
 
 + (AppDelegate *)sharedDelegate {
     return UIAppDelegate;
@@ -64,8 +63,7 @@
     UINavigationController *navData = [[[UINavigationController alloc] initWithRootViewController:blocosPorData] autorelease];
     BlocosPorBairroController *bairro = [[[BlocosPorBairroController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBairro = [[[UINavigationController alloc] initWithRootViewController:bairro] autorelease];
-    opcoesController = [[[OpcoesController alloc] initWithManagedObjectContext:moc] autorelease];
-    tabBarController = [[BackgroundUpdateTabBarController alloc] init];
+    tabBarController = [[BackgroundUpdateTabBarController alloc] initWithManagedObjectContext:moc];
     tabBarController.viewControllers = [NSArray arrayWithObjects: navData, navBlocos, navBairro, nil];
     tabBarController.selectedViewController = navData;
 	
@@ -87,6 +85,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     didActiveFromBackground = YES;
     [trackingService trackUsageWithTarget:self selector:_cmd];
+    [tabBarController restoreUpdateTabLabel];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -115,7 +114,7 @@
     NSDate *lastUpdate = [defaults objectForKey:kBlocosServiceLastUpdateDateKey];
     NSDate *currentDate = [NSDate date];
     if (lastUpdate == nil || ([self shoudlShowOnlyFutureDesfiles] && [currentDate daysSince:lastUpdate] >= 1)) {
-        [opcoesController atualizarDados];
+        [tabBarController updateData];
     }
     
 }
@@ -160,7 +159,6 @@
     [managedObjectModel_ release];
     [persistentStoreCoordinator_ release];
     [operationQueue release];
-    [opcoesController release];
     [trackingService release];
     [super dealloc];
 }
@@ -329,7 +327,7 @@
     [request setFetchLimit:1];
     
     NSError *error = nil;
-    id ultimoDesfile = [[[self managedObjectContext] executeFetchRequest:request error:&error] lastObject];
+    Desfile *ultimoDesfile = [[[self managedObjectContext] executeFetchRequest:request error:&error] lastObject];
     ZAssert(error == nil, @"Erro ao atualizar data do último desfile. Causa: %@ %@", [error localizedDescription], [error userInfo]);
     [request release];
     
