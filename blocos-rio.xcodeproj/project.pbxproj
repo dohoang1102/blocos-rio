@@ -88,14 +88,18 @@
 		55F33C8514CDDDA4003BACC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "/Volumes/fmc/blocos-rio/blocos-rio/en.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		55F33C8614CDDDA4003BACC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "/Volumes/fmc/blocos-rio/blocos-rio/en.lproj/MainWindow.xib"; sourceTree = "<absolute>"; };
 		55F33C8714CDDDA4003BACC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "/Volumes/fmc/blocos-rio/blocos-rio/en.lproj/BlocoDetalhes.xib"; sourceTree = "<absolute>"; };
-		55F33C9214CDE70B003BACC4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		55F33C9414CDE70B003BACC4 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/TabBar.strings"; sourceTree = "<group>"; };
 		55F33C9814CDE728003BACC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55F33C9914CDE728003BACC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TabBar.strings; sourceTree = "<group>"; };
+		55F33CA414CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/Blocos.xib"; sourceTree = "<absolute>"; };
+		55F33CA514CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/MainWindow.xib"; sourceTree = "<absolute>"; };
+		55F33CA614CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/BlocoDetalhes.xib"; sourceTree = "<absolute>"; };
+		55F33CA714CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/TabBar.strings"; sourceTree = "<absolute>"; };
+		55F33CA814CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/BlocosPorData.xib"; sourceTree = "<absolute>"; };
+		55F33CA914CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/Localizable.strings"; sourceTree = "<absolute>"; };
+		55F33CAA14CDF138003BACC4 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "/Volumes/fmc/blocos-rio/blocos-rio/pt.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
 		D402D0F012FE530900534FBC /* por-data.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-data.png"; path = "../../blocos-rio-assets/images/por-data.png"; sourceTree = "<group>"; };
 		D402D13E12FE559900534FBC /* BlocosPorDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorDataController.h; sourceTree = "<group>"; };
 		D402D14112FE55AA00534FBC /* BlocosPorDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorDataController.m; sourceTree = "<group>"; };
-		D402D14412FE566500534FBC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/BlocosPorData.xib"; sourceTree = "<group>"; };
 		D402D14912FE5C7E00534FBC /* BlocosPorBairroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorBairroController.h; sourceTree = "<group>"; };
 		D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorBairroController.m; sourceTree = "<group>"; };
 		D402D14C12FE5DD000534FBC /* por-bairro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro.png"; path = "../../blocos-rio-assets/images/por-bairro.png"; sourceTree = "<group>"; };
@@ -105,8 +109,6 @@
 		D406A0BA1309FC22009A8919 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
 		D420FD8812FA1D4100A822EE /* BlocosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosController.h; sourceTree = "<group>"; };
 		D420FD8912FA1D4100A822EE /* BlocosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosController.m; sourceTree = "<group>"; };
-		D420FD8D12FA1DA200A822EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/Blocos.xib"; sourceTree = "<group>"; };
-		D420FD9012FA200100A822EE /* pt-BR */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		D425B03814C9F902002CC3F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D425B03A14C9FA13002CC3F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D426A70C12F9BDFE0096C860 /* blocos-rio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "blocos-rio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +141,6 @@
 		D45F55201300EE1800B5ACF6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../blocos-rio-assets/images/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
 		D462213A130732F0006FCE9F /* opcoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = opcoes.png; path = "../../blocos-rio-assets/images/opcoes.png"; sourceTree = "<group>"; };
 		D462213B130732F0006FCE9F /* opcoes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "opcoes@2x.png"; path = "../../blocos-rio-assets/images/opcoes@2x.png"; sourceTree = "<group>"; };
-		D46657B712F9CA350041AF53 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/MainWindow.xib"; sourceTree = "<group>"; };
 		D47B1ED012FE29580036171C /* BlocosXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosXMLParserDelegate.h; sourceTree = "<group>"; };
 		D47B1ED112FE29580036171C /* BlocosXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosXMLParserDelegate.m; sourceTree = "<group>"; };
 		D48768EC12FA2B5600420CE6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -159,7 +160,6 @@
 		D4D6FBA013082ACD00F1BE66 /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
 		D4D6FBA113082ACD00F1BE66 /* arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right@2x.png"; sourceTree = "<group>"; };
 		D4D6FBF7130833AB00F1BE66 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D4D6FC7213083ABE00F1BE66 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/BlocoDetalhes.xib"; sourceTree = "<group>"; };
 		D4EFA7EB1304D6F9001BCF4F /* Bairro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bairro.h; path = Models/Bairro.h; sourceTree = "<group>"; };
 		D4EFA7EC1304D6F9001BCF4F /* Bairro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bairro.m; path = Models/Bairro.m; sourceTree = "<group>"; };
 		D4F343F812FEDBFD006DC90C /* por-bairro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "por-bairro@2x.png"; path = "../../blocos-rio-assets/images/por-bairro@2x.png"; sourceTree = "<group>"; };
@@ -639,8 +639,8 @@
 		55F33C9114CDE70B003BACC4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55F33C9214CDE70B003BACC4 /* pt-BR */,
 				55F33C9814CDE728003BACC4 /* en */,
+				55F33CA914CDF138003BACC4 /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -648,8 +648,8 @@
 		55F33C9314CDE70B003BACC4 /* TabBar.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55F33C9414CDE70B003BACC4 /* pt-BR */,
 				55F33C9914CDE728003BACC4 /* en */,
+				55F33CA714CDF138003BACC4 /* pt */,
 			);
 			name = TabBar.strings;
 			sourceTree = "<group>";
@@ -657,8 +657,8 @@
 		D402D14312FE566500534FBC /* BlocosPorData.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D402D14412FE566500534FBC /* pt-BR */,
 				55F33C8314CDDDA4003BACC4 /* en */,
+				55F33CA814CDF138003BACC4 /* pt */,
 			);
 			name = BlocosPorData.xib;
 			sourceTree = "<group>";
@@ -666,8 +666,8 @@
 		D420FD8C12FA1DA200A822EE /* Blocos.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D420FD8D12FA1DA200A822EE /* pt-BR */,
 				55F33C8414CDDDA4003BACC4 /* en */,
+				55F33CA414CDF138003BACC4 /* pt */,
 			);
 			name = Blocos.xib;
 			sourceTree = "<group>";
@@ -675,8 +675,8 @@
 		D420FD8F12FA200100A822EE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D420FD9012FA200100A822EE /* pt-BR */,
 				55F33C8514CDDDA4003BACC4 /* en */,
+				55F33CAA14CDF138003BACC4 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -684,8 +684,8 @@
 		D46657B612F9CA350041AF53 /* MainWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D46657B712F9CA350041AF53 /* pt-BR */,
 				55F33C8614CDDDA4003BACC4 /* en */,
+				55F33CA514CDF138003BACC4 /* pt */,
 			);
 			name = MainWindow.xib;
 			sourceTree = "<group>";
@@ -693,8 +693,8 @@
 		D4D6FC7113083ABE00F1BE66 /* BlocoDetalhes.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4D6FC7213083ABE00F1BE66 /* pt-BR */,
 				55F33C8714CDDDA4003BACC4 /* en */,
+				55F33CA614CDF138003BACC4 /* pt */,
 			);
 			name = BlocoDetalhes.xib;
 			sourceTree = "<group>";
