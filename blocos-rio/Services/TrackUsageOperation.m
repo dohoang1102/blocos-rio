@@ -11,7 +11,7 @@
 #ifdef DEBUG
   #define TRACK_HOST @"http://localhost:3000"
 #else
-  #define TRACK_HOST @"http://apptrack.felipecypriano.com"
+  #define TRACK_HOST @"http://api.felipecypriano.com/app-analytics"
 #endif
 
 
