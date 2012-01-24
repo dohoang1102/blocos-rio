@@ -15,7 +15,7 @@
 #import "BlocosService.h"
 #import "ZipArchive.h"
 
-#define kUrlToUpdate @"http://dl.dropbox.com/u/8159675/blocodroid/blocos.zip"
+#define kUrlToUpdate @"http://felipecypriano.com/blocos-de-rua/blocos.zip"
 
 /**
  * Faz o parser do XML e o import pro banco de dados numa thread separada
@@ -197,6 +197,7 @@
     [blocosXmlPath release];
     [persistentStoreCoordinator release];
     [backgroundManagedContext release];
+    [blocosXMLDelegate release];
     [super dealloc];
 }
 

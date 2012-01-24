@@ -27,7 +27,7 @@
 
 @end
 
-@interface BlocosService : NSObject {
+@interface BlocosService : NSObject<NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
 @private
     NSMutableData *zipData;
     NSError *errorOnHTTPRequest;
