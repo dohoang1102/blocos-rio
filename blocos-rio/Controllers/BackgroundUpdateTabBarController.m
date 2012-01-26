@@ -72,7 +72,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    updateIconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"update-tab"]];
+    updateIconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tab_bar_atualizar_icone"]];
     updateIconImageView.center = CGPointMake(280.0f, 20.0f);
     updateIconImageView.autoresizingMask = UIViewAutoresizingNone;
     [[self tabBar] addSubview:updateIconImageView];

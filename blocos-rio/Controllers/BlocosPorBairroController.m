@@ -32,6 +32,8 @@
     if (self) {
         self.title = NSLocalizedString(@"Neighborhoods View Title", @"Title of the view that shows blocos by neighborhood");
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Neighborhoods Title", @"TabBar", @"Title for neighborhoods tab") image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
+
+        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_titulo_bairros"]] autorelease];
     }
     return self;
 }

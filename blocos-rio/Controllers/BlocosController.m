@@ -42,6 +42,8 @@
     if (self) {
         self.title = TITLE;
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Blocos Title", @"TabBar", @"The Blocos tab title") image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
+
+        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_titulo_blocos"]] autorelease];
     }
     return self;
 }

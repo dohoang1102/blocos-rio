@@ -24,8 +24,6 @@
     if (self) {
         dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
-        
-        releasePool = [[NSAutoreleasePool alloc] init];        
     }
     return self;
 }
@@ -38,7 +36,7 @@
     [currentStringValue release];
     [blocosRawData release];
     [parseError release];
-    [releasePool release]; 
+    [releasePool release];
     [dateFormatter release];
     [super dealloc];
 }
@@ -50,10 +48,12 @@
         [parseError release];
         parseError = nil;
     }
+    releasePool = [[NSAutoreleasePool alloc] init];
 }
 
 - (void) parserDidEndDocument:(NSXMLParser *)parser {
     [releasePool drain];
+    releasePool = nil;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {

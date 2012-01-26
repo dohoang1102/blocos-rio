@@ -55,7 +55,9 @@
         [self atualizarDataUltimoDesfile];
     }
 
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_default"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_landscape"] forBarMetrics:UIBarMetricsLandscapePhone];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.455 green:0.365 blue:0.576 alpha:1.000]];
 
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBlocos = [[[UINavigationController alloc] initWithRootViewController:blocos] autorelease];

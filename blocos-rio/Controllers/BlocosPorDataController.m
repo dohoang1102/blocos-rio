@@ -47,6 +47,7 @@
                                                   target:self
                                                   action:@selector(scrollToFirstTodaysRow)];
         self.navigationItem.rightBarButtonItem = btnHoje;
+        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_titulo_dia"]] autorelease];
     }
     return self;
 }
