@@ -15,7 +15,7 @@
 
 #define kBlocoPorDataLastDateSeen @"BlocosPorDataLastDateSeen"
 
-@interface BlocosPorDataController : UIViewController<NSFetchedResultsControllerDelegate> {
+@interface BlocosPorDataController : UIViewController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
 @private
     NSDate *proximoDiaDesfiles;
 }

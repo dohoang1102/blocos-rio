@@ -61,11 +61,10 @@
 		D494E09014CE0E5A0075FDCB /* TabBar.strings in Resources */ = {isa = PBXBuildFile; fileRef = D494E08614CE0E4F0075FDCB /* TabBar.strings */; };
 		D494E09914CE0E710075FDCB /* BlocoDetalhes.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09114CE0E710075FDCB /* BlocoDetalhes.xib */; };
 		D494E09A14CE0E710075FDCB /* Blocos.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09314CE0E710075FDCB /* Blocos.xib */; };
-		D494E09B14CE0E710075FDCB /* BlocosPorData.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09514CE0E710075FDCB /* BlocosPorData.xib */; };
+		D494E09B14CE0E710075FDCB /* BlocosPorData.xib in Resources */ = {isa = PBXBuildFile; };
 		D494E09C14CE0E710075FDCB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09714CE0E710075FDCB /* MainWindow.xib */; };
 		D494E0A114CE0E7B0075FDCB /* BlocoDetalhes.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09114CE0E710075FDCB /* BlocoDetalhes.xib */; };
 		D494E0A214CE0E7B0075FDCB /* Blocos.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09314CE0E710075FDCB /* Blocos.xib */; };
-		D494E0A314CE0E7B0075FDCB /* BlocosPorData.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09514CE0E710075FDCB /* BlocosPorData.xib */; };
 		D494E0A414CE0E7B0075FDCB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494E09714CE0E710075FDCB /* MainWindow.xib */; };
 		D4A0B40A1304B18300710056 /* Bloco.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B4091304B18300710056 /* Bloco.m */; };
 		D4A0B40D1304C40500710056 /* Desfile.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0B40C1304C40500710056 /* Desfile.m */; };
@@ -164,11 +163,9 @@
 		D494E08D14CE0E5A0075FDCB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TabBar.strings; sourceTree = "<group>"; };
 		D494E09214CE0E710075FDCB /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/BlocoDetalhes.xib; sourceTree = "<group>"; };
 		D494E09414CE0E710075FDCB /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/Blocos.xib; sourceTree = "<group>"; };
-		D494E09614CE0E710075FDCB /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/BlocosPorData.xib; sourceTree = "<group>"; };
 		D494E09814CE0E710075FDCB /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		D494E09D14CE0E7B0075FDCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BlocoDetalhes.xib; sourceTree = "<group>"; };
 		D494E09E14CE0E7B0075FDCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Blocos.xib; sourceTree = "<group>"; };
-		D494E09F14CE0E7B0075FDCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BlocosPorData.xib; sourceTree = "<group>"; };
 		D494E0A014CE0E7B0075FDCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		D4A0B4081304B18300710056 /* Bloco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bloco.h; path = Models/Bloco.h; sourceTree = "<group>"; };
 		D4A0B4091304B18300710056 /* Bloco.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bloco.m; path = Models/Bloco.m; sourceTree = "<group>"; };
@@ -396,7 +393,6 @@
 			children = (
 				D494E09114CE0E710075FDCB /* BlocoDetalhes.xib */,
 				D494E09314CE0E710075FDCB /* Blocos.xib */,
-				D494E09514CE0E710075FDCB /* BlocosPorData.xib */,
 				D494E09714CE0E710075FDCB /* MainWindow.xib */,
 				D446AB79130781F500A39517 /* DesfileEnderecoCell.h */,
 				D446AB7A130781F500A39517 /* DesfileEnderecoCell.m */,
@@ -607,7 +603,6 @@
 				D494E09C14CE0E710075FDCB /* MainWindow.xib in Resources */,
 				D494E0A114CE0E7B0075FDCB /* BlocoDetalhes.xib in Resources */,
 				D494E0A214CE0E7B0075FDCB /* Blocos.xib in Resources */,
-				D494E0A314CE0E7B0075FDCB /* BlocosPorData.xib in Resources */,
 				D494E0A414CE0E7B0075FDCB /* MainWindow.xib in Resources */,
 				55D83DC514D1965600F1C47B /* tab_bar_atualizar_icone@2x.png in Resources */,
 				55D83DC614D1965600F1C47B /* tab_bar_atualizar_unselected@2x.png in Resources */,
@@ -748,15 +743,6 @@
 				D494E09E14CE0E7B0075FDCB /* en */,
 			);
 			name = Blocos.xib;
-			sourceTree = "<group>";
-		};
-		D494E09514CE0E710075FDCB /* BlocosPorData.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D494E09614CE0E710075FDCB /* pt */,
-				D494E09F14CE0E7B0075FDCB /* en */,
-			);
-			name = BlocosPorData.xib;
 			sourceTree = "<group>";
 		};
 		D494E09714CE0E710075FDCB /* MainWindow.xib */ = {

@@ -25,7 +25,7 @@
 @synthesize managedObjectContext, fetchedResultsController, tableView, btnHoje;
 
 - (id)init {
-    self = [self initWithNibName:@"BlocosPorData" bundle:nil];
+    self = [self initWithNibName:nil bundle:nil];
     return self;
 }
 
@@ -80,6 +80,12 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tableView = [[UITableView alloc] initWithFrame:[[self view] bounds] style:UITableViewStylePlain];
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [[self view] addSubview:tableView];
+
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]); 
@@ -122,13 +128,13 @@
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
     [proximoDiaDesfiles release];
     proximoDiaDesfiles = nil;
-    
+    [tableView release];
+    tableView = nil;
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
