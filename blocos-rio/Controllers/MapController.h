@@ -18,7 +18,7 @@
 @class Desfile;
 
 
-@interface MapController : UIViewController <MKMapViewDelegate>
+@interface MapController : UIViewController <MKMapViewDelegate, UIAlertViewDelegate>
 - (id)iniWithDesfile:(Desfile *)desfile;
 
 @end
