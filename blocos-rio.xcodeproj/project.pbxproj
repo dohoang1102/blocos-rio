@@ -94,6 +94,8 @@
 		D4FE813812FA3D5E00C2D0B4 /* nav_bar_background_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0B3 /* nav_bar_background_landscape@2x.png */; };
 		D4FE813812FA3D5E00C2D0B6 /* nav_bar_titulo_bairros@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0B5 /* nav_bar_titulo_bairros@2x.png */; };
 		D4FE813812FA3D5E00C2D0B8 /* nav_bar_titulo_blocos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0B7 /* nav_bar_titulo_blocos@2x.png */; };
+		D4FE813812FA3D5E00C2D0BA /* mapa_botao_voltar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0B9 /* mapa_botao_voltar@2x.png */; };
+		D4FE813812FA3D5E00C2D0BC /* mapa_contianer_endereco@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0BB /* mapa_contianer_endereco@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +212,8 @@
 		D4FE813812FA3D5E00C2D0B3 /* nav_bar_background_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_background_landscape@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_background_landscape@2x.png"; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0B5 /* nav_bar_titulo_bairros@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_titulo_bairros@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_titulo_bairros@2x.png"; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0B7 /* nav_bar_titulo_blocos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_titulo_blocos@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_titulo_blocos@2x.png"; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0B9 /* mapa_botao_voltar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapa_botao_voltar@2x.png"; path = "../../blocos-rio-assets/images/mapa_botao_voltar@2x.png"; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0BB /* mapa_contianer_endereco@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapa_contianer_endereco@2x.png"; path = "../../blocos-rio-assets/images/mapa_contianer_endereco@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +355,8 @@
 		D44C22EE12FE600B00305649 /* Non Free Images */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE813812FA3D5E00C2D0BB /* mapa_contianer_endereco@2x.png */,
+				D4FE813812FA3D5E00C2D0B9 /* mapa_botao_voltar@2x.png */,
 				D4FE813812FA3D5E00C2D0B7 /* nav_bar_titulo_blocos@2x.png */,
 				D4FE813812FA3D5E00C2D0B5 /* nav_bar_titulo_bairros@2x.png */,
 				D4FE813812FA3D5E00C2D0B3 /* nav_bar_background_landscape@2x.png */,
@@ -617,6 +623,8 @@
 				D4FE813812FA3D5E00C2D0B4 /* nav_bar_background_landscape@2x.png in Resources */,
 				D4FE813812FA3D5E00C2D0B6 /* nav_bar_titulo_bairros@2x.png in Resources */,
 				D4FE813812FA3D5E00C2D0B8 /* nav_bar_titulo_blocos@2x.png in Resources */,
+				D4FE813812FA3D5E00C2D0BA /* mapa_botao_voltar@2x.png in Resources */,
+				D4FE813812FA3D5E00C2D0BC /* mapa_contianer_endereco@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,12 +18,14 @@
 #import "MapController.h"
 #import "Desfile.h"
 
+#define OVERLAY_ALPHA_WHEN_SCROLLING 0.2f
+
 @interface MapController ()
 - (void)forwardGeocodeDesfile:(Desfile *)desfile;
 
-- (UIView *)titleViewForDesfile:(Desfile *)desfile;
-
 - (UIView *)showActivityIndicatorView;
+
+- (void)addDesfileDataAndBackButtonToView;
 
 
 @end
@@ -31,6 +33,9 @@
 @implementation MapController {
     MKMapView *mapView_;
     Desfile *desfile_;
+    UIButton *backButton_;
+    UIView *desfileData_;
+    UIImageView *desfileDataImageView_;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -46,7 +51,6 @@
     if (self) {
         desfile_ = [desfile retain];
         self.title = [NSString stringWithFormat:@"%@ %@", desfile.bloco.nome, [desfile.dataHora timeToString]];
-        self.navigationItem.titleView = [self titleViewForDesfile:desfile];
     }
     return self;
 }
@@ -61,7 +65,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mapView_ = [[MKMapView alloc] initWithFrame:[[self view] bounds]];
+    mapView_ = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     mapView_.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     mapView_.delegate = self;
 
@@ -72,23 +76,25 @@
     [mapView_ regionThatFits:brazilRegion];
     [[self view] addSubview:mapView_];
 
-    UIButton *back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    back.frame = CGRectMake(6, 6, 46, 55);
-    [back addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-    [[self view] addSubview:back];
-
     [self forwardGeocodeDesfile:desfile_];
 }
 
 - (void)viewDidUnload {
     [mapView_ release];
     mapView_ = nil;
+    [backButton_ release];
+    backButton_ = nil;
+    [desfileData_ release];
+    desfileData_ = nil;
     [super viewDidUnload];
 }
 
 - (void)dealloc {
     [desfile_ release];
     [mapView_ release];
+    [backButton_ release];
+    [desfileData_ release];
+    [desfileDataImageView_ release];
     [super dealloc];
 }
 
@@ -119,13 +125,33 @@
         startFrame.size.height = 0;
         startFrame.size.width = 0;
         view.frame = startFrame;
-        
+
+        [self addDesfileDataAndBackButtonToView];
+        backButton_.alpha = 0;
+        desfileData_.alpha = 0;
         [UIView animateWithDuration:.5 animations:^void() {
             view.frame = endFrame;
+            backButton_.alpha = 1;
+            desfileData_.alpha = 1;
         }];
     }
 
 }
+
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    [UIView animateWithDuration:.2 animations:^void() {
+        backButton_.alpha = OVERLAY_ALPHA_WHEN_SCROLLING;
+        desfileData_.alpha = OVERLAY_ALPHA_WHEN_SCROLLING;
+    }];
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    [UIView animateWithDuration:.2 animations:^void() {
+        backButton_.alpha = 1;
+        desfileData_.alpha = 1;
+    }];
+}
+
 
 #pragma mark -
 #pragma mark UIAlertViewDelegate methods
@@ -181,25 +207,6 @@
     }];
 }
 
-- (UIView *)titleViewForDesfile:(Desfile *)desfile {
-    UIView *title = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 44)] autorelease];
-    title.backgroundColor = [UIColor clearColor];
-    title.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-    UILabel *label = [[[UILabel alloc] initWithFrame:[title bounds]] autorelease];
-    label.frame = CGRectOffset(label.frame, 10, 0);
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:11.0f];
-    label.numberOfLines = 3;
-    label.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    label.shadowColor = [UIColor whiteColor];
-    label.shadowOffset = CGSizeMake(0, 1);
-    label.textColor = [UIColor colorWithRed:0.310 green:0.310 blue:0.310 alpha:1.000];
-    label.text = [NSString stringWithFormat:@"%@ %@\n%@ - %@", desfile.bloco.nome, [desfile.dataHora timeToString], desfile.endereco, desfile.bairro.nome];
-    [title addSubview:label];
-    return title;
-}
-
 - (UIView *)showActivityIndicatorView {
     UIView *rounded = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)] autorelease];
     rounded.center = [[self view] center];
@@ -216,6 +223,45 @@
     [[self view] addSubview:rounded];
     
     return rounded;
+}
+
+- (void)addDesfileDataAndBackButtonToView {
+    backButton_ = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+    backButton_.frame = CGRectMake(6, 6, 45, 70);
+    [backButton_ setImage:[UIImage imageNamed:@"mapa_botao_voltar"] forState:UIControlStateNormal];
+    [backButton_ addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [[self view] addSubview:backButton_];
+
+    desfileData_ = [[UIView alloc] initWithFrame:CGRectMake(56, 6, 255, 70)];
+    desfileData_.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    desfileData_.backgroundColor = [UIColor clearColor];
+
+    desfileDataImageView_ = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapa_contianer_endereco"]];
+    desfileDataImageView_.contentMode = UIViewContentModeTopLeft;
+    [desfileData_ addSubview:desfileDataImageView_];
+
+    UILabel *title = [[[UILabel alloc] initWithFrame:CGRectMake(8, 2, 240, 16)] autorelease];
+    title.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    title.backgroundColor = [UIColor clearColor];
+    title.font = [UIFont boldSystemFontOfSize:11];
+    title.textColor = [UIColor whiteColor];
+    title.shadowColor = [UIColor blackColor];
+    title.shadowOffset = CGSizeMake(0, 1);
+    title.text = [NSString stringWithFormat:@"%@ %@h", desfile_.bloco.nome, [desfile_.dataHora timeToString]];
+    [desfileData_ addSubview:title];
+
+    UILabel *address = [[[UILabel alloc] initWithFrame:CGRectMake(8, 24, 240, 40)] autorelease];
+    address.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    address.numberOfLines = 2;
+    address.backgroundColor = [UIColor clearColor];
+    address.font = [UIFont boldSystemFontOfSize:13];
+    address.textColor = [UIColor colorWithRed:0.310 green:0.310 blue:0.310 alpha:1.000];
+    address.minimumFontSize = 12;
+    address.adjustsFontSizeToFitWidth = YES;
+    address.text = [NSString stringWithFormat:@"%@ - %@", desfile_.endereco, desfile_.bairro.nome];
+    [desfileData_ addSubview:address];
+
+    [[self view] addSubview:desfileData_];
 }
 
 @end
