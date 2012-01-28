@@ -48,12 +48,7 @@
     [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     
     NSManagedObjectContext *moc = self.managedObjectContext;
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    id dataUltimoDesfile = [userDefaults objectForKey:kDataUltimoDesfileKey];
-    if (dataUltimoDesfile == nil) {
-        [self atualizarDataUltimoDesfile];
-    }
+
 
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_default"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_landscape"] forBarMetrics:UIBarMetricsLandscapePhone];
@@ -74,6 +69,9 @@
 
     trackingService = [[TrackingService alloc] init];
     [trackingService trackUsageWithTarget:self selector:_cmd];
+
+    [self atualizarDadosUmaVezPorDia];
+
     return YES;
 }
 
@@ -115,7 +113,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDate *lastUpdate = [defaults objectForKey:kBlocosServiceLastUpdateDateKey];
     NSDate *currentDate = [NSDate date];
-    if (lastUpdate == nil || ([self shoudlShowOnlyFutureDesfiles] && [currentDate daysSince:lastUpdate] >= 1)) {
+    if (lastUpdate == nil || [currentDate daysSince:lastUpdate] >= 1) {
         [tabBarController updateData];
     }
     
