@@ -13,13 +13,15 @@
 //    limitations under the License.
 
 #import <UIKit/UIKit.h>
+#import "BaseController.h"
 
 
-@interface BlocosPorBairroController : UITableViewController<NSFetchedResultsControllerDelegate> {
+@interface BlocosPorBairroController : BaseController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
 @private
     
 }
 
+@property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

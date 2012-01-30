@@ -18,6 +18,8 @@
 @implementation BlocosPorBairroController
 
 @synthesize managedObjectContext, fetchedResultsController;
+@synthesize tableView = _tableView;
+
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)moc {
     self = [self init];
@@ -33,13 +35,15 @@
         self.title = NSLocalizedString(@"Neighborhoods View Title", @"Title of the view that shows blocos by neighborhood");
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Neighborhoods Title", @"TabBar", @"Title for neighborhoods tab") image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
 
-        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_titulo_bairros"]] autorelease];
+        self.titleImageBaseName = NSLocalizedStringFromTable(@"blocos-by-neighborhood.title.image.base.name", @"Resources", @"The base title image name");
     }
     return self;
 }
 
 - (void)dealloc {
     [managedObjectContext release];
+    [_tableView release];
+    [fetchedResultsController release];
     [super dealloc];
 }
 
@@ -63,12 +67,18 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView = [[[UITableView alloc] initWithFrame:[[self view] bounds] style:UITableViewStylePlain] autorelease];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [[self view] addSubview:[self tableView]];
+
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter blocos por bairro %@", [error localizedDescription]);
 }
 
 - (void)viewDidUnload {
+    self.tableView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

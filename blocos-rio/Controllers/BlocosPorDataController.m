@@ -47,7 +47,8 @@
                                                   target:self
                                                   action:@selector(scrollToFirstTodaysRow)];
         self.navigationItem.rightBarButtonItem = btnHoje;
-        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_titulo_dia"]] autorelease];
+
+        self.titleImageBaseName = NSLocalizedStringFromTable(@"blocos-by-day.title.image.base.name", @"Resources", @"The base title image name");
     }
     return self;
 }
@@ -143,6 +144,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.title = TITLE;
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
 }

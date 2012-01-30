@@ -12,10 +12,11 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 #import <UIKit/UIKit.h>
+#import "BaseController.h"
 
 #define kBlocoPorDataLastDateSeen @"BlocosPorDataLastDateSeen"
 
-@interface BlocosPorDataController : UIViewController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface BlocosPorDataController : BaseController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
 @private
     NSDate *proximoDiaDesfiles;
 }
