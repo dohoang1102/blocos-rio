@@ -85,6 +85,7 @@
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
         updateIconImageView.center = UPDATE_ICON_CENTER_PORTRAIT;
     } else {

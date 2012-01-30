@@ -31,4 +31,5 @@
     #import "NSManagedObjectContext+DeleteAll.h"
     #import "NSDate+Utils.h"
     #import "NSString+Utils.h"
+    #import "FCGeometry.h"
 #endif

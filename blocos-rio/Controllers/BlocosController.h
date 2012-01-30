@@ -13,9 +13,10 @@
 //    limitations under the License.
 
 #import <UIKit/UIKit.h>
+#import "BaseController.h"
 
 
-@interface BlocosController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
+@interface BlocosController : BaseController<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
 @private
     NSArray *searchResultsArray;
     NSFetchRequest *searchFetchRequest;

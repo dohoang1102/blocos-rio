@@ -43,7 +43,7 @@
         self.title = TITLE;
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Blocos Title", @"TabBar", @"The Blocos tab title") image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
 
-        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_titulo_blocos"]] autorelease];
+        self.titleImageBaseName = NSLocalizedStringFromTable(@"blocos.title.image.base.name", @"Resources", @"The base title image name");
     }
     return self;
 }
@@ -107,6 +107,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.title = TITLE;
     [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
 }
