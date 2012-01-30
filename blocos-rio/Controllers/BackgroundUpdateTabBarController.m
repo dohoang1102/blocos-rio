@@ -161,15 +161,15 @@
 }
 
 - (void)setTabBarItemAtualizar {
-    [self setTabBarItemTitle:NSLocalizedStringFromTable(@"Update Title", @"TabBar", @"Title for the update tab action")];
+    [self setTabBarItemTitle:NSLocalizedString(@"tab-bar.update", @"Title for the update tab action")];
 }
 
 - (void)setTabBarItemAtualizando {
-    [self setTabBarItemTitle:NSLocalizedStringFromTable(@"Updating Title", @"TabBar", @"Title when the update is in progress")];
+    [self setTabBarItemTitle:NSLocalizedString(@"tab-bar.updating", @"Title when the update is in progress")];
 }
 
 - (void)setTabBarItemAtualizado {
-    [self setTabBarItemTitle:NSLocalizedStringFromTable(@"Updated Title", @"TabBar", @"Title when the update is complete")];
+    [self setTabBarItemTitle:NSLocalizedString(@"tab-bar.updated", @"Title when the update is complete")];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

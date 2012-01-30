@@ -17,8 +17,8 @@
 #import "Bloco.h"
 #import "BlocoDetalhesController.h"
 
-#define TITLE NSLocalizedString(@"Blocos By Name", @"The title of the view blocos by name")
-#define TITLE_FOR_BACK_BUTTON NSLocalizedString(@"Blocos By Name Back Button", @"The small title to show on the back button")
+#define TITLE NSLocalizedString(@"blocos-by-name.title", @"The title of the view blocos by name")
+#define TITLE_FOR_BACK_BUTTON NSLocalizedString(@"blocos-by-name.back-button.title", @"The small title to show on the back button")
 
 @implementation BlocosController
 
@@ -41,9 +41,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = TITLE;
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Blocos Title", @"TabBar", @"The Blocos tab title") image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-name.title", @"The Blocos tab title") image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
 
-        self.titleImageBaseName = NSLocalizedStringFromTable(@"blocos.title.image.base.name", @"Resources", @"The base title image name");
+        self.titleImageBaseName = @"nav_bar_titulo_blocos";
     }
     return self;
 }

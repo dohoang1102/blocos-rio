@@ -38,7 +38,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         maxRowSize = 44.0;
-        self.title = NSLocalizedString(@"Details", @"The word 'details'");
+        self.title = NSLocalizedStringFromTable(@"details", @"Dictionary", @"The word 'details'");
     }
     return self;
 }
@@ -128,7 +128,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
     NSString *title = nil;
     if (section == 0) {
-        title = NSLocalizedString(@"Parades", @"The word 'parades");
+        title = NSLocalizedStringFromTable(@"Parades", @"Dictionary", @"The word 'parades");
     }
     
     return title;

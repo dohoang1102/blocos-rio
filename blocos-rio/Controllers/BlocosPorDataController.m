@@ -17,8 +17,8 @@
 #import "Desfile.h"
 #import "MapController.h"
 
-#define TITLE_TO_BACK_BUTTON NSLocalizedString(@"Blocos By Day Back Button", @"The small title to show on the back button")
-#define TITLE NSLocalizedString(@"Blocos By Day", @"The title of the view blocos by day")
+#define TITLE_TO_BACK_BUTTON NSLocalizedString(@"blocos-by-day.back-button.title", @"The small title to show on the back button")
+#define TITLE NSLocalizedString(@"blocos-by-day.title", @"The title of the view blocos by day")
 
 @implementation BlocosPorDataController
 
@@ -41,14 +41,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = TITLE;
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Blocos By Day", @"TabBar", @"Title for blocos by day") image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
-        btnHoje = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Today", @"The word 'Today'")
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-day.title", @"Title for blocos by day") image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
+        btnHoje = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Today", @"Dictionary", @"The word 'Today'")
                                                    style:UIBarButtonItemStyleBordered
                                                   target:self
                                                   action:@selector(scrollToFirstTodaysRow)];
         self.navigationItem.rightBarButtonItem = btnHoje;
 
-        self.titleImageBaseName = NSLocalizedStringFromTable(@"blocos-by-day.title.image.base.name", @"Resources", @"The base title image name");
+        self.titleImageBaseName = @"nav_bar_titulo_dia";
     }
     return self;
 }
@@ -94,7 +94,7 @@
     if ([[AppDelegate sharedDelegate] shoudlShowOnlyFutureDesfiles]) {
         [self atualizarProximoDiaDesfiles];
     } else {
-        btnHoje.title = NSLocalizedString(@"Top", @"The word 'top', used to scrool to the top in blocos by day view");
+        btnHoje.title = NSLocalizedStringFromTable(@"Top", @"Dictionary",  @"The word 'top', used to scrool to the top in blocos by day view");
         btnHoje.action = @selector(scrollToTableViewTop);
     }
 }
@@ -115,16 +115,16 @@
         proximoDiaDesfiles = [[[desfiles objectAtIndex:0] dataHora] retain];
         
         if ([[proximoDiaDesfiles dateWithoutTime] compare:[[NSDate date] dateWithoutTime]] == NSOrderedSame) {
-            btnHoje.title = NSLocalizedString(@"Today", @"The word 'Today'");
+            btnHoje.title = NSLocalizedStringFromTable(@"Today", @"Dictionary", @"The word 'Today'");
         } else {
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             dateFormatter.dateFormat = @"dd";
-            btnHoje.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Day", @"The word 'day'"), [dateFormatter stringFromDate:proximoDiaDesfiles]];
+            btnHoje.title = [NSString stringWithFormat:@"%@ %@", NSLocalizedStringFromTable(@"Day", @"Dictionary", @"The word 'day'"), [dateFormatter stringFromDate:proximoDiaDesfiles]];
             [dateFormatter release];
         }
     } else {
         proximoDiaDesfiles = [[NSDate date] retain];
-        btnHoje.title = NSLocalizedString(@"Today", @"The word 'Today'");
+        btnHoje.title = NSLocalizedStringFromTable(@"Today", @"Dictionary", @"The word 'Today'");
     }
 }
 
