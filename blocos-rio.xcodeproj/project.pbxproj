@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		55139F1414C61BD60061879C /* TrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 55139F1314C61BD60061879C /* TrackingService.m */; };
 		553DEE9214D73C4C007E904E /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7914D73C4C007E904E /* iTunesArtwork */; };
-		553DEE9314D73C4C007E904E /* LaunchImage in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7A14D73C4C007E904E /* LaunchImage */; };
-		553DEE9414D73C4C007E904E /* LaunchImage@2x. in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7B14D73C4C007E904E /* LaunchImage@2x. */; };
+		553DEE9314D73C4C007E904E /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7A14D73C4C007E904E /* LaunchImage.png */; };
+		553DEE9414D73C4C007E904E /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7B14D73C4C007E904E /* LaunchImage@2x.png */; };
 		553DEE9514D73C4C007E904E /* mapa_botao_voltar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7C14D73C4C007E904E /* mapa_botao_voltar@2x.png */; };
 		553DEE9614D73C4C007E904E /* mapa_contianer_endereco@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7D14D73C4C007E904E /* mapa_contianer_endereco@2x.png */; };
 		553DEE9714D73C4C007E904E /* nav_bar_background_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 553DEE7E14D73C4C007E904E /* nav_bar_background_default@2x.png */; };
@@ -107,8 +107,8 @@
 		55139F1214C61BD60061879C /* TrackingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrackingService.h; path = Services/TrackingService.h; sourceTree = "<group>"; };
 		55139F1314C61BD60061879C /* TrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrackingService.m; path = Services/TrackingService.m; sourceTree = "<group>"; };
 		553DEE7914D73C4C007E904E /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = "../../blocos-rio-assets/images/iTunesArtwork"; sourceTree = "<group>"; };
-		553DEE7A14D73C4C007E904E /* LaunchImage */ = {isa = PBXFileReference; lastKnownFileType = file; name = LaunchImage; path = "../../blocos-rio-assets/images/LaunchImage"; sourceTree = "<group>"; };
-		553DEE7B14D73C4C007E904E /* LaunchImage@2x. */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LaunchImage@2x."; path = "../../blocos-rio-assets/images/LaunchImage@2x."; sourceTree = "<group>"; };
+		553DEE7A14D73C4C007E904E /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchImage.png; path = "../../blocos-rio-assets/images/LaunchImage.png"; sourceTree = "<group>"; };
+		553DEE7B14D73C4C007E904E /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage@2x.png"; path = "../../blocos-rio-assets/images/LaunchImage@2x.png"; sourceTree = "<group>"; };
 		553DEE7C14D73C4C007E904E /* mapa_botao_voltar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapa_botao_voltar@2x.png"; path = "../../blocos-rio-assets/images/mapa_botao_voltar@2x.png"; sourceTree = "<group>"; };
 		553DEE7D14D73C4C007E904E /* mapa_contianer_endereco@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapa_contianer_endereco@2x.png"; path = "../../blocos-rio-assets/images/mapa_contianer_endereco@2x.png"; sourceTree = "<group>"; };
 		553DEE7E14D73C4C007E904E /* nav_bar_background_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_background_default@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_background_default@2x.png"; sourceTree = "<group>"; };
@@ -402,8 +402,8 @@
 				553DEEBC14D73C6A007E904E /* nav_bar_titulo_dia.png */,
 				553DEEBE14D73C6A007E904E /* nav_bar_titulo_dia@2x.png */,
 				553DEE7914D73C4C007E904E /* iTunesArtwork */,
-				553DEE7A14D73C4C007E904E /* LaunchImage */,
-				553DEE7B14D73C4C007E904E /* LaunchImage@2x. */,
+				553DEE7A14D73C4C007E904E /* LaunchImage.png */,
+				553DEE7B14D73C4C007E904E /* LaunchImage@2x.png */,
 				553DEE7C14D73C4C007E904E /* mapa_botao_voltar@2x.png */,
 				553DEE7D14D73C4C007E904E /* mapa_contianer_endereco@2x.png */,
 				553DEE7E14D73C4C007E904E /* nav_bar_background_default@2x.png */,
@@ -632,8 +632,8 @@
 				55BE6CB814D7073200937311 /* InfoPlist.strings in Resources */,
 				55F3D24714D7313300CC11CA /* Dictionary.strings in Resources */,
 				553DEE9214D73C4C007E904E /* iTunesArtwork in Resources */,
-				553DEE9314D73C4C007E904E /* LaunchImage in Resources */,
-				553DEE9414D73C4C007E904E /* LaunchImage@2x. in Resources */,
+				553DEE9314D73C4C007E904E /* LaunchImage.png in Resources */,
+				553DEE9414D73C4C007E904E /* LaunchImage@2x.png in Resources */,
 				553DEE9514D73C4C007E904E /* mapa_botao_voltar@2x.png in Resources */,
 				553DEE9614D73C4C007E904E /* mapa_contianer_endereco@2x.png in Resources */,
 				553DEE9714D73C4C007E904E /* nav_bar_background_default@2x.png in Resources */,

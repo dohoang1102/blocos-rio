@@ -41,7 +41,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = TITLE;
+
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-name.title", @"The Blocos tab title") image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_blocos_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_blocos_unselected"]];
 
         self.titleImageBaseName = @"nav_bar_titulo_blocos";
     }

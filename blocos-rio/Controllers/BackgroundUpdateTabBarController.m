@@ -36,6 +36,10 @@
     if (self) {
         managedObjectContext = [aManagedObjectContext retain];
         self.delegate = self;
+
+        [[UITabBarItem appearance] setTitleTextAttributes:
+                [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]
+                                                 forState:UIControlStateNormal];
     }
 
     return self;
@@ -77,6 +81,11 @@
     updateIconImageView.autoresizingMask = UIViewAutoresizingNone;
     [[self tabBar] addSubview:updateIconImageView];
 }
+
+- (void)viewDidLayoutSubviews {
+    [[self tabBar] bringSubviewToFront:updateIconImageView];
+}
+
 
 - (void)viewDidUnload {
     [updateIconImageView release];
@@ -158,6 +167,8 @@
 
 - (void)setTabBarItemTitle:(NSString *)title {
     self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:title image:nil tag:0] autorelease];
+    self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:nil] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_atualizar_unselected"]];
 }
 
 - (void)setTabBarItemAtualizar {

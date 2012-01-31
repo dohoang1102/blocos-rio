@@ -41,7 +41,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = TITLE;
+
         self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-day.title", @"Title for blocos by day") image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_dia_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_dia_unselected"]];
+
         btnHoje = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Today", @"Dictionary", @"The word 'Today'")
                                                    style:UIBarButtonItemStyleBordered
                                                   target:self
