@@ -104,8 +104,7 @@
         btnHoje.action = @selector(scrollToTableViewTop);
     }
 
-    UIImageView *shadow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_sombra"]] autorelease];
-    [[self view] addSubview:shadow];
+    [self addShadowImageBellowNavigationBarToView];
 }
 
 - (void)atualizarProximoDiaDesfiles {

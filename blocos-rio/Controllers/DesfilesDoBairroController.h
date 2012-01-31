@@ -16,7 +16,7 @@
 
 @class Bairro;
 
-@interface DesfilesDoBairroController : UIViewController<NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface DesfilesDoBairroController : BaseController<NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
 @private
 	NSManagedObjectID *bairroId;
 }

@@ -11,4 +11,6 @@
 
 @property(nonatomic, retain) NSString *titleImageBaseName;
 
+- (void)addShadowImageBellowNavigationBarToView;
+
 @end

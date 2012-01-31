@@ -46,6 +46,16 @@
     }
 }
 
+- (void)addShadowImageBellowNavigationBarToView {
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    UIImage *image = [[UIImage imageNamed:@"nav_bar_sombra"] resizableImageWithCapInsets:insets];
+    UIImageView *shadow = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [[self view] bounds].size.width, 6)] autorelease];
+    shadow.image = image;
+    shadow.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [[self view] addSubview:shadow];
+}
+
+
 #pragma mark -
 #pragma mark Private methods
 

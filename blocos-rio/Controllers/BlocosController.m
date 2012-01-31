@@ -83,7 +83,9 @@
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]);
-    
+
+    [self addShadowImageBellowNavigationBarToView];
+
     searchFetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *blocoEntity = [NSEntityDescription entityForName:@"Bloco" inManagedObjectContext:managedObjectContext];
     [searchFetchRequest setEntity:blocoEntity];    

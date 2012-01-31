@@ -59,8 +59,7 @@
     self.tableView.dataSource = self;
     [[self view] addSubview:[self tableView]];
 
-    UIImageView *shadow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_sombra"]] autorelease];
-    [[self view] addSubview:shadow];
+    [self addShadowImageBellowNavigationBarToView];
 
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];

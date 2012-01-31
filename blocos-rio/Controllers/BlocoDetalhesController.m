@@ -53,8 +53,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.tableView.backgroundView = nil;
-//    self.tableView.backgroundColor = [UIColor whiteColor];
+
+    [self addShadowImageBellowNavigationBarToView];
 
     NSError *error = nil;
     [self.desfilesFetchedResults performFetch:&error];

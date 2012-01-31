@@ -17,7 +17,7 @@
 
 #define kBlocoDetalhesDismissModalNotification @"BlocoDetalhesDismissModalNotification"
 
-@interface BlocoDetalhesController : UIViewController<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIActionSheetDelegate> {
+@interface BlocoDetalhesController : BaseController<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIActionSheetDelegate> {
 @private
     CGFloat maxRowSize;
 }
