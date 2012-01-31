@@ -16,6 +16,7 @@
 #import "DesfileEnderecoCell.h"
 #import "Desfile.h"
 #import "MapController.h"
+#import "TableHeaderView.h"
 
 #define TITLE_TO_BACK_BUTTON NSLocalizedString(@"blocos-by-day.back-button.title", @"The small title to show on the back button")
 #define TITLE NSLocalizedString(@"blocos-by-day.title", @"The title of the view blocos by day")
@@ -89,6 +90,7 @@
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.separatorColor = [UIColor colorWithRed:0.937 green:0.769 blue:0.502 alpha:1.000];
     [[self view] addSubview:tableView];
 
     NSError *error = nil;
@@ -223,6 +225,16 @@
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo name];
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [[[TableHeaderView alloc] initWithTitle:[sectionInfo name]] autorelease];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0f;
+}
+
 
 #pragma mark -
 #pragma mark UITableViewDelegate methods

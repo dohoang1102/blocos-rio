@@ -102,6 +102,7 @@
 		D4FE813812FA3D5E00C2D0C3 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C2 /* BaseController.m */; };
 		D4FE813812FA3D5E00C2D0C6 /* nav_bar_sombra.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */; };
 		D4FE813812FA3D5E00C2D0C8 /* nav_bar_sombra@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */; };
+		D4FE813812FA3D5E00C2D0CA /* TableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C9 /* TableHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +243,8 @@
 		D4FE813812FA3D5E00C2D0C4 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar_sombra.png; path = "../../blocos-rio-assets/images/nav_bar_sombra.png"; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_sombra@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_sombra@2x.png"; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0C9 /* TableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableHeaderView.m; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0CB /* TableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableHeaderView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +442,8 @@
 		D46657B512F9CA220041AF53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE813812FA3D5E00C2D0CB /* TableHeaderView.h */,
+				D4FE813812FA3D5E00C2D0C9 /* TableHeaderView.m */,
 				D494E09114CE0E710075FDCB /* BlocoDetalhes.xib */,
 				D494E09314CE0E710075FDCB /* Blocos.xib */,
 				D494E09714CE0E710075FDCB /* MainWindow.xib */,
@@ -730,6 +735,7 @@
 				D4FE813812FA3D5E00C2D0AA /* MapController.m in Sources */,
 				D4FE813812FA3D5E00C2D0AD /* BackgroundUpdateTabBarController.m in Sources */,
 				D4FE813812FA3D5E00C2D0C3 /* BaseController.m in Sources */,
+				D4FE813812FA3D5E00C2D0CA /* TableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
