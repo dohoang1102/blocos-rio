@@ -19,6 +19,8 @@
 #import "Desfile.h"
 
 #define OVERLAY_ALPHA_WHEN_SCROLLING 0.2f
+#define DESFILE_DATA_VIEW_POSITION_X_PORTRAIT 56.0f
+#define DESFILE_DATA_VIEW_POSITION_X_LANDSCAPE 130.0f
 
 @interface MapController ()
 - (void)forwardGeocodeDesfile:(Desfile *)desfile;
@@ -111,6 +113,16 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        desfileData_.frame = CGRectSetPositionX(desfileData_.frame, DESFILE_DATA_VIEW_POSITION_X_PORTRAIT);
+    } else {
+        desfileData_.frame = CGRectSetPositionX(desfileData_.frame, DESFILE_DATA_VIEW_POSITION_X_LANDSCAPE);
+    }
+}
+
 
 #pragma mark -
 #pragma mark MKMapViewDelegate methods
@@ -228,12 +240,18 @@
 - (void)addDesfileDataAndBackButtonToView {
     backButton_ = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
     backButton_.frame = CGRectMake(6, 6, 45, 70);
+    backButton_.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
     [backButton_ setImage:[UIImage imageNamed:@"mapa_botao_voltar"] forState:UIControlStateNormal];
     [backButton_ addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:backButton_];
 
-    desfileData_ = [[UIView alloc] initWithFrame:CGRectMake(56, 6, 255, 70)];
-    desfileData_.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    CGFloat positionX = DESFILE_DATA_VIEW_POSITION_X_PORTRAIT;
+    if (UIInterfaceOrientationIsLandscape([self interfaceOrientation])) {
+        positionX = DESFILE_DATA_VIEW_POSITION_X_LANDSCAPE;
+    }
+
+    desfileData_ = [[UIView alloc] initWithFrame:CGRectMake(positionX, 6, 255, 70)];
+    desfileData_.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
     desfileData_.backgroundColor = [UIColor clearColor];
 
     desfileDataImageView_ = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapa_contianer_endereco"]];
@@ -241,13 +259,12 @@
     [desfileData_ addSubview:desfileDataImageView_];
 
     UILabel *title = [[[UILabel alloc] initWithFrame:CGRectMake(8, 2, 240, 16)] autorelease];
-    title.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     title.backgroundColor = [UIColor clearColor];
     title.font = [UIFont boldSystemFontOfSize:11];
     title.textColor = [UIColor whiteColor];
     title.shadowColor = [UIColor blackColor];
     title.shadowOffset = CGSizeMake(0, 1);
-    title.text = [NSString stringWithFormat:@"%@ %@h", desfile_.bloco.nome, [desfile_.dataHora timeToString]];
+    title.text = [NSString stringWithFormat:@"%@ %@", desfile_.bloco.nome, [desfile_.dataHora timeToString]];
     [desfileData_ addSubview:title];
 
     UILabel *address = [[[UILabel alloc] initWithFrame:CGRectMake(8, 24, 240, 40)] autorelease];
