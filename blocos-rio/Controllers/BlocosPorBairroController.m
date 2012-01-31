@@ -78,6 +78,9 @@
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter blocos por bairro %@", [error localizedDescription]);
+
+    UIImageView *shadow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_sombra"]] autorelease];
+    [[self view] addSubview:shadow];
 }
 
 - (void)viewDidUnload {
@@ -142,14 +145,14 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        UIView *gradientView = [[[UIView alloc] initWithFrame:cell.frame] autorelease];
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = gradientView.bounds;
-        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor colorWithRed:0.866 green:0.866 blue:0.866 alpha:1] CGColor], nil];
-        [gradientView.layer insertSublayer:gradient atIndex:0];
-        cell.backgroundView = gradientView;
-        cell.contentView.backgroundColor = [UIColor clearColor];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
+//        UIView *gradientView = [[[UIView alloc] initWithFrame:cell.frame] autorelease];
+//        CAGradientLayer *gradient = [CAGradientLayer layer];
+//        gradient.frame = gradientView.bounds;
+//        gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor colorWithRed:0.866 green:0.866 blue:0.866 alpha:1] CGColor], nil];
+//        [gradientView.layer insertSublayer:gradient atIndex:0];
+//        cell.backgroundView = gradientView;
+//        cell.contentView.backgroundColor = [UIColor clearColor];
+//        cell.textLabel.backgroundColor = [UIColor clearColor];
     }
     
     cell.textLabel.text = [bairro valueForKey:@"nome"];

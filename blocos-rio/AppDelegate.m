@@ -59,6 +59,7 @@
                     [NSValue valueWithUIOffset:UIOffsetMake(0, -2)], UITextAttributeTextShadowOffset,
                     nil]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.455 green:0.365 blue:0.576 alpha:1.000]];
+    [[UISearchBar appearance] setTintColor:[UIColor whiteColor]];
 
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBlocos = [[[UINavigationController alloc] initWithRootViewController:blocos] autorelease];

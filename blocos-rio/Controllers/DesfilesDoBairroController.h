@@ -16,11 +16,12 @@
 
 @class Bairro;
 
-@interface DesfilesDoBairroController : UITableViewController<NSFetchedResultsControllerDelegate> {
+@interface DesfilesDoBairroController : UIViewController<NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
 @private
 	NSManagedObjectID *bairroId;
 }
 
+@property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 

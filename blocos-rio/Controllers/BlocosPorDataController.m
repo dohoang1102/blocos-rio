@@ -101,6 +101,9 @@
         btnHoje.title = NSLocalizedStringFromTable(@"Top", @"Dictionary",  @"The word 'top', used to scrool to the top in blocos by day view");
         btnHoje.action = @selector(scrollToTableViewTop);
     }
+
+    UIImageView *shadow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_sombra"]] autorelease];
+    [[self view] addSubview:shadow];
 }
 
 - (void)atualizarProximoDiaDesfiles {

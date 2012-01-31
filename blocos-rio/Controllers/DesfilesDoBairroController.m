@@ -20,6 +20,8 @@
 @implementation DesfilesDoBairroController
 
 @synthesize managedObjectContext, fetchedResultsController;
+@synthesize tableView = _tableView;
+
 
 - (id)initWithBairro:(Bairro *)bairro managedObjectContext:(NSManagedObjectContext *)moc {
 	self = [super init];
@@ -51,9 +53,17 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView = [[[UITableView alloc] initWithFrame:[[self view] bounds] style:UITableViewStylePlain] autorelease];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [[self view] addSubview:[self tableView]];
+
+    UIImageView *shadow = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar_sombra"]] autorelease];
+    [[self view] addSubview:shadow];
+
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
-    ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]); 	
+    ZAssert(error == nil, @"Erro ao obter blocos %@", [error localizedDescription]);
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -79,6 +89,7 @@
 	[bairroId release];
     [fetchedResultsController release];
     [managedObjectContext release];
+    [_tableView release];
     [super dealloc];
 }
 

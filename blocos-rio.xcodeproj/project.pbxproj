@@ -48,7 +48,6 @@
 		55F3D24714D7313300CC11CA /* Dictionary.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55F3D24414D7313300CC11CA /* Dictionary.strings */; };
 		D402D14212FE55AA00534FBC /* BlocosPorDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14112FE55AA00534FBC /* BlocosPorDataController.m */; };
 		D402D14B12FE5C7E00534FBC /* BlocosPorBairroController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */; };
-		D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */; };
 		D420FD8A12FA1D4100A822EE /* BlocosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D420FD8912FA1D4100A822EE /* BlocosController.m */; };
 		D425B03914C9F902002CC3F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D425B03814C9F902002CC3F2 /* CoreLocation.framework */; };
 		D425B03B14C9FA13002CC3F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D425B03A14C9FA13002CC3F2 /* MapKit.framework */; };
@@ -101,6 +100,8 @@
 		D4FE813812FA3D5E00C2D0AA /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0A9 /* MapController.m */; };
 		D4FE813812FA3D5E00C2D0AD /* BackgroundUpdateTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0AC /* BackgroundUpdateTabBarController.m */; };
 		D4FE813812FA3D5E00C2D0C3 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C2 /* BaseController.m */; };
+		D4FE813812FA3D5E00C2D0C6 /* nav_bar_sombra.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */; };
+		D4FE813812FA3D5E00C2D0C8 /* nav_bar_sombra@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,8 +160,6 @@
 		D402D14112FE55AA00534FBC /* BlocosPorDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorDataController.m; sourceTree = "<group>"; };
 		D402D14912FE5C7E00534FBC /* BlocosPorBairroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosPorBairroController.h; sourceTree = "<group>"; };
 		D402D14A12FE5C7E00534FBC /* BlocosPorBairroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosPorBairroController.m; sourceTree = "<group>"; };
-		D405D1AA130816070053FDE3 /* ExpandableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandableHeaderView.h; path = Views/ExpandableHeaderView.h; sourceTree = "<group>"; };
-		D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandableHeaderView.m; path = Views/ExpandableHeaderView.m; sourceTree = "<group>"; };
 		D420FD8812FA1D4100A822EE /* BlocosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosController.h; sourceTree = "<group>"; };
 		D420FD8912FA1D4100A822EE /* BlocosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosController.m; sourceTree = "<group>"; };
 		D425B03814C9F902002CC3F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -241,6 +240,8 @@
 		D4FE813812FA3D5E00C2D0C1 /* FCGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCGeometry.h; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0C2 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0C4 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_bar_sombra.png; path = "../../blocos-rio-assets/images/nav_bar_sombra.png"; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_sombra@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_sombra@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +386,8 @@
 		D44C22EE12FE600B00305649 /* Non Free Images */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */,
+				D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */,
 				55A874C914D7418B00D72FB6 /* Icon-Small.png */,
 				55A874CA14D7418B00D72FB6 /* Icon-Small@2x.png */,
 				55A874CB14D7418B00D72FB6 /* Icon.png */,
@@ -441,8 +444,6 @@
 				D494E09714CE0E710075FDCB /* MainWindow.xib */,
 				D446AB79130781F500A39517 /* DesfileEnderecoCell.h */,
 				D446AB7A130781F500A39517 /* DesfileEnderecoCell.m */,
-				D405D1AA130816070053FDE3 /* ExpandableHeaderView.h */,
-				D405D1AB130816070053FDE3 /* ExpandableHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -666,6 +667,8 @@
 				55A874CE14D7418B00D72FB6 /* Icon-Small@2x.png in Resources */,
 				55A874CF14D7418B00D72FB6 /* Icon.png in Resources */,
 				55A874D014D7418B00D72FB6 /* Icon@2x.png in Resources */,
+				D4FE813812FA3D5E00C2D0C6 /* nav_bar_sombra.png in Resources */,
+				D4FE813812FA3D5E00C2D0C8 /* nav_bar_sombra@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,7 +723,6 @@
 				D4EFA7ED1304D6F9001BCF4F /* Bairro.m in Sources */,
 				D446AB7B130781F500A39517 /* DesfileEnderecoCell.m in Sources */,
 				D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */,
-				D405D1AC130816070053FDE3 /* ExpandableHeaderView.m in Sources */,
 				D43CC32613088FB2005CC417 /* BlocoDetalhesController.m in Sources */,
 				D4A85AA01316D618001B6311 /* DesfilesDoBairroController.m in Sources */,
 				55139F1414C61BD60061879C /* TrackingService.m in Sources */,
