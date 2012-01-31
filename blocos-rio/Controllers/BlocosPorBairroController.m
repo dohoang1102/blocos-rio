@@ -14,6 +14,7 @@
 
 #import "BlocosPorBairroController.h"
 #import "DesfilesDoBairroController.h"
+#import "TableHeaderView.h"
 
 @implementation BlocosPorBairroController
 
@@ -158,11 +159,6 @@
     cell.textLabel.text = [bairro valueForKey:@"nome"];
     
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo name];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {

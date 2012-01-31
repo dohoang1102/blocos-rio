@@ -16,6 +16,7 @@
 #import "Bairro.h"
 #import "DesfileEnderecoCell.h"
 #import "MapController.h"
+#import "TableHeaderView.h"
 
 @implementation DesfilesDoBairroController
 
@@ -158,9 +159,13 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo name];
+    return [[[TableHeaderView alloc] initWithTitle:[sectionInfo name]] autorelease];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0f;
 }
 
 #pragma mark -

@@ -16,6 +16,7 @@
 #import "BlocosService.h"
 #import "Bloco.h"
 #import "BlocoDetalhesController.h"
+#import "TableHeaderView.h"
 
 #define TITLE NSLocalizedString(@"blocos-by-name.title", @"The title of the view blocos by name")
 #define TITLE_FOR_BACK_BUTTON NSLocalizedString(@"blocos-by-name.back-button.title", @"The small title to show on the back button")
@@ -183,6 +184,16 @@
     }
     return title;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *title = [self tableView:tableView titleForHeaderInSection:section];
+    return [[[TableHeaderView alloc] initWithTitle:title] autorelease];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0f;
+}
+
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)aTableView {
     NSMutableArray *indexTitles = nil;

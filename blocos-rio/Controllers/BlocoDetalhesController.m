@@ -15,6 +15,7 @@
 #import "BlocoDetalhesController.h"
 #import "Desfile.h"
 #import "MapController.h"
+#import "TableHeaderView.h"
 
 @interface BlocoDetalhesController (Private)
 
@@ -123,14 +124,18 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSString *title = nil;
     if (section == 0) {
         title = NSLocalizedStringFromTable(@"Parades", @"Dictionary", @"The word 'parades");
     }
-    
-    return title;
+    return [[[TableHeaderView alloc] initWithTitle:title] autorelease];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0f;
+}
+
 
 #pragma mark -
 #pragma mark UITableViewDelegate methods
