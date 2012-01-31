@@ -52,6 +52,9 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.tableView.backgroundView = nil;
+//    self.tableView.backgroundColor = [UIColor whiteColor];
+
     NSError *error = nil;
     [self.desfilesFetchedResults performFetch:&error];
     ZAssert(error == nil, @"Erro ao obter desfiles do bloco %@: %@", bloco, [error localizedDescription]);    
@@ -74,11 +77,6 @@
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
-}
-
 
 - (void)dealloc {
     [lblNome release];
@@ -188,11 +186,6 @@
     CGRect newLabelFrame = lblNome.frame;
     newLabelFrame.size.height = [lblNome.text sizeWithFont:lblNome.font constrainedToSize:CGSizeMake(312, 40)].height;
     lblNome.frame = newLabelFrame;
-    
-    UIView *headerView = lblNome.superview;
-    CGRect newHeaderFrame = headerView.frame;
-    newHeaderFrame.size.height = lblNome.frame.size.height + lblNome.frame.origin.y;
-    headerView.frame = newHeaderFrame;
 }
 
 @end
