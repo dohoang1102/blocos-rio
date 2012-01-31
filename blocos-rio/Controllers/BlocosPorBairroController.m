@@ -74,6 +74,7 @@
     self.tableView = [[[UITableView alloc] initWithFrame:[[self view] bounds] style:UITableViewStylePlain] autorelease];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [[self view] addSubview:[self tableView]];
 
     [self addShadowImageBellowNavigationBarToView];
