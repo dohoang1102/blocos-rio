@@ -19,13 +19,13 @@
 #import "BackgroundUpdateTabBarController.h"
 #import "Desfile.h"
 
-@interface AppDelegate (Private)
+@interface AppDelegate ()
+- (void)configureAppearanceProxies;
 - (void)copyBundledBlocosXmlToDocumentsDir;
 - (void)atualizarDadosUmaVezPorDia;
 - (void)tryToScrollBlocosPorDiaTableView;
 - (void)atualizarDataUltimoDesfile;
 @end
-
 
 @implementation AppDelegate {
     TrackingService *trackingService;
@@ -49,17 +49,7 @@
     
     NSManagedObjectContext *moc = self.managedObjectContext;
 
-
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_default"] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_landscape"] forBarMetrics:UIBarMetricsLandscapePhone];
-    [[UINavigationBar appearance] setTitleTextAttributes:
-            [NSDictionary dictionaryWithObjectsAndKeys:
-                    [UIColor colorWithRed:0.278 green:0.278 blue:0.278 alpha:1.000], UITextAttributeTextColor,
-                    [UIColor whiteColor], UITextAttributeTextShadowColor,
-                    [NSValue valueWithUIOffset:UIOffsetMake(0, -2)], UITextAttributeTextShadowOffset,
-                    nil]];
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.455 green:0.365 blue:0.576 alpha:1.000]];
-    [[UISearchBar appearance] setTintColor:[UIColor whiteColor]];
+    [self configureAppearanceProxies];
 
     BlocosController *blocos = [[[BlocosController alloc] initWithManagedObjectContext:moc] autorelease];
     UINavigationController *navBlocos = [[[UINavigationController alloc] initWithRootViewController:blocos] autorelease];
@@ -344,5 +334,18 @@
     [blocosPorData atualizarProximoDiaDesfiles];
 }
 
+- (void)configureAppearanceProxies {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_default"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_background_landscape"] forBarMetrics:UIBarMetricsLandscapePhone];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+            [NSDictionary dictionaryWithObjectsAndKeys:
+                    [UIColor colorWithRed:0.278 green:0.278 blue:0.278 alpha:1.000], UITextAttributeTextColor,
+                    [UIColor whiteColor], UITextAttributeTextShadowColor,
+                    [NSValue valueWithUIOffset:UIOffsetMake(0, -2)], UITextAttributeTextShadowOffset,
+                    nil]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.455 green:0.365 blue:0.576 alpha:1.000]];
+    [[UISearchBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tab_bar_background"]];
+}
 
 @end

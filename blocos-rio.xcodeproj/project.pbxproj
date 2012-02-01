@@ -103,6 +103,8 @@
 		D4FE813812FA3D5E00C2D0C6 /* nav_bar_sombra.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */; };
 		D4FE813812FA3D5E00C2D0C8 /* nav_bar_sombra@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */; };
 		D4FE813812FA3D5E00C2D0CA /* TableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C9 /* TableHeaderView.m */; };
+		D4FE813812FA3D5E00C2D0CD /* tab_bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0CC /* tab_bar_background.png */; };
+		D4FE813812FA3D5E00C2D0CF /* tab_bar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0CE /* tab_bar_background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +247,8 @@
 		D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_bar_sombra@2x.png"; path = "../../blocos-rio-assets/images/nav_bar_sombra@2x.png"; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0C9 /* TableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableHeaderView.m; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0CB /* TableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableHeaderView.h; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0CC /* tab_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_bar_background.png; path = "../../blocos-rio-assets/images/tab_bar_background.png"; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0CE /* tab_bar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_background@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +393,8 @@
 		D44C22EE12FE600B00305649 /* Non Free Images */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE813812FA3D5E00C2D0CE /* tab_bar_background@2x.png */,
+				D4FE813812FA3D5E00C2D0CC /* tab_bar_background.png */,
 				D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */,
 				D4FE813812FA3D5E00C2D0C5 /* nav_bar_sombra.png */,
 				55A874C914D7418B00D72FB6 /* Icon-Small.png */,
@@ -674,6 +680,8 @@
 				55A874D014D7418B00D72FB6 /* Icon@2x.png in Resources */,
 				D4FE813812FA3D5E00C2D0C6 /* nav_bar_sombra.png in Resources */,
 				D4FE813812FA3D5E00C2D0C8 /* nav_bar_sombra@2x.png in Resources */,
+				D4FE813812FA3D5E00C2D0CD /* tab_bar_background.png in Resources */,
+				D4FE813812FA3D5E00C2D0CF /* tab_bar_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
