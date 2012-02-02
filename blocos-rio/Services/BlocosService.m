@@ -15,7 +15,7 @@
 #import "BlocosService.h"
 #import "ZipArchive.h"
 
-#define kUrlToUpdate @"http://felipecypriano.com/blocos-de-rua/blocos.zip"
+#define kUrlToUpdate @"http://static.felipecypriano.com/blocos-de-rua/blocos.zip"
 
 /**
  * Faz o parser do XML e o import pro banco de dados numa thread separada

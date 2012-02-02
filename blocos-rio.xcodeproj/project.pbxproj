@@ -66,6 +66,10 @@
 		D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D446ABE813078E0E00A39517 /* NSString+Utils.m */; };
 		D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */ = {isa = PBXBuildFile; fileRef = D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */; };
 		D455BEE212FB4926006A757A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D455BEE112FB4926006A757A /* libz.dylib */; };
+		D478A23B14DA211E0053FA00 /* mapa_botao_voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23714DA211E0053FA00 /* mapa_botao_voltar.png */; };
+		D478A23C14DA211E0053FA00 /* mapa_contianer_endereco_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23814DA211E0053FA00 /* mapa_contianer_endereco_landscape.png */; };
+		D478A23D14DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23914DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png */; };
+		D478A23E14DA211E0053FA00 /* mapa_contianer_endereco.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23A14DA211E0053FA00 /* mapa_contianer_endereco.png */; };
 		D47B1ED212FE29580036171C /* BlocosXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D47B1ED112FE29580036171C /* BlocosXMLParserDelegate.m */; };
 		D48768ED12FA2B5600420CE6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48768EC12FA2B5600420CE6 /* CoreData.framework */; };
 		D48768F012FA2F1800420CE6 /* Blocos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D48768EE12FA2F1800420CE6 /* Blocos.xcdatamodeld */; };
@@ -190,6 +194,10 @@
 		D454951C1303A1A40052470F /* NSManagedObjectContext+DeleteAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+DeleteAll.h"; path = "Models/NSManagedObjectContext+DeleteAll.h"; sourceTree = "<group>"; };
 		D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+DeleteAll.m"; path = "Models/NSManagedObjectContext+DeleteAll.m"; sourceTree = "<group>"; };
 		D455BEE112FB4926006A757A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D478A23714DA211E0053FA00 /* mapa_botao_voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapa_botao_voltar.png; path = "../../blocos-rio-assets/images/mapa_botao_voltar.png"; sourceTree = "<group>"; };
+		D478A23814DA211E0053FA00 /* mapa_contianer_endereco_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapa_contianer_endereco_landscape.png; path = "../../blocos-rio-assets/images/mapa_contianer_endereco_landscape.png"; sourceTree = "<group>"; };
+		D478A23914DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapa_contianer_endereco_landscape@2x.png"; path = "../../blocos-rio-assets/images/mapa_contianer_endereco_landscape@2x.png"; sourceTree = "<group>"; };
+		D478A23A14DA211E0053FA00 /* mapa_contianer_endereco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapa_contianer_endereco.png; path = "../../blocos-rio-assets/images/mapa_contianer_endereco.png"; sourceTree = "<group>"; };
 		D47B1ED012FE29580036171C /* BlocosXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocosXMLParserDelegate.h; sourceTree = "<group>"; };
 		D47B1ED112FE29580036171C /* BlocosXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlocosXMLParserDelegate.m; sourceTree = "<group>"; };
 		D48768EC12FA2B5600420CE6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -393,6 +401,10 @@
 		D44C22EE12FE600B00305649 /* Non Free Images */ = {
 			isa = PBXGroup;
 			children = (
+				D478A23714DA211E0053FA00 /* mapa_botao_voltar.png */,
+				D478A23814DA211E0053FA00 /* mapa_contianer_endereco_landscape.png */,
+				D478A23914DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png */,
+				D478A23A14DA211E0053FA00 /* mapa_contianer_endereco.png */,
 				D4FE813812FA3D5E00C2D0CE /* tab_bar_background@2x.png */,
 				D4FE813812FA3D5E00C2D0CC /* tab_bar_background.png */,
 				D4FE813812FA3D5E00C2D0C7 /* nav_bar_sombra@2x.png */,
@@ -682,6 +694,10 @@
 				D4FE813812FA3D5E00C2D0C8 /* nav_bar_sombra@2x.png in Resources */,
 				D4FE813812FA3D5E00C2D0CD /* tab_bar_background.png in Resources */,
 				D4FE813812FA3D5E00C2D0CF /* tab_bar_background@2x.png in Resources */,
+				D478A23B14DA211E0053FA00 /* mapa_botao_voltar.png in Resources */,
+				D478A23C14DA211E0053FA00 /* mapa_contianer_endereco_landscape.png in Resources */,
+				D478A23D14DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png in Resources */,
+				D478A23E14DA211E0053FA00 /* mapa_contianer_endereco.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
