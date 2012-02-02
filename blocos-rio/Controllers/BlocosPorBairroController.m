@@ -14,7 +14,6 @@
 
 #import "BlocosPorBairroController.h"
 #import "DesfilesDoBairroController.h"
-#import "TableHeaderView.h"
 
 @implementation BlocosPorBairroController
 
@@ -94,6 +93,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[self tableView] deselectRowAtIndexPath:[[self tableView] indexPathForSelectedRow] animated:YES];
 }
 
 #pragma mark -

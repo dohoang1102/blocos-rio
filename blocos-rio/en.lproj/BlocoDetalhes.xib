@@ -53,10 +53,9 @@
 									<object class="IBUILabel" id="263984289">
 										<reference key="NSNextResponder" ref="289757930"/>
 										<int key="NSvFlags">294</int>
-										<string key="NSFrame">{{8, 4}, {312, 24}}</string>
+										<string key="NSFrame">{{8, 4}, {312, 40}}</string>
 										<reference key="NSSuperview" ref="289757930"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
 										<int key="IBUIContentMode">7</int>
@@ -75,27 +74,27 @@
 										<string key="IBUIShadowOffset">{0, 1}</string>
 										<int key="IBUIBaselineAdjustment">1</int>
 										<float key="IBUIMinimumFontSize">10</float>
-										<int key="IBUINumberOfLines">3</int>
+										<int key="IBUINumberOfLines">2</int>
 										<object class="IBUIFontDescription" key="IBUIFontDescription">
 											<string key="name">Helvetica-Bold</string>
 											<string key="family">Helvetica</string>
 											<int key="traits">2</int>
-											<double key="pointSize">18</double>
+											<double key="pointSize">16</double>
 										</object>
 										<object class="NSFont" key="IBUIFont">
 											<string key="NSName">Helvetica-Bold</string>
-											<double key="NSSize">18</double>
+											<double key="NSSize">16</double>
 											<int key="NSfFlags">16</int>
 										</object>
 									</object>
 								</object>
-								<string key="NSFrameSize">{320, 40}</string>
+								<string key="NSFrameSize">{320, 50}</string>
 								<reference key="NSSuperview" ref="831209615"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="263984289"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MCAwAA</bytes>
+									<bytes key="NSWhite">MC45MzI3MTE2OTM1AA</bytes>
 								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
@@ -280,8 +279,16 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">BlocoDetalhesController</string>
+					<string key="className">BaseController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BaseController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BlocoDetalhesController</string>
+					<string key="superclassName">BaseController</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">

@@ -25,7 +25,11 @@
 
 @implementation BlocoDetalhesController
 
-@synthesize lblNome, tableView, bloco, managedObjectContext, desfilesFetchedResults;
+@synthesize desfilesFetchedResults;
+@synthesize managedObjectContext;
+@synthesize bloco;
+@synthesize lblNome;
+@synthesize tableView = tableView_;
 
 - (id)initWithBloco:(Bloco *)newBloco {
     self = [self initWithNibName:@"BlocoDetalhes" bundle:nil];
@@ -81,7 +85,7 @@
 
 - (void)dealloc {
     [lblNome release];
-    [tableView release];
+    [tableView_ release];
     [bloco release];
     [managedObjectContext release];
     [desfilesFetchedResults release];
@@ -167,9 +171,10 @@
 		
 		NSSortDescriptor *sortByData = [[[NSSortDescriptor alloc] initWithKey:@"dataHora" ascending:YES] autorelease];
 		[request setSortDescriptors:[NSArray arrayWithObjects:sortByData, nil]];
-		
-		desfilesFetchedResults = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext 
-																		 sectionNameKeyPath:nil cacheName:nil];
+
+        desfilesFetchedResults = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                     managedObjectContext:managedObjectContext
+                                                                       sectionNameKeyPath:nil cacheName:nil];
 		desfilesFetchedResults.delegate = self;
 		
 		[request release];
@@ -187,10 +192,6 @@
 
 - (void)updateComponentWithBlocoData {
     lblNome.text = bloco.nome;
-    
-    CGRect newLabelFrame = lblNome.frame;
-    newLabelFrame.size.height = [lblNome.text sizeWithFont:lblNome.font constrainedToSize:CGSizeMake(312, 40)].height;
-    lblNome.frame = newLabelFrame;
 }
 
 @end
