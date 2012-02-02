@@ -92,6 +92,7 @@
     tableView.dataSource = self;
     tableView.separatorColor = [UIColor colorWithRed:0.937 green:0.769 blue:0.502 alpha:1.000];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    tableView.rowHeight = [DesfileEnderecoCell rowHeight];
     [[self view] addSubview:tableView];
 
     NSError *error = nil;

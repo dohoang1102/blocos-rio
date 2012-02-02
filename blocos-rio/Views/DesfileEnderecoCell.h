@@ -22,6 +22,8 @@
     UILabel *lblHora;
 }
 
++ (CGFloat)rowHeight;
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 - (void)updateWithDesfile:(Desfile *)newDesfile;
 

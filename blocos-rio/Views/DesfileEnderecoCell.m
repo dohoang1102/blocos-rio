@@ -17,6 +17,10 @@
 
 @implementation DesfileEnderecoCell
 
++ (CGFloat)rowHeight {
+    return 54.0f;
+}
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [self initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     return self;
@@ -25,17 +29,17 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        lblNome = [[UILabel alloc] initWithFrame:CGRectMake(6, 3, 247, 21)];
+        lblNome = [[UILabel alloc] initWithFrame:CGRectMake(6, 5, 247, 21)];
         lblNome.font = [UIFont boldSystemFontOfSize:[UIFont labelFontSize]];
         lblNome.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:lblNome];
         
-        lblEndereco = [[UILabel alloc] initWithFrame:CGRectMake(6, 24, 247, 18)];
+        lblEndereco = [[UILabel alloc] initWithFrame:CGRectMake(6, 30, 247, 18)];
         lblEndereco.font = [UIFont systemFontOfSize:14.0];
         lblEndereco.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:lblEndereco];
         
-        lblHora = [[UILabel alloc] initWithFrame:CGRectMake(254, 11, 60, 21)];
+        lblHora = [[UILabel alloc] initWithFrame:CGRectMake(254, 16, 60, 21)];
         lblHora.font = [UIFont systemFontOfSize:14.0];
         lblHora.adjustsFontSizeToFitWidth = YES;
         lblHora.minimumFontSize = 8;

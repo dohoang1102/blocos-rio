@@ -58,6 +58,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.tableView.rowHeight = [DesfileEnderecoCell rowHeight];
     [[self view] addSubview:[self tableView]];
 
     [self addShadowImageBellowNavigationBarToView];
