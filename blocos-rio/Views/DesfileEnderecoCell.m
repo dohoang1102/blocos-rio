@@ -34,7 +34,7 @@
         lblNome.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:lblNome];
         
-        lblEndereco = [[UILabel alloc] initWithFrame:CGRectMake(6, 30, 247, 18)];
+        lblEndereco = [[UILabel alloc] initWithFrame:CGRectMake(6, 26, 247, 18)];
         lblEndereco.font = [UIFont systemFontOfSize:14.0];
         lblEndereco.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:lblEndereco];
