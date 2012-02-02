@@ -24,6 +24,7 @@
     if (self) {
         dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"dd/MM/yyyy HH:mm";
+        dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"GMT-2"];
     }
     return self;
 }
@@ -58,14 +59,13 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if ([elementName isEqualToString:@"root"]) {
-        versao = [(NSString *) [attributeDict objectForKey:@"versao"] integerValue];
         blocosRawData = [[NSMutableArray alloc] init];
     } else {
         currentStringValue = [[NSMutableString alloc] init];
     }
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string { 
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     [currentStringValue appendString:string];
 }
 

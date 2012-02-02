@@ -17,8 +17,6 @@
 
 @interface BlocosXMLParserDelegate : NSObject<NSXMLParserDelegate> {
 @private
-    NSInteger versao;
-    
     NSString *bairroAtual;
     NSString *nomeAtual;
     NSString *enderecoAtual;

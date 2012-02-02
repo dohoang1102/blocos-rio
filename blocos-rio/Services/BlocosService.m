@@ -146,7 +146,7 @@
     
     NSString *unzipPath = [NSTemporaryDirectory() stringByAppendingString:@"blocos"];
     if ([zip UnzipFileTo:unzipPath overWrite:YES]) {
-        NSString *xmlPath = [unzipPath stringByAppendingString:@"/blocos-2011.xml"];
+        NSString *xmlPath = [unzipPath stringByAppendingString:@"/blocos.xml"];
         UpdateBlocosDataOperation *updateOperation = [[UpdateBlocosDataOperation alloc] initWithBlocosXmlPath:xmlPath];
         updateOperation.persistentStoreCoordinator = [managedObjectContext persistentStoreCoordinator];
         updateOperation.service = self;
