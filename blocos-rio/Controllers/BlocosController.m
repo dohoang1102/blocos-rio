@@ -23,7 +23,9 @@
 
 @implementation BlocosController
 
-@synthesize tableView, fetchedResultsController, managedObjectContext;
+@synthesize managedObjectContext;
+@synthesize fetchedResultsController;
+@synthesize tableView = tableView_;
 
 - (id)init {
     self = [self initWithNibName:@"Blocos" bundle:nil];
@@ -43,9 +45,7 @@
     if (self) {
         self.title = TITLE;
 
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-name.title", @"The Blocos tab title") image:[UIImage imageNamed:@"por-blocos.png"] tag:10] autorelease];
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_blocos_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_blocos_unselected"]];
+        [self configureTabBarItemInterfaceOrientation:[self interfaceOrientation]];
 
         self.titleImageBaseName = @"nav_bar_titulo_blocos";
     }
@@ -53,7 +53,7 @@
 }
 
 - (void)dealloc {
-    [tableView release];
+    [tableView_ release];
     [managedObjectContext release];
     [fetchedResultsController release];
     [searchResultsArray release];
@@ -67,6 +67,11 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
+
+- (void)configureTabBarItemInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    [self configureTabBarItemWithTitle:NSLocalizedString(@"tab-bar.blocos-by-name.title", @"The Blocos tab title") imageBaseName:@"tab_bar_blocos" forInterfaceOrientation:interfaceOrientation];
+}
+
 
 #pragma mark - View lifecycle
 
@@ -96,7 +101,7 @@
 }
 
 - (void)deselectSelectedRow:(NSNotification *)notification {
-    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+    [tableView_ deselectRowAtIndexPath:[tableView_ indexPathForSelectedRow] animated:YES];
 }
 
 - (void)viewDidUnload {
@@ -115,7 +120,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = TITLE;
-    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+    [tableView_ deselectRowAtIndexPath:[tableView_ indexPathForSelectedRow] animated:animated];
 }
 
 
@@ -161,7 +166,7 @@
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"BlocosCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    UITableViewCell *cell = [tableView_ dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId] autorelease];
     }
@@ -243,7 +248,7 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [tableView reloadData];
+    [tableView_ reloadData];
 }
 
 #pragma mark -

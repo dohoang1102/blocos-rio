@@ -23,7 +23,10 @@
 
 @implementation BlocosPorDataController
 
-@synthesize managedObjectContext, fetchedResultsController, tableView, btnHoje;
+@synthesize btnHoje;
+@synthesize tableView = tableView_;
+@synthesize fetchedResultsController;
+@synthesize managedObjectContext;
 
 - (id)init {
     self = [self initWithNibName:nil bundle:nil];
@@ -43,9 +46,7 @@
     if (self) {
         self.title = TITLE;
 
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-day.title", @"Title for blocos by day") image:[UIImage imageNamed:@"por-data.png"] tag:20] autorelease];
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_dia_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_dia_unselected"]];
+        [self configureTabBarItemInterfaceOrientation:[self interfaceOrientation]];
 
         btnHoje = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Today", @"Dictionary", @"The word 'Today'")
                                                    style:UIBarButtonItemStyleBordered
@@ -59,7 +60,7 @@
 }
 
 - (void)dealloc {
-    [tableView release];
+    [tableView_ release];
     [managedObjectContext release];
     [fetchedResultsController release];
     [btnHoje release];
@@ -74,6 +75,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)configureTabBarItemInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    [self configureTabBarItemWithTitle:NSLocalizedString(@"tab-bar.blocos-by-day.title", @"Title for blocos by day")
+                         imageBaseName:@"tab_bar_dia"
+               forInterfaceOrientation:interfaceOrientation];
+}
+
 #pragma mark - View lifecycle
 
 /*
@@ -86,14 +93,14 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tableView = [[UITableView alloc] initWithFrame:[[self view] bounds] style:UITableViewStylePlain];
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.separatorColor = [UIColor colorWithRed:0.937 green:0.769 blue:0.502 alpha:1.000];
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    tableView.rowHeight = [DesfileEnderecoCell rowHeight];
-    [[self view] addSubview:tableView];
+    tableView_ = [[UITableView alloc] initWithFrame:[[self view] bounds] style:UITableViewStylePlain];
+    tableView_.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    tableView_.delegate = self;
+    tableView_.dataSource = self;
+    tableView_.separatorColor = [UIColor colorWithRed:0.937 green:0.769 blue:0.502 alpha:1.000];
+    tableView_.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    tableView_.rowHeight = [DesfileEnderecoCell rowHeight];
+    [[self view] addSubview:tableView_];
 
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
@@ -141,8 +148,8 @@
 - (void)viewDidUnload {
     [proximoDiaDesfiles release];
     proximoDiaDesfiles = nil;
-    [tableView release];
-    tableView = nil;
+    [tableView_ release];
+    tableView_ = nil;
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewDidUnload];
@@ -156,7 +163,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = TITLE;
-    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+    [tableView_ deselectRowAtIndexPath:[tableView_ indexPathForSelectedRow] animated:animated];
 }
 
 #pragma mark -
@@ -191,7 +198,7 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [tableView reloadData];
+    [tableView_ reloadData];
 }
 
 #pragma mark -
@@ -259,12 +266,12 @@
     }
     if (section != NSNotFound) {
         NSIndexPath *firstTodaysRow = [NSIndexPath indexPathForRow:0 inSection:section];
-        [tableView scrollToRowAtIndexPath:firstTodaysRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [tableView_ scrollToRowAtIndexPath:firstTodaysRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
 }
 
 - (void)scrollToTableViewTop {
-    [tableView setContentOffset:CGPointZero animated:YES];
+    [tableView_ setContentOffset:CGPointZero animated:YES];
 }
 
 @end

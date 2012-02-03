@@ -60,6 +60,7 @@
     tabBarController = [[BackgroundUpdateTabBarController alloc] initWithManagedObjectContext:moc];
     tabBarController.viewControllers = [NSArray arrayWithObjects: navData, navBlocos, navBairro, nil];
     tabBarController.selectedViewController = navData;
+    tabBarController.controllersToUpdateTabBarItem = [NSArray arrayWithObjects:blocos, blocosPorData, bairro, nil];
 	
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];

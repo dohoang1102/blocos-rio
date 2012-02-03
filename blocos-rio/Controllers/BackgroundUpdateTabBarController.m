@@ -11,7 +11,7 @@
 #define UPDATE_ICON_CENTER_LANDSCAPE CGPointMake(420.0f, 20.0f)
 #define UPDATE_ANIMATION_KEY @"RotateUpdateIconAnimationKey"
 
-@interface UpdateController : UIViewController
+@interface UpdateController : BaseController
 - (void)setTabBarItemAtualizar;
 - (void)setTabBarItemAtualizando;
 - (void)setTabBarItemAtualizado;
@@ -30,6 +30,8 @@
 }
 
 @synthesize managedObjectContext;
+@synthesize controllersToUpdateTabBarItem = _controllersToUpdateTabBarItem;
+
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)aManagedObjectContext {
     self = [super init];
@@ -100,6 +102,13 @@
     } else {
         updateIconImageView.center = UPDATE_ICON_CENTER_LANDSCAPE;
     }
+
+    for (UIViewController *controller in [self controllersToUpdateTabBarItem]) {
+        if ([controller respondsToSelector:@selector(configureTabBarItemInterfaceOrientation:)]) {
+            [controller performSelector:@selector(configureTabBarItemInterfaceOrientation:) withObject:(id)toInterfaceOrientation];
+        }
+    }
+    [updateController configureTabBarItemInterfaceOrientation:toInterfaceOrientation];
 }
 
 
@@ -118,6 +127,7 @@
 - (void)dealloc {
     [managedObjectContext release];
     [updateIconImageView release];
+    [_controllersToUpdateTabBarItem release];
     [super dealloc];
 }
 
@@ -165,10 +175,12 @@
     return self;
 }
 
+- (void)setTabBarItemTitle:(NSString *)title interfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    [self configureTabBarItemWithTitle:title imageBaseName:@"tab_bar_atualizar" forInterfaceOrientation:interfaceOrientation];
+}
+
 - (void)setTabBarItemTitle:(NSString *)title {
-    self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:title image:nil tag:0] autorelease];
-    self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-    [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:nil] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_atualizar_unselected"]];
+    [self setTabBarItemTitle:title interfaceOrientation:[self interfaceOrientation]];
 }
 
 - (void)setTabBarItemAtualizar {
@@ -187,5 +199,8 @@
     return YES;
 }
 
+- (void)configureTabBarItemInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    [self setTabBarItemTitle:[[self tabBarItem] title] interfaceOrientation:interfaceOrientation];
+}
 
 @end

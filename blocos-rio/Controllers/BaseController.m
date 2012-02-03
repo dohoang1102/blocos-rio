@@ -55,6 +55,28 @@
     [[self view] addSubview:shadow];
 }
 
+- (void)configureTabBarItemInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // TO BE IMPLEMENTED BY THE SUBCLASS
+}
+
+
+- (void)configureTabBarItemWithTitle:(NSString *)title imageBaseName:(NSString *)imageBaseName forInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:title image:nil tag:0] autorelease];
+
+    NSString *selectedImageName = [NSString stringWithFormat:@"%@_selected", imageBaseName];
+    NSString *unselectedImageName = [NSString stringWithFormat:@"%@_unselected", imageBaseName];
+    UIEdgeInsets insets = UIEdgeInsetsMake(5, 0, -5, 0);
+    if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
+        selectedImageName = [NSString stringWithFormat:@"%@_landscape", selectedImageName];
+        unselectedImageName = [NSString stringWithFormat:@"%@_landscape", unselectedImageName];
+        insets = UIEdgeInsetsMake(6, 0, -6, 0);
+    }
+
+    self.tabBarItem.imageInsets = insets;
+    [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:selectedImageName] withFinishedUnselectedImage:[UIImage imageNamed:unselectedImageName]];
+}
+
+
 
 #pragma mark -
 #pragma mark Private methods

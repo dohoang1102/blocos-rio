@@ -13,4 +13,7 @@
 
 - (void)addShadowImageBellowNavigationBarToView;
 
+- (void)configureTabBarItemInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+- (void)configureTabBarItemWithTitle:(NSString *)title imageBaseName:(NSString *)imageBaseName forInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+
 @end

@@ -66,6 +66,13 @@
 		D446ABE913078E0E00A39517 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D446ABE813078E0E00A39517 /* NSString+Utils.m */; };
 		D454951E1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m in Sources */ = {isa = PBXBuildFile; fileRef = D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */; };
 		D455BEE212FB4926006A757A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D455BEE112FB4926006A757A /* libz.dylib */; };
+		D46DBC5114DB7F37003D2057 /* tab_bar_atualizar_unselected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC4A14DB7F37003D2057 /* tab_bar_atualizar_unselected_landscape@2x.png */; };
+		D46DBC5214DB7F37003D2057 /* tab_bar_bairros_selected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC4B14DB7F37003D2057 /* tab_bar_bairros_selected_landscape@2x.png */; };
+		D46DBC5314DB7F37003D2057 /* tab_bar_bairros_unselected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC4C14DB7F37003D2057 /* tab_bar_bairros_unselected_landscape@2x.png */; };
+		D46DBC5414DB7F37003D2057 /* tab_bar_blocos_selected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC4D14DB7F37003D2057 /* tab_bar_blocos_selected_landscape@2x.png */; };
+		D46DBC5514DB7F37003D2057 /* tab_bar_blocos_unselected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC4E14DB7F37003D2057 /* tab_bar_blocos_unselected_landscape@2x.png */; };
+		D46DBC5614DB7F37003D2057 /* tab_bar_dia_selected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC4F14DB7F37003D2057 /* tab_bar_dia_selected_landscape@2x.png */; };
+		D46DBC5714DB7F37003D2057 /* tab_bar_dia_unselected_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D46DBC5014DB7F37003D2057 /* tab_bar_dia_unselected_landscape@2x.png */; };
 		D478A23B14DA211E0053FA00 /* mapa_botao_voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23714DA211E0053FA00 /* mapa_botao_voltar.png */; };
 		D478A23C14DA211E0053FA00 /* mapa_contianer_endereco_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23814DA211E0053FA00 /* mapa_contianer_endereco_landscape.png */; };
 		D478A23D14DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D478A23914DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png */; };
@@ -109,6 +116,7 @@
 		D4FE813812FA3D5E00C2D0CA /* TableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0C9 /* TableHeaderView.m */; };
 		D4FE813812FA3D5E00C2D0CD /* tab_bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0CC /* tab_bar_background.png */; };
 		D4FE813812FA3D5E00C2D0CF /* tab_bar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0CE /* tab_bar_background@2x.png */; };
+		D4FE813812FA3D5E00C2D0D1 /* UINavigationController+FixTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE813812FA3D5E00C2D0D0 /* UINavigationController+FixTabBarItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +202,13 @@
 		D454951C1303A1A40052470F /* NSManagedObjectContext+DeleteAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+DeleteAll.h"; path = "Models/NSManagedObjectContext+DeleteAll.h"; sourceTree = "<group>"; };
 		D454951D1303A1A40052470F /* NSManagedObjectContext+DeleteAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+DeleteAll.m"; path = "Models/NSManagedObjectContext+DeleteAll.m"; sourceTree = "<group>"; };
 		D455BEE112FB4926006A757A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D46DBC4A14DB7F37003D2057 /* tab_bar_atualizar_unselected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_atualizar_unselected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_atualizar_unselected_landscape@2x.png"; sourceTree = "<group>"; };
+		D46DBC4B14DB7F37003D2057 /* tab_bar_bairros_selected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_bairros_selected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_bairros_selected_landscape@2x.png"; sourceTree = "<group>"; };
+		D46DBC4C14DB7F37003D2057 /* tab_bar_bairros_unselected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_bairros_unselected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_bairros_unselected_landscape@2x.png"; sourceTree = "<group>"; };
+		D46DBC4D14DB7F37003D2057 /* tab_bar_blocos_selected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_blocos_selected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_blocos_selected_landscape@2x.png"; sourceTree = "<group>"; };
+		D46DBC4E14DB7F37003D2057 /* tab_bar_blocos_unselected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_blocos_unselected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_blocos_unselected_landscape@2x.png"; sourceTree = "<group>"; };
+		D46DBC4F14DB7F37003D2057 /* tab_bar_dia_selected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_dia_selected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_dia_selected_landscape@2x.png"; sourceTree = "<group>"; };
+		D46DBC5014DB7F37003D2057 /* tab_bar_dia_unselected_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_dia_unselected_landscape@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_dia_unselected_landscape@2x.png"; sourceTree = "<group>"; };
 		D478A23714DA211E0053FA00 /* mapa_botao_voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapa_botao_voltar.png; path = "../../blocos-rio-assets/images/mapa_botao_voltar.png"; sourceTree = "<group>"; };
 		D478A23814DA211E0053FA00 /* mapa_contianer_endereco_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapa_contianer_endereco_landscape.png; path = "../../blocos-rio-assets/images/mapa_contianer_endereco_landscape.png"; sourceTree = "<group>"; };
 		D478A23914DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mapa_contianer_endereco_landscape@2x.png"; path = "../../blocos-rio-assets/images/mapa_contianer_endereco_landscape@2x.png"; sourceTree = "<group>"; };
@@ -257,6 +272,7 @@
 		D4FE813812FA3D5E00C2D0CB /* TableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableHeaderView.h; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0CC /* tab_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_bar_background.png; path = "../../blocos-rio-assets/images/tab_bar_background.png"; sourceTree = "<group>"; };
 		D4FE813812FA3D5E00C2D0CE /* tab_bar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_bar_background@2x.png"; path = "../../blocos-rio-assets/images/tab_bar_background@2x.png"; sourceTree = "<group>"; };
+		D4FE813812FA3D5E00C2D0D0 /* UINavigationController+FixTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FixTabBarItem.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +394,7 @@
 		D426A75312F9C17E0096C860 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE813812FA3D5E00C2D0D0 /* UINavigationController+FixTabBarItem.m */,
 				D4FE813812FA3D5E00C2D0C4 /* BaseController.h */,
 				D4FE813812FA3D5E00C2D0C2 /* BaseController.m */,
 				D4FE813812FA3D5E00C2D0AE /* BackgroundUpdateTabBarController.h */,
@@ -401,6 +418,13 @@
 		D44C22EE12FE600B00305649 /* Non Free Images */ = {
 			isa = PBXGroup;
 			children = (
+				D46DBC4A14DB7F37003D2057 /* tab_bar_atualizar_unselected_landscape@2x.png */,
+				D46DBC4B14DB7F37003D2057 /* tab_bar_bairros_selected_landscape@2x.png */,
+				D46DBC4C14DB7F37003D2057 /* tab_bar_bairros_unselected_landscape@2x.png */,
+				D46DBC4D14DB7F37003D2057 /* tab_bar_blocos_selected_landscape@2x.png */,
+				D46DBC4E14DB7F37003D2057 /* tab_bar_blocos_unselected_landscape@2x.png */,
+				D46DBC4F14DB7F37003D2057 /* tab_bar_dia_selected_landscape@2x.png */,
+				D46DBC5014DB7F37003D2057 /* tab_bar_dia_unselected_landscape@2x.png */,
 				D478A23714DA211E0053FA00 /* mapa_botao_voltar.png */,
 				D478A23814DA211E0053FA00 /* mapa_contianer_endereco_landscape.png */,
 				D478A23914DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png */,
@@ -698,6 +722,13 @@
 				D478A23C14DA211E0053FA00 /* mapa_contianer_endereco_landscape.png in Resources */,
 				D478A23D14DA211E0053FA00 /* mapa_contianer_endereco_landscape@2x.png in Resources */,
 				D478A23E14DA211E0053FA00 /* mapa_contianer_endereco.png in Resources */,
+				D46DBC5114DB7F37003D2057 /* tab_bar_atualizar_unselected_landscape@2x.png in Resources */,
+				D46DBC5214DB7F37003D2057 /* tab_bar_bairros_selected_landscape@2x.png in Resources */,
+				D46DBC5314DB7F37003D2057 /* tab_bar_bairros_unselected_landscape@2x.png in Resources */,
+				D46DBC5414DB7F37003D2057 /* tab_bar_blocos_selected_landscape@2x.png in Resources */,
+				D46DBC5514DB7F37003D2057 /* tab_bar_blocos_unselected_landscape@2x.png in Resources */,
+				D46DBC5614DB7F37003D2057 /* tab_bar_dia_selected_landscape@2x.png in Resources */,
+				D46DBC5714DB7F37003D2057 /* tab_bar_dia_unselected_landscape@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +791,7 @@
 				D4FE813812FA3D5E00C2D0AD /* BackgroundUpdateTabBarController.m in Sources */,
 				D4FE813812FA3D5E00C2D0C3 /* BaseController.m in Sources */,
 				D4FE813812FA3D5E00C2D0CA /* TableHeaderView.m in Sources */,
+				D4FE813812FA3D5E00C2D0D1 /* UINavigationController+FixTabBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

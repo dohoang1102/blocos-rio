@@ -11,6 +11,7 @@
 
 @interface BackgroundUpdateTabBarController : UITabBarController<UITabBarControllerDelegate, BlocosServiceDelegate>
 
+@property (nonatomic, retain) NSArray *controllersToUpdateTabBarItem;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)aManagedObjectContext;

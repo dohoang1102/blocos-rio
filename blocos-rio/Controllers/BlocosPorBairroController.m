@@ -34,9 +34,7 @@
     if (self) {
         self.title = NSLocalizedString(@"blocos-by-neighborhood.title", @"Title of the view that shows blocos by neighborhood");
 
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tab-bar.blocos-by-neighborhood", @"Title for neighborhoods tab") image:[UIImage imageNamed:@"por-bairro.png"] tag:50] autorelease];
-        self.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
-        [[self tabBarItem] setFinishedSelectedImage:[UIImage imageNamed:@"tab_bar_bairros_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tab_bar_bairros_unselected"]];
+        [self configureTabBarItemInterfaceOrientation:[self interfaceOrientation]];
 
         self.titleImageBaseName = @"nav_bar_titulo_bairros";
     }
@@ -57,6 +55,11 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
+
+- (void)configureTabBarItemInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    [self configureTabBarItemWithTitle:NSLocalizedString(@"tab-bar.blocos-by-neighborhood", @"Title for neighborhoods tab") imageBaseName:@"tab_bar_bairros" forInterfaceOrientation:interfaceOrientation];
+}
+
 
 #pragma mark - View lifecycle
 
